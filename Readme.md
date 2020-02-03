@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Dana Kovach](https://up.htmlacademy.ru/react/3/user/834173).
-* Наставник: `Неизвестно`.
+* Наставник: [Евгений Казаков](https://htmlacademy.ru/profile/id343981).
 
 ---
 
