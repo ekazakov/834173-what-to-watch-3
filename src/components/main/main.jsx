@@ -1,12 +1,8 @@
 import React from "react";
 
-const MainPage = (props) => {
+const Main = (props) => {
   // eslint-disable-next-line react/prop-types
-  const name = props.name;
-  // eslint-disable-next-line react/prop-types
-  const genre = props.genre;
-  // eslint-disable-next-line react/prop-types
-  const year = props.year;
+  const {name, genre, year} = props;
 
   return (
     <React.Fragment>
@@ -312,4 +308,4 @@ const MainPage = (props) => {
   );
 };
 
-export default MainPage;
+export default Main;
