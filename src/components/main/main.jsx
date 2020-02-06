@@ -1,11 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const getRandomElement = (array) => {
   return array[Math.floor(Math.random() * array.length)];
 };
 
 const Main = (props) => {
-  // eslint-disable-next-line react/prop-types
   const {name, genre, year, movies} = props;
 
   return (
@@ -197,6 +197,13 @@ const Main = (props) => {
       </div>
     </React.Fragment>
   );
+};
+
+Main.propTypes = {
+  name: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  movies: PropTypes.array.isRequired,
 };
 
 export default Main;

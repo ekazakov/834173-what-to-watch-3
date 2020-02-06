@@ -2,10 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
 
-const MaxValues = {
-  MOVIES: 8,
-};
-
 const movie = {
   name: `Hotel Roal`,
   genre: `comedy`,
