@@ -6,7 +6,7 @@ const getRandomElement = (array) => {
 };
 
 const Main = (props) => {
-  const {name, genre, year, movies} = props;
+  const {movies} = props;
 
   return (
     <React.Fragment>
@@ -40,10 +40,10 @@ const Main = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{name}</h2>
+              <h2 className="movie-card__title">{getRandomElement(movies)}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{genre}</span>
-                <span className="movie-card__year">{year}</span>
+                <span className="movie-card__genre">comedy</span>
+                <span className="movie-card__year">1998</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -200,9 +200,6 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  name: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired,
   movies: PropTypes.array.isRequired,
 };
 
