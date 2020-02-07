@@ -276,6 +276,7 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
               Бильбо Сумкин
             </a>
@@ -300,8 +301,9 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
-              Бильбо Сумкин
+              Братство кольца
             </a>
           </h3>
         </article>
@@ -324,6 +326,7 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
               Братство кольца
             </a>
@@ -348,6 +351,7 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
               Невероятные приключения Воланд-де-Морта
             </a>
@@ -372,8 +376,9 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
-              Бильбо Сумкин
+              Невероятные приключения Воланд-де-Морта
             </a>
           </h3>
         </article>
@@ -396,8 +401,9 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
-              Бильбо Сумкин
+              Невероятные приключения Воланд-де-Морта
             </a>
           </h3>
         </article>
@@ -420,8 +426,9 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
-              Братство кольца
+              Бильбо Сумкин
             </a>
           </h3>
         </article>
@@ -444,8 +451,9 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
-              Бильбо Сумкин
+              Невероятные приключения Воланд-де-Морта
             </a>
           </h3>
         </article>

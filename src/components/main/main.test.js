@@ -13,6 +13,7 @@ it(`Should main render correctly`, () => {
     .create(
         <Main
           movies={movies}
+          onTitleOfMovieClick={() => {}}
         />)
     .toJSON();
 
