@@ -29,5 +29,5 @@ it(`Should title of movie be pressed`, () => {
     title.props().onClick();
   });
 
-  expect(onTitleOfMovieClick.mock.calls.length).toBe(8);
+  expect(onTitleOfMovieClick.mock.calls.length).toBe(titlesOfMovie.length);
 });
