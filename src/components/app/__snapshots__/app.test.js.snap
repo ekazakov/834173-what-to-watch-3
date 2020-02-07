@@ -81,7 +81,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Братство кольца
+            Бильбо Сумкин
           </h2>
           <p
             className="movie-card__meta"
@@ -278,7 +278,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Бильбо Сумкин
+              Братство кольца
             </a>
           </h3>
         </article>
@@ -353,7 +353,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Бильбо Сумкин
+              Братство кольца
             </a>
           </h3>
         </article>
@@ -378,7 +378,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Бильбо Сумкин
+              Невероятные приключения Воланд-де-Морта
             </a>
           </h3>
         </article>
@@ -403,7 +403,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Братство кольца
+              Невероятные приключения Воланд-де-Морта
             </a>
           </h3>
         </article>
@@ -428,7 +428,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Братство кольца
+              Бильбо Сумкин
             </a>
           </h3>
         </article>
