@@ -1,10 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const getRandomElement = (array) => {
-  return array[Math.floor(Math.random() * array.length)];
-};
-
 const Main = (props) => {
   const {movies, onTitleOfMovieClick} = props;
 
@@ -40,7 +36,7 @@ const Main = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{getRandomElement(movies)}</h2>
+              <h2 className="movie-card__title">{movies[0]}</h2>
               <p className="movie-card__meta">
                 <span className="movie-card__genre">comedy</span>
                 <span className="movie-card__year">1998</span>
@@ -112,7 +108,7 @@ const Main = (props) => {
                   onClick={onTitleOfMovieClick}
                   className="small-movie-card__link"
                   href="movie-page.html">
-                  {getRandomElement(movies)}
+                  {movies[1]}
                 </a>
               </h3>
             </article>
@@ -126,7 +122,7 @@ const Main = (props) => {
                   onClick={onTitleOfMovieClick}
                   className="small-movie-card__link"
                   href="movie-page.html">
-                  {getRandomElement(movies)}
+                  {movies[2]}
                 </a>
               </h3>
             </article>
@@ -140,7 +136,7 @@ const Main = (props) => {
                   onClick={onTitleOfMovieClick}
                   className="small-movie-card__link"
                   href="movie-page.html">
-                  {getRandomElement(movies)}
+                  {movies[0]}
                 </a>
               </h3>
             </article>
@@ -154,7 +150,7 @@ const Main = (props) => {
                   onClick={onTitleOfMovieClick}
                   className="small-movie-card__link"
                   href="movie-page.html">
-                  {getRandomElement(movies)}
+                  {movies[1]}
                 </a>
               </h3>
             </article>
@@ -169,7 +165,7 @@ const Main = (props) => {
                   onClick={onTitleOfMovieClick}
                   className="small-movie-card__link"
                   href="movie-page.html">
-                  {getRandomElement(movies)}
+                  {movies[2]}
                 </a>
               </h3>
             </article>
@@ -183,7 +179,7 @@ const Main = (props) => {
                   onClick={onTitleOfMovieClick}
                   className="small-movie-card__link"
                   href="movie-page.html">
-                  {getRandomElement(movies)}
+                  {movies[0]}
                 </a>
               </h3>
             </article>
@@ -197,7 +193,7 @@ const Main = (props) => {
                   onClick={onTitleOfMovieClick}
                   className="small-movie-card__link"
                   href="movie-page.html">
-                  {getRandomElement(movies)}
+                  {movies[1]}
                 </a>
               </h3>
             </article>
@@ -211,7 +207,7 @@ const Main = (props) => {
                   onClick={onTitleOfMovieClick}
                   className="small-movie-card__link"
                   href="movie-page.html">
-                  {getRandomElement(movies)}
+                  {movies[2]}
                 </a>
               </h3>
             </article>
