@@ -1,12 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const getRandomElement = (array) => {
-  return array[Math.floor(Math.random() * array.length)];
-};
-
 const Main = (props) => {
-  const {movies} = props;
+  const {movies, onTitleOfMovieClick} = props;
 
   return (
     <React.Fragment>
@@ -40,7 +36,7 @@ const Main = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{getRandomElement(movies)}</h2>
+              <h2 className="movie-card__title">{movies[0]}</h2>
               <p className="movie-card__meta">
                 <span className="movie-card__genre">comedy</span>
                 <span className="movie-card__year">1998</span>
@@ -108,7 +104,12 @@ const Main = (props) => {
                 <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175"/>
               </div>
               <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">{getRandomElement(movies)}</a>
+                <a
+                  onClick={onTitleOfMovieClick}
+                  className="small-movie-card__link"
+                  href="movie-page.html">
+                  {movies[1]}
+                </a>
               </h3>
             </article>
 
@@ -117,7 +118,12 @@ const Main = (props) => {
                 <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175"/>
               </div>
               <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">{getRandomElement(movies)}</a>
+                <a
+                  onClick={onTitleOfMovieClick}
+                  className="small-movie-card__link"
+                  href="movie-page.html">
+                  {movies[2]}
+                </a>
               </h3>
             </article>
 
@@ -126,7 +132,12 @@ const Main = (props) => {
                 <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175"/>
               </div>
               <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">{getRandomElement(movies)}</a>
+                <a
+                  onClick={onTitleOfMovieClick}
+                  className="small-movie-card__link"
+                  href="movie-page.html">
+                  {movies[0]}
+                </a>
               </h3>
             </article>
 
@@ -135,7 +146,12 @@ const Main = (props) => {
                 <img src="img/aviator.jpg" alt="Aviator" width="280" height="175"/>
               </div>
               <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">{getRandomElement(movies)}</a>
+                <a
+                  onClick={onTitleOfMovieClick}
+                  className="small-movie-card__link"
+                  href="movie-page.html">
+                  {movies[1]}
+                </a>
               </h3>
             </article>
 
@@ -145,7 +161,12 @@ const Main = (props) => {
                 <img src="img/we-need-to-talk-about-kevin.jpg" alt="We need to talk about Kevin" width="280" height="175"/>
               </div>
               <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">{getRandomElement(movies)}</a>
+                <a
+                  onClick={onTitleOfMovieClick}
+                  className="small-movie-card__link"
+                  href="movie-page.html">
+                  {movies[2]}
+                </a>
               </h3>
             </article>
 
@@ -154,7 +175,12 @@ const Main = (props) => {
                 <img src="img/what-we-do-in-the-shadows.jpg" alt="What We Do in the Shadows" width="280" height="175"/>
               </div>
               <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">{getRandomElement(movies)}</a>
+                <a
+                  onClick={onTitleOfMovieClick}
+                  className="small-movie-card__link"
+                  href="movie-page.html">
+                  {movies[0]}
+                </a>
               </h3>
             </article>
 
@@ -163,7 +189,12 @@ const Main = (props) => {
                 <img src="img/revenant.jpg" alt="Revenant" width="280" height="175"/>
               </div>
               <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">{getRandomElement(movies)}</a>
+                <a
+                  onClick={onTitleOfMovieClick}
+                  className="small-movie-card__link"
+                  href="movie-page.html">
+                  {movies[1]}
+                </a>
               </h3>
             </article>
 
@@ -172,7 +203,12 @@ const Main = (props) => {
                 <img src="img/johnny-english.jpg" alt="Johnny English" width="280" height="175"/>
               </div>
               <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">{getRandomElement(movies)}</a>
+                <a
+                  onClick={onTitleOfMovieClick}
+                  className="small-movie-card__link"
+                  href="movie-page.html">
+                  {movies[2]}
+                </a>
               </h3>
             </article>
           </div>
@@ -201,6 +237,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   movies: PropTypes.array.isRequired,
+  onTitleOfMovieClick: PropTypes.func.isRequired,
 };
 
 export default Main;
