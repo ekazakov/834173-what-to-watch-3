@@ -5,18 +5,18 @@ import Main from "../main/main.jsx";
 const titleOfMovieHandler = () => {};
 
 const App = (props) => {
-  const {movies} = props;
+  const {films} = props;
 
   return (
     <Main
-      movies={movies}
+      films={films}
       onTitleOfMovieClick={titleOfMovieHandler}
     />
   );
 };
 
 App.propTypes = {
-  movies: PropTypes.array.isRequired,
+  films: PropTypes.array.isRequired,
 };
 
 export default App;

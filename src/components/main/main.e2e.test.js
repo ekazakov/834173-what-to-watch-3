@@ -3,7 +3,7 @@ import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Main from "./main.jsx";
 
-const movies = [
+const films = [
   `Бильбо Сумкин`,
   `Братство кольца`,
   `Невероятные приключения Воланд-де-Морта`
@@ -18,7 +18,7 @@ it(`Should title of movie be pressed`, () => {
 
   const main = shallow(
       <Main
-        movies={movies}
+        films={films}
         onTitleOfMovieClick={onTitleOfMovieClick}
       />
   );
