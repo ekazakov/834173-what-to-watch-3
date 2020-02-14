@@ -266,7 +266,9 @@ Array [
             className="small-movie-card__image"
           >
             <img
+              alt="Harry Potter and the Goblet of Fire"
               height="175"
+              src="https://unsplash.it/280/175/"
               width="280"
             />
           </div>
@@ -277,7 +279,9 @@ Array [
               className="small-movie-card__link"
               href="movie-page.html"
               onClick={[Function]}
-            />
+            >
+              Harry Potter and the Goblet of Fire
+            </a>
           </h3>
         </article>
         <article
@@ -288,7 +292,9 @@ Array [
             className="small-movie-card__image"
           >
             <img
+              alt="EuroTrip"
               height="175"
+              src="https://unsplash.it/280/175/"
               width="280"
             />
           </div>
@@ -299,7 +305,9 @@ Array [
               className="small-movie-card__link"
               href="movie-page.html"
               onClick={[Function]}
-            />
+            >
+              EuroTrip
+            </a>
           </h3>
         </article>
         <article
@@ -310,7 +318,9 @@ Array [
             className="small-movie-card__image"
           >
             <img
+              alt="The Autopsy of Jane Doe"
               height="175"
+              src=""
               width="280"
             />
           </div>
@@ -321,7 +331,61 @@ Array [
               className="small-movie-card__link"
               href="movie-page.html"
               onClick={[Function]}
+            >
+              The Autopsy of Jane Doe
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="The Notebook"
+              height="175"
+              src="https://unsplash.it/280/175/"
+              width="280"
             />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+              onClick={[Function]}
+            >
+              The Notebook
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="Carri"
+              height="175"
+              src="https://unsplash.it/280/175/"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+              onClick={[Function]}
+            >
+              Carri
+            </a>
           </h3>
         </article>
       </div>

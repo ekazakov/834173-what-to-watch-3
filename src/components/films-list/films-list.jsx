@@ -1,12 +1,12 @@
 import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
 import FilmCard from "../film-card/film-card.jsx";
+import {filmsProps} from "../../mocks/prop-types.js";
 
 const titleOfMovieHandler = () => {};
 
 class FilmsList extends PureComponent {
-  constructor(props) {
-    super(props);
+  constructor(...args) {
+    super(...args);
 
     this.state = {
       activeFilmId: null,
@@ -25,11 +25,11 @@ class FilmsList extends PureComponent {
     return (
       <div className="catalog__movies-list">
 
-        {films.map((film) => (
+        {films.map((movie) => (
           <FilmCard
-            key={`${film.id}-${film.name}`}
-            film={film}
-            onFilmCardHover={() => this._handleFilmCardHover(film)}
+            key={`${movie.id}-${movie.name}`}
+            film={movie}
+            onFilmCardHover={(film) => this._handleFilmCardHover(film)}
             onTitleOfMovieClick={titleOfMovieHandler}
           />
         ))}
@@ -40,13 +40,7 @@ class FilmsList extends PureComponent {
 }
 
 FilmsList.propTypes = {
-  films: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired,
-      })
-  ).isRequired,
+  films: filmsProps,
 };
 
 export default FilmsList;

@@ -1,10 +1,8 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import {filmProps} from "../../mocks/prop-types.js";
 
 class FilmCard extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const {film, onFilmCardHover, onTitleOfMovieClick} = this.props;
@@ -25,7 +23,7 @@ class FilmCard extends PureComponent {
 }
 
 FilmCard.propTypes = {
-  film: PropTypes.object.isRequired,
+  film: filmProps,
   onFilmCardHover: PropTypes.func.isRequired,
   onTitleOfMovieClick: PropTypes.func.isRequired,
 };

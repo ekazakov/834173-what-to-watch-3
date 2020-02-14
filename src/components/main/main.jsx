@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import FilmsList from "../films-list/films-list.jsx";
+import {filmsProps} from "../../mocks/prop-types.js";
 
 const Main = (props) => {
   const {films, onTitleOfMovieClick} = props;
@@ -99,7 +100,7 @@ const Main = (props) => {
             </li>
           </ul>
 
-          {<FilmsList films={films} />}
+          <FilmsList films={films} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -125,13 +126,7 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  films: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired,
-      })
-  ).isRequired,
+  films: filmsProps,
   onTitleOfMovieClick: PropTypes.func.isRequired,
 };
 

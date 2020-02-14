@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Main from "../main/main.jsx";
+import {filmsProps} from "../../mocks/prop-types.js";
 
 const titleOfMovieHandler = () => {};
 
@@ -16,7 +16,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  films: PropTypes.array.isRequired,
+  films: filmsProps,
 };
 
 export default App;

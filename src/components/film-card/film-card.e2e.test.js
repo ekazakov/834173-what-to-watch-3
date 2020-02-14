@@ -28,10 +28,14 @@ it(`All cards at hover return film information`, () => {
   );
 
   const cards = filmCard.find(`.small-movie-card`);
+  const titleOfMovie = filmCard.find(`.small-movie-card__link`);
+
+  titleOfMovie.props().onClick();
 
   cards.forEach((card) => {
     card.props().onMouseEnter();
   });
 
   expect(onFilmCardHover).toHaveBeenCalledTimes(cards.length);
+  expect(onTitleOfMovieClick).toHaveBeenCalledTimes(1);
 });
