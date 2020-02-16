@@ -80,8 +80,9 @@ Array [
         >
           <h2
             className="movie-card__title"
+            onClick={[Function]}
           >
-            Бильбо Сумкин
+            The Grand Budapest
           </h2>
           <p
             className="movie-card__meta"
@@ -259,14 +260,15 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              alt="Harry Potter and the Goblet of Fire"
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="https://unsplash.it/280/175/"
               width="280"
             />
           </div>
@@ -278,20 +280,21 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Братство кольца
+              Harry Potter and the Goblet of Fire
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Bohemian Rhapsody"
+              alt="EuroTrip"
               height="175"
-              src="img/bohemian-rhapsody.jpg"
+              src="https://unsplash.it/280/175/"
               width="280"
             />
           </div>
@@ -303,20 +306,21 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Невероятные приключения Воланд-де-Морта
+              EuroTrip
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Macbeth"
+              alt="The Autopsy of Jane Doe"
               height="175"
-              src="img/macbeth.jpg"
+              src=""
               width="280"
             />
           </div>
@@ -328,20 +332,21 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Бильбо Сумкин
+              The Autopsy of Jane Doe
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Aviator"
+              alt="The Notebook"
               height="175"
-              src="img/aviator.jpg"
+              src="https://unsplash.it/280/175/"
               width="280"
             />
           </div>
@@ -353,20 +358,21 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Братство кольца
+              The Notebook
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="We need to talk about Kevin"
+              alt="Carri"
               height="175"
-              src="img/we-need-to-talk-about-kevin.jpg"
+              src="https://unsplash.it/280/175/"
               width="280"
             />
           </div>
@@ -378,82 +384,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Невероятные приключения Воланд-де-Морта
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="What We Do in the Shadows"
-              height="175"
-              src="img/what-we-do-in-the-shadows.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-              onClick={[Function]}
-            >
-              Бильбо Сумкин
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Revenant"
-              height="175"
-              src="img/revenant.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-              onClick={[Function]}
-            >
-              Братство кольца
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Johnny English"
-              height="175"
-              src="img/johnny-english.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-              onClick={[Function]}
-            >
-              Невероятные приключения Воланд-де-Морта
+              Carri
             </a>
           </h3>
         </article>
