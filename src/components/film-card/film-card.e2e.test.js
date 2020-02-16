@@ -7,13 +7,11 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-const film = [
-  {
-    id: 1,
-    name: `Бильбо Сумкин`,
-    poster: `https://unsplash.it/280/175/`,
-  }
-];
+const film = {
+  id: 1,
+  name: `Бильбо Сумкин`,
+  poster: `https://unsplash.it/280/175/`,
+};
 
 it(`All cards at hover return film information`, () => {
   const onFilmCardHover = jest.fn();
@@ -27,15 +25,14 @@ it(`All cards at hover return film information`, () => {
       />
   );
 
-  const cards = filmCard.find(`.small-movie-card`);
+  const card = filmCard.find(`.small-movie-card`);
   const titleOfMovie = filmCard.find(`.small-movie-card__link`);
 
   titleOfMovie.props().onClick();
 
-  cards.forEach((card) => {
-    card.props().onMouseEnter();
-  });
+  card.props().onMouseEnter();
 
-  expect(onFilmCardHover).toHaveBeenCalledTimes(cards.length);
+  expect(onFilmCardHover).toHaveBeenCalledTimes(1);
+  expect(onFilmCardHover).toHaveBeenLastCalledWith(film);
   expect(onTitleOfMovieClick).toHaveBeenCalledTimes(1);
 });
