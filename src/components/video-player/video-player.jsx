@@ -18,20 +18,13 @@ export default class VideoPlayer extends PureComponent {
 
     video.src = src;
     video.poster = poster;
-
-    video.onmouseover = () => this.setState({
-      isPlaying: true,
-    });
-
-    video.onmouseout = () => this.setState({
-      isPlaying: false,
-    });
   }
 
   componentWillUnmount() {
     const video = this._videoRef.current;
 
     video.src = ``;
+    video.poster = ``;
     video.onmousover = null;
     video.onmouseout = null;
   }
@@ -53,7 +46,7 @@ export default class VideoPlayer extends PureComponent {
     if (this.props.isPlaying) {
       video.play();
     } else {
-      video.pause();
+      video.load();
     }
   }
 }

@@ -6,10 +6,10 @@ import {filmProps} from "../../mocks/prop-types.js";
 class FilmCard extends PureComponent {
 
   render() {
-    const {film, onFilmCardHover, onTitleOfMovieClick, renderPlayer} = this.props;
+    const {film, onFilmCardHover, onFilmCardLeave, onTitleOfMovieClick, renderPlayer} = this.props;
 
     return (
-      <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onFilmCardHover(film)}>
+      <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onFilmCardHover(film)} onMouseLeave={() => onFilmCardLeave(film)}>
         <div className="small-movie-card__image">
           {renderPlayer(film.preview, film.poster, film.id)}
         </div>
@@ -26,6 +26,7 @@ class FilmCard extends PureComponent {
 FilmCard.propTypes = {
   film: filmProps,
   onFilmCardHover: PropTypes.func.isRequired,
+  onFilmCardLeave: PropTypes.func.isRequired,
   onTitleOfMovieClick: PropTypes.func.isRequired,
   renderPlayer: PropTypes.func.isRequired,
 };

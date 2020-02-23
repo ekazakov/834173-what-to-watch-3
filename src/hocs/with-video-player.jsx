@@ -1,4 +1,5 @@
 import React, {PureComponent} from "react";
+import {VIDEO_TIMER_HOVER} from "../consts.js";
 import VideoPlayer from "../components/video-player/video-player.jsx";
 
 const withVideoPlayer = (Component) => {
@@ -7,20 +8,39 @@ const withVideoPlayer = (Component) => {
       super(props);
 
       this.state = {
-        activeFilmId: 0,
+        isPlaying: false,
       };
     }
 
     render() {
-      const {activeFilmId} = this.state;
+      let timerId;
 
       return (
         <Component
           {...this.props}
-          renderPlayer={(preview, poster, id) => {
+
+          onFilmCardHover={() => {
+            timerId = setTimeout(() => {
+              this.setState({
+                isPlaying: true,
+              });
+            }, VIDEO_TIMER_HOVER);
+          }}
+
+          onFilmCardLeave={() => {
+            clearTimeout(timerId);
+
+            this.setState({
+              isPlaying: false,
+            });
+          }}
+
+          renderPlayer={(preview, poster) => {
+            const {isPlaying} = this.state;
+
             return (
               <VideoPlayer
-                isPlaying={activeFilmId === id}
+                isPlaying={isPlaying}
                 src={preview}
                 poster={poster}
               />
