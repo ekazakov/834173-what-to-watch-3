@@ -14,6 +14,8 @@ it(`Should FilmCard render correctly`, () => {
         <FilmCard
           film={film}
           onFilmCardHover={() => {}}
+          onFilmCardLeave={() => {}}
+          renderPlayer={() => {}}
           onTitleOfMovieClick={() => {}}
         />
     )

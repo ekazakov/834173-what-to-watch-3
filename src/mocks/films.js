@@ -1,5 +1,5 @@
-const RANDOM_IMAGE = `https://unsplash.it/280/175/`;
 const PREVIEW_VIDEO = `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`;
+const RANDOM_IMAGE = `https://unsplash.it/280/175/`;
 
 export default [
   {

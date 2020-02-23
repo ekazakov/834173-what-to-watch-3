@@ -25,8 +25,6 @@ export default class VideoPlayer extends PureComponent {
 
     video.src = ``;
     video.poster = ``;
-    video.onmousover = null;
-    video.onmouseout = null;
   }
 
   render() {

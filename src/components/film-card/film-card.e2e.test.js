@@ -15,13 +15,17 @@ const film = {
 
 it(`All cards at hover return film information`, () => {
   const onFilmCardHover = jest.fn();
+  const onFilmCardLeave = jest.fn();
   const onTitleOfMovieClick = jest.fn();
+  const renderPlayer = jest.fn();
 
   const filmCard = shallow(
       <FilmCard
         film={film}
         onFilmCardHover={onFilmCardHover}
+        onFilmCardLeave={onFilmCardLeave}
         onTitleOfMovieClick={onTitleOfMovieClick}
+        renderPlayer={renderPlayer}
       />
   );
 
