@@ -7,15 +7,15 @@ exports[`Should FilmsList render correctly 1`] = `
   <article
     className="small-movie-card catalog__movies-card"
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="Бильбо Сумкин"
+      <video
         height="175"
-        src="https://unsplash.it/280/175/"
-        width="280"
+        muted={true}
+        width="100%"
       />
     </div>
     <h3
@@ -26,22 +26,22 @@ exports[`Should FilmsList render correctly 1`] = `
         href="movie-page.html"
         onClick={[Function]}
       >
-        Бильбо Сумкин
+        Harry Potter and the Goblet of Fire
       </a>
     </h3>
   </article>
   <article
     className="small-movie-card catalog__movies-card"
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="Гарри Поттер и невкусный капуччино"
+      <video
         height="175"
-        src="https://unsplash.it/280/175/"
-        width="280"
+        muted={true}
+        width="100%"
       />
     </div>
     <h3
@@ -52,22 +52,22 @@ exports[`Should FilmsList render correctly 1`] = `
         href="movie-page.html"
         onClick={[Function]}
       >
-        Гарри Поттер и невкусный капуччино
+        EuroTrip
       </a>
     </h3>
   </article>
   <article
     className="small-movie-card catalog__movies-card"
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="Волан-де-Морт против братства кольца"
+      <video
         height="175"
-        src="https://unsplash.it/280/175/"
-        width="280"
+        muted={true}
+        width="100%"
       />
     </div>
     <h3
@@ -78,7 +78,59 @@ exports[`Should FilmsList render correctly 1`] = `
         href="movie-page.html"
         onClick={[Function]}
       >
-        Волан-де-Морт против братства кольца
+        The Autopsy of Jane Doe
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        muted={true}
+        width="100%"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+        onClick={[Function]}
+      >
+        The Notebook
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        muted={true}
+        width="100%"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+        onClick={[Function]}
+      >
+        Carri
       </a>
     </h3>
   </article>

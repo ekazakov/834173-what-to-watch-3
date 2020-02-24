@@ -1,23 +1,13 @@
 import React, {PureComponent} from "react";
 import FilmCard from "../film-card/film-card.jsx";
+import withVideoPlayer from "../../hocs/with-video-player.jsx";
 import {filmsProps} from "../../mocks/prop-types.js";
 
 const titleOfMovieHandler = () => {};
 
+const FilmCardWrapper = withVideoPlayer(FilmCard);
+
 class FilmsList extends PureComponent {
-  constructor(...args) {
-    super(...args);
-
-    this.state = {
-      activeFilmId: null,
-    };
-  }
-
-  _handleFilmCardHover(film) {
-    this.setState({
-      activeFilmId: film.id,
-    });
-  }
 
   render() {
     const {films} = this.props;
@@ -26,10 +16,9 @@ class FilmsList extends PureComponent {
       <div className="catalog__movies-list">
 
         {films.map((movie) => (
-          <FilmCard
+          <FilmCardWrapper
             key={`${movie.id}-${movie.name}`}
             film={movie}
-            onFilmCardHover={(film) => this._handleFilmCardHover(film)}
             onTitleOfMovieClick={titleOfMovieHandler}
           />
         ))}

@@ -261,15 +261,15 @@ Array [
         <article
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Harry Potter and the Goblet of Fire"
+            <video
               height="175"
-              src="https://unsplash.it/280/175/"
-              width="280"
+              muted={true}
+              width="100%"
             />
           </div>
           <h3
@@ -287,15 +287,15 @@ Array [
         <article
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="EuroTrip"
+            <video
               height="175"
-              src="https://unsplash.it/280/175/"
-              width="280"
+              muted={true}
+              width="100%"
             />
           </div>
           <h3
@@ -313,15 +313,15 @@ Array [
         <article
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="The Autopsy of Jane Doe"
+            <video
               height="175"
-              src=""
-              width="280"
+              muted={true}
+              width="100%"
             />
           </div>
           <h3
@@ -339,15 +339,15 @@ Array [
         <article
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="The Notebook"
+            <video
               height="175"
-              src="https://unsplash.it/280/175/"
-              width="280"
+              muted={true}
+              width="100%"
             />
           </div>
           <h3
@@ -365,15 +365,15 @@ Array [
         <article
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Carri"
+            <video
               height="175"
-              src="https://unsplash.it/280/175/"
-              width="280"
+              muted={true}
+              width="100%"
             />
           </div>
           <h3
