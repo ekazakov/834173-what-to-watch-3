@@ -35,8 +35,11 @@ it(`All cards at hover return film information`, () => {
   titleOfMovie.props().onClick();
 
   card.props().onMouseEnter();
+  card.props().onMouseLeave();
 
   expect(onFilmCardHover).toHaveBeenCalledTimes(1);
   expect(onFilmCardHover).toHaveBeenLastCalledWith(film);
+  expect(onFilmCardLeave).toHaveBeenCalledTimes(1);
+  expect(onFilmCardLeave).toHaveBeenLastCalledWith(film);
   expect(onTitleOfMovieClick).toHaveBeenCalledTimes(1);
 });

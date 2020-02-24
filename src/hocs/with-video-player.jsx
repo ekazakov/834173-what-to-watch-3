@@ -10,17 +10,18 @@ const withVideoPlayer = (Component) => {
       this.state = {
         isPlaying: false,
       };
+
+      this.timerId = null;
     }
 
     render() {
-      let timerId;
 
       return (
         <Component
           {...this.props}
 
           onFilmCardHover={() => {
-            timerId = setTimeout(() => {
+            this.timerId = setTimeout(() => {
               this.setState({
                 isPlaying: true,
               });
@@ -28,7 +29,7 @@ const withVideoPlayer = (Component) => {
           }}
 
           onFilmCardLeave={() => {
-            clearTimeout(timerId);
+            clearTimeout(this.timerId);
 
             this.setState({
               isPlaying: false,

@@ -6,10 +6,6 @@ export default class VideoPlayer extends PureComponent {
     super(props);
 
     this._videoRef = createRef();
-
-    this.state = {
-      isPlaying: props.isPlaying,
-    };
   }
 
   componentDidMount() {
@@ -31,7 +27,7 @@ export default class VideoPlayer extends PureComponent {
     return (
       <video
         ref={this._videoRef}
-        width="280"
+        width="100%"
         height="175"
         muted
       />

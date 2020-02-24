@@ -269,7 +269,7 @@ Array [
             <video
               height="175"
               muted={true}
-              width="280"
+              width="100%"
             />
           </div>
           <h3
@@ -295,7 +295,7 @@ Array [
             <video
               height="175"
               muted={true}
-              width="280"
+              width="100%"
             />
           </div>
           <h3
@@ -321,7 +321,7 @@ Array [
             <video
               height="175"
               muted={true}
-              width="280"
+              width="100%"
             />
           </div>
           <h3
@@ -347,7 +347,7 @@ Array [
             <video
               height="175"
               muted={true}
-              width="280"
+              width="100%"
             />
           </div>
           <h3
@@ -373,7 +373,7 @@ Array [
             <video
               height="175"
               muted={true}
-              width="280"
+              width="100%"
             />
           </div>
           <h3
