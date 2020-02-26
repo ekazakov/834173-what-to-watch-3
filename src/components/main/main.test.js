@@ -1,6 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Main from "./main.jsx";
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
+import {Genres} from "../../consts.js";
 
 const films = [
   {
@@ -40,13 +43,22 @@ const films = [
   },
 ];
 
+const mockStore = configureStore([]);
+
 it(`Should main render correctly`, () => {
+  const store = mockStore({
+    genre: Genres.ALL,
+    films,
+  });
+
   const tree = renderer
     .create(
-        <Main
-          films={films}
-          onTitleOfMovieClick={() => {}}
-        />, {
+        <Provider store={store}>
+          <Main
+            films={films}
+            onTitleOfMovieClick={() => {}}
+          />
+        </Provider>, {
           createNodeMock: () => {
             return {};
           }

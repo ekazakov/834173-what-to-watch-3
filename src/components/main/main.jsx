@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import FilmsList from "../films-list/films-list.jsx";
 import {filmsProps} from "../../mocks/prop-types.js";
 import GenresList from "../genres-list/genres-list.jsx";
 
@@ -68,7 +67,7 @@ const Main = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenresList films={films} genre={`all-genres`}/>
+          <GenresList films={films}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

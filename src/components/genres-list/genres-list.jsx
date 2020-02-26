@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import {connect} from "react-redux";
-import {PropTypes} from "prop-types";
+import PropTypes from "prop-types";
 import {Genres} from "../../consts.js";
 import {ActionCreator} from "../../reducer";
 import FilmsList from "../films-list/films-list.jsx";
