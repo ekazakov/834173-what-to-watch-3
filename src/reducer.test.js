@@ -37,6 +37,27 @@ const films = [
     poster: `https://unsplash.it/280/175/`,
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
+  {
+    id: 6,
+    name: `Mulan`,
+    genre: `history`,
+    poster: `https://unsplash.it/280/175/`,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+  },
+  {
+    id: 7,
+    name: `Jaws`,
+    genre: `horror`,
+    poster: `https://unsplash.it/280/175/`,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+  },
+  {
+    id: 8,
+    name: `The Fellowship of the Ring`,
+    genre: `fantasy`,
+    poster: `https://unsplash.it/280/175/`,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+  },
 ];
 
 it(`Reducer without additional parameters should return initial state`, () => {

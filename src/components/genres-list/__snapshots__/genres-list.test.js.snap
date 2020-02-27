@@ -65,6 +65,26 @@ Array [
         horror
       </a>
     </li>
+    <li
+      className="catalog__genres-item "
+    >
+      <a
+        className="catalog__genres-link"
+        onClick={[Function]}
+      >
+        history
+      </a>
+    </li>
+    <li
+      className="catalog__genres-item "
+    >
+      <a
+        className="catalog__genres-link"
+        onClick={[Function]}
+      >
+        fantasy
+      </a>
+    </li>
   </ul>,
   <div
     className="catalog__movies-list"
@@ -196,6 +216,84 @@ Array [
           onClick={[Function]}
         >
           Carri
+        </a>
+      </h3>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height="175"
+          muted={true}
+          width="100%"
+        />
+      </div>
+      <h3
+        className="small-movie-card__title"
+      >
+        <a
+          className="small-movie-card__link"
+          href="movie-page.html"
+          onClick={[Function]}
+        >
+          Mulan
+        </a>
+      </h3>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height="175"
+          muted={true}
+          width="100%"
+        />
+      </div>
+      <h3
+        className="small-movie-card__title"
+      >
+        <a
+          className="small-movie-card__link"
+          href="movie-page.html"
+          onClick={[Function]}
+        >
+          Jaws
+        </a>
+      </h3>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height="175"
+          muted={true}
+          width="100%"
+        />
+      </div>
+      <h3
+        className="small-movie-card__title"
+      >
+        <a
+          className="small-movie-card__link"
+          href="movie-page.html"
+          onClick={[Function]}
+        >
+          The Fellowship of the Ring
         </a>
       </h3>
     </article>
