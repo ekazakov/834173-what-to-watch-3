@@ -37,4 +37,25 @@ export default [
     poster: `${RANDOM_IMAGE}`,
     preview: `${PREVIEW_VIDEO}`,
   },
+  {
+    id: 6,
+    name: `Mulan`,
+    genre: `history`,
+    poster: `${RANDOM_IMAGE}`,
+    preview: `${PREVIEW_VIDEO}`,
+  },
+  {
+    id: 7,
+    name: `Jaws`,
+    genre: `horror`,
+    poster: `${RANDOM_IMAGE}`,
+    preview: `${PREVIEW_VIDEO}`,
+  },
+  {
+    id: 8,
+    name: `The Fellowship of the Ring`,
+    genre: `fantasy`,
+    poster: `${RANDOM_IMAGE}`,
+    preview: `${PREVIEW_VIDEO}`,
+  },
 ];
