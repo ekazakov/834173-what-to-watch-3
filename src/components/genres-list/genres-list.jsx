@@ -5,28 +5,34 @@ import {Genres} from "../../consts.js";
 import {ActionCreator} from "../../reducer";
 import FilmsList from "../films-list/films-list.jsx";
 import {filmsProps} from "../../mocks/prop-types.js";
+import {createSelector} from "reselect";
 
-const GenresList = (props) => {
-  const {films, genre, genres, changeGenre} = props;
+const getGenres = (state) => state.genres;
+const getGenre = (state) => state.genre;
+const getFilteredFilms = (state) => state.films;
+const filterFilms = (props) => props.changeGenre;
 
-  return (
-    <React.Fragment>
-      <ul className="catalog__genres-list">
-        {genres.map((availableGenre, index) => (
-          <li
-            className={`catalog__genres-item ${genre === availableGenre ? `catalog__genres-item--active` : ``}`}
-            key={availableGenre + index}>
-            <a className="catalog__genres-link" onClick={() => changeGenre(availableGenre)}>
-              {availableGenre}
-            </a>
-          </li>
-        ))}
-      </ul>
+const GenresList = createSelector(
+    [getGenres, getFilteredFilms, getGenre, filterFilms], (genres, filteredFilms, genre, changeGenre) => {
+      return (
+        <React.Fragment>
+          <ul className="catalog__genres-list">
+            {genres.map((availableGenre, index) => (
+              <li
+                className={`catalog__genres-item ${genre === availableGenre ? `catalog__genres-item--active` : ``}`}
+                key={availableGenre + index}>
+                <a className="catalog__genres-link" onClick={() => changeGenre(availableGenre)}>
+                  {availableGenre}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-      <FilmsList films={films}/>
-    </React.Fragment>
-  );
-};
+          <FilmsList films={filteredFilms}/>
+        </React.Fragment>
+      );
+    }
+);
 
 GenresList.propTypes = {
   films: filmsProps,
