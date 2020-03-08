@@ -22,9 +22,7 @@ store.dispatch(DataOperation.loadFilms());
 
 ReactDOM.render(
     <Provider store={store}>
-      <App
-        films={store.films}
-      />
+      <App/>
     </Provider>,
     document.querySelector(`#root`)
 );

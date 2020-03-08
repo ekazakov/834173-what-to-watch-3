@@ -93,7 +93,7 @@ describe(`Operation work correctly`, () => {
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_FILMS,
-          payload: [{fake: true}],
+          payload: [{}],
         });
       });
   });

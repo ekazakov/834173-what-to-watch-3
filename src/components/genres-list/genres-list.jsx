@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import {ActionCreator} from "../../reducer/state/state.js";
 import FilmsList from "../films-list/films-list.jsx";
 import {filmsProps} from "../../consts.js";
-import {getGenre, getGenres, getFilteredFilms, getFilms} from "../../reducer/state/selectors.js";
+import {getGenre, getGenres, getFilteredFilms} from "../../reducer/state/selectors.js";
 
 const GenresList = (props) => {
-  const {films, genre, genres, changeGenre, filteredFilms} = props;
+  const {genre, genres, changeGenre, filteredFilms} = props;
 
   return (
     <React.Fragment>
@@ -29,7 +29,6 @@ const GenresList = (props) => {
 };
 
 GenresList.propTypes = {
-  films: filmsProps,
   filteredFilms: filmsProps,
   genre: PropTypes.string.isRequired,
   changeGenre: PropTypes.func.isRequired,
@@ -40,7 +39,6 @@ const mapStateToProps = (state) => ({
   genre: getGenre(state),
   genres: getGenres(state),
   filteredFilms: getFilteredFilms(state),
-  films: getFilms(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

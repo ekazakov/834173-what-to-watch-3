@@ -11,6 +11,7 @@ const film = {
   id: 1,
   name: `Бильбо Сумкин`,
   poster: `https://unsplash.it/280/175/`,
+  preview: `https://unsplash.it/280/175/`,
 };
 
 it(`All cards at hover return film information`, () => {

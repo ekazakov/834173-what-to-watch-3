@@ -6,6 +6,7 @@ const film = {
   id: 1,
   name: `Волан-де-Морт против братства кольца`,
   poster: `https://unsplash.it/280/175/`,
+  preview: `https://unsplash.it/280/175/`,
 };
 
 it(`Should FilmCard render correctly`, () => {

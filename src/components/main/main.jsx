@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {filmsProps} from "../../consts.js";
 import GenresList from "../genres-list/genres-list.jsx";
 
 const Main = (props) => {
-  const {films, onTitleOfMovieClick} = props;
+  const {onTitleOfMovieClick} = props;
 
   return (
     <React.Fragment>
@@ -67,7 +66,7 @@ const Main = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenresList films={films}/>
+          <GenresList />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -93,7 +92,6 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  films: filmsProps,
   onTitleOfMovieClick: PropTypes.func.isRequired,
 };
 
