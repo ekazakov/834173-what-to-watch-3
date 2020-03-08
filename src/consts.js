@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 export const VIDEO_TIMER_HOVER = 1000;
 
 export const Genres = {
-  ALL: `all-genres`,
+  ALL: `All-genres`,
   HORROR: `horrors`,
 };
 

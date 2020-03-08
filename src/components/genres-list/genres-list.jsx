@@ -1,13 +1,13 @@
 import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import {Genres} from "../../consts.js";
-import {ActionCreator} from "../../reducer/reducer";
+import {ActionCreator} from "../../reducer/state/state.js";
 import FilmsList from "../films-list/films-list.jsx";
 import {filmsProps} from "../../consts.js";
+import {getGenre, getGenres, getFilteredFilms, getFilms} from "../../reducer/state/selectors.js";
 
 const GenresList = (props) => {
-  const {films, genre, genres, changeGenre} = props;
+  const {films, genre, genres, changeGenre, filteredFilms} = props;
 
   return (
     <React.Fragment>
@@ -23,22 +23,24 @@ const GenresList = (props) => {
         ))}
       </ul>
 
-      <FilmsList films={films}/>
+      <FilmsList films={filteredFilms}/>
     </React.Fragment>
   );
 };
 
 GenresList.propTypes = {
   films: filmsProps,
+  filteredFilms: filmsProps,
   genre: PropTypes.string.isRequired,
   changeGenre: PropTypes.func.isRequired,
   genres: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  genre: state.genre,
-  genres: [Genres.ALL, ...new Set(state.films.map((film) => film.genre))],
-  films: state.genre === Genres.ALL ? state.films : state.films.filter((film) => film.genre === state.genre)
+  genre: getGenre(state),
+  genres: getGenres(state),
+  filteredFilms: getFilteredFilms(state),
+  films: getFilms(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

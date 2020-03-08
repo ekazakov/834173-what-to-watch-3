@@ -3,9 +3,10 @@ import ReactDOM from "react-dom";
 import {createStore, applyMiddleware, compose} from "redux";
 import {Provider} from "react-redux";
 import App from "./components/app/app.jsx";
-import {reducer} from "./reducer/reducer.js";
+import reducer from "./reducer/reducer.js";
 import thunk from "redux-thunk";
 import {createAPI} from "./api.js";
+import {Operation as DataOperation} from "./reducer/data/data.js";
 
 const api = createAPI(() => {});
 
@@ -17,12 +18,12 @@ const store = createStore(
     )
 );
 
-const films = [{}, {}];
+store.dispatch(DataOperation.loadFilms());
 
 ReactDOM.render(
     <Provider store={store}>
       <App
-        films={films}
+        films={store.films}
       />
     </Provider>,
     document.querySelector(`#root`)
