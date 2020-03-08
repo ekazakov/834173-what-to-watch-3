@@ -3,7 +3,7 @@ import {VIDEO_TIMER_HOVER} from "../consts.js";
 import VideoPlayer from "../components/video-player/video-player.jsx";
 
 const withVideoPlayer = (Component) => {
-  class WithActivePlayer extends PureComponent {
+  class WithVideoPlayer extends PureComponent {
     constructor(props) {
       super(props);
 
@@ -52,7 +52,7 @@ const withVideoPlayer = (Component) => {
     }
   }
 
-  return WithActivePlayer;
+  return WithVideoPlayer;
 };
 
 export default withVideoPlayer;
