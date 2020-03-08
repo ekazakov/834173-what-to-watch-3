@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {filmsProps} from "../../mocks/prop-types.js";
+import {filmsProps} from "../../consts.js";
 import GenresList from "../genres-list/genres-list.jsx";
 
 const Main = (props) => {

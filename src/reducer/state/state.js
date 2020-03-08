@@ -1,10 +1,8 @@
-import {extend} from "./utils.js";
-import {Genres} from "./consts.js";
-import films from "./mocks/films.js";
+import {extend} from "../../utils.js";
+import {Genres} from "../../consts.js";
 
 const initialState = {
   genre: Genres.ALL,
-  films,
 };
 
 const ActionType = {

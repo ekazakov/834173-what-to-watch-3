@@ -1,6 +1,6 @@
 import React from "react";
 import Main from "../main/main.jsx";
-import {filmsProps} from "../../mocks/prop-types.js";
+import {filmsProps} from "../../consts.js";
 
 const titleOfMovieHandler = () => {};
 

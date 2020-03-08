@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react";
 import FilmCard from "../film-card/film-card.jsx";
 import withVideoPlayer from "../../hocs/with-video-player.jsx";
-import {filmsProps} from "../../mocks/prop-types.js";
+import {filmsProps} from "../../consts.js";
 
 const titleOfMovieHandler = () => {};
 

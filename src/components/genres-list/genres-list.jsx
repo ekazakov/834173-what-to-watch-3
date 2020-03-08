@@ -2,9 +2,9 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {Genres} from "../../consts.js";
-import {ActionCreator} from "../../reducer";
+import {ActionCreator} from "../../reducer/reducer";
 import FilmsList from "../films-list/films-list.jsx";
-import {filmsProps} from "../../mocks/prop-types.js";
+import {filmsProps} from "../../consts.js";
 
 const GenresList = (props) => {
   const {films, genre, genres, changeGenre} = props;
