@@ -1,13 +1,13 @@
 import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import {Genres} from "../../consts.js";
 import {ActionCreator} from "../../reducer";
 import FilmsList from "../films-list/films-list.jsx";
 import {filmsProps} from "../../mocks/prop-types.js";
+import {getGenre, getGenres, getFilteredFilms} from "./selectors.js";
 
 const GenresList = (props) => {
-  const {films, genre, genres, changeGenre} = props;
+  const {genres, films, genre, changeGenre} = props;
 
   return (
     <React.Fragment>
@@ -36,9 +36,9 @@ GenresList.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  genre: state.genre,
-  genres: [Genres.ALL, ...new Set(state.films.map((film) => film.genre))],
-  films: state.genre === Genres.ALL ? state.films : state.films.filter((film) => film.genre === state.genre)
+  genre: getGenre(state),
+  genres: getGenres(state),
+  films: getFilteredFilms(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
