@@ -1,4 +1,5 @@
 import {extend} from "../../utils.js";
+import {normalizeFilmsData} from "../../utils.js";
 
 const initialState = {
   films: [],
@@ -21,7 +22,7 @@ const Operation = {
   loadFilms: () => (dispatch, getState, api) => {
     return api.get(`/films`)
       .then((response) => {
-        dispatch(ActionCreator.loadFilms(response.data));
+        dispatch(ActionCreator.loadFilms(normalizeFilmsData(response.data)));
       });
   }}
 ;
