@@ -10,13 +10,17 @@ export const getGenre = (state) => {
   return state[NameSpace.STATE].genre;
 };
 
-export const getGenres = (state) => {
-  return [Genres.ALL, ...new Set(getFilms(state).map((film) => film.genre))];
-};
+export const getGenres = createSelector(
+    getFilms,
+    (films) => {
+      return [Genres.ALL, ...new Set(films.map((film) => film.genre))];
+    }
+);
 
 export const getFilteredFilms = createSelector(
-    (state) => state,
-    (state) => {
-      return getGenre(state) === Genres.ALL ? getFilms(state) : getFilms(state).filter((film) => film.genre === getGenre(state));
+    getFilms,
+    getGenre,
+    (films, genre) => {
+      return genre === Genres.ALL ? films : films.filter((film) => film.genre === genre);
     }
 );
