@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 
-import {filmProps} from "../../mocks/prop-types.js";
+import {filmProps} from "../../consts.js";
 
 class FilmCard extends PureComponent {
 

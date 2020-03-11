@@ -1,5 +1,8 @@
-import {reducer, ActionType, ActionCreator} from "./reducer.js";
-import {Genres} from "./consts.js";
+import {reducer, Operation, ActionType} from "./data.js";
+import {createAPI} from "../../api.js";
+import MockAdapter from "axios-mock-adapter";
+
+const api = createAPI(() => {});
 
 const films = [
   {
@@ -62,27 +65,36 @@ const films = [
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({
-    genre: Genres.ALL,
-    films,
+    films: [],
   });
 });
 
-it(`Reducer should return selected genre`, () => {
+it(`Reducer should update films by load films`, () => {
   expect(reducer({
-    genre: Genres.ALL,
-    films,
+    films: [],
   }, {
-    type: ActionType.CHANGE_GENRE,
-    payload: Genres.HORROR,
+    type: ActionType.LOAD_FILMS,
+    payload: films,
   })).toEqual({
-    genre: Genres.HORROR,
     films,
   });
 });
 
-it(`Action creators work correctly`, () => {
-  expect(ActionCreator.changeGenre()).toEqual({
-    type: ActionType.CHANGE_GENRE,
-    payload: Genres.ALL,
+describe(`Operation work correctly`, () => {
+  it(`Should make a correct API call to /films`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const filmsLoader = Operation.loadFilms();
+
+    apiMock.onGet(`/films`).reply(200, [{fake: true}]);
+
+    return filmsLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.LOAD_FILMS,
+          payload: [{}],
+        });
+      });
   });
 });

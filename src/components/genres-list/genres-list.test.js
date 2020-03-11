@@ -67,7 +67,7 @@ const genres = [`all-genres`, `drama`, `comedy`, `thriller`, `romance`, `horror`
 it(`Should GenresList render correctly`, () => {
   const tree = renderer.create(
       <GenresList
-        films={films}
+        filteredFilms={films}
         genre={Genres.ALL}
         genres={genres}
         changeGenre={() => {}}

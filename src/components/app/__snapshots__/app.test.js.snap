@@ -161,7 +161,7 @@ Array [
             className="catalog__genres-link"
             onClick={[Function]}
           >
-            all-genres
+            All-genres
           </a>
         </li>
         <li
