@@ -30,7 +30,7 @@ const Operation = {
 
   login: (authData) => (dispatch, getState, api) => {
     return api.post(`/login`, {
-      login: authData.login,
+      email: authData.login,
       password: authData.password,
     })
       .then(() => {
