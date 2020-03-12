@@ -12,7 +12,7 @@ const ActionCreator = {
   requiredAuthorization: (status) => {
     return {
       type: ActionType.REQUIRED_AUTHORIZATION,
-      preload: status,
+      payload: status,
     };
   },
 };
