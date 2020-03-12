@@ -4,6 +4,7 @@ import GenresList from "../genres-list/genres-list.jsx";
 import {connect} from "react-redux";
 import {AuthorizationStatus} from "../../consts";
 import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
+import {Link} from "react-router-dom";
 
 const Main = (props) => {
   const {onTitleOfMovieClick, authorizationStatus} = props;
@@ -29,7 +30,7 @@ const Main = (props) => {
           <div className="user-block">
             {
               authorizationStatus === AuthorizationStatus.NO_AUTH ?
-                <a href="sign-in.html" className="user-block__link">Sign in</a>
+                <Link to="sign-in" className="user-block__link">Sign in</Link>
                 :
                 <div className="user-block__avatar">
                   <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
