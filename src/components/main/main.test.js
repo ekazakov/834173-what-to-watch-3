@@ -6,6 +6,7 @@ import configureStore from "redux-mock-store";
 import {Genres} from "../../consts.js";
 import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus} from "../../consts.js";
+import {MemoryRouter} from "react-router-dom";
 
 const films = [
   {
@@ -63,12 +64,15 @@ it(`Should main render correctly`, () => {
   const tree = renderer
     .create(
         <Provider store={store}>
-          <Main
-            authorizationStatus={AuthorizationStatus.NO_AUTH}
-            films={films}
-            onTitleOfMovieClick={() => {}}
-          />
-        </Provider>, {
+          <MemoryRouter>
+            <Main
+              authorizationStatus={AuthorizationStatus.NO_AUTH}
+              films={films}
+              onTitleOfMovieClick={() => {}}
+            />
+          </MemoryRouter>
+        </Provider>
+        , {
           createNodeMock: () => {
             return {};
           }

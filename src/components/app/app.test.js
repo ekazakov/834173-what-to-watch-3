@@ -64,6 +64,7 @@ it(`Render App`, () => {
     .create(
         <Provider store={store}>
           <App
+            login={() => {}}
             authorizationStatus={AuthorizationStatus.NO_AUTH}
           />
         </Provider>, {
