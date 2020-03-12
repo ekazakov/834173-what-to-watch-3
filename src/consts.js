@@ -15,3 +15,8 @@ export const filmProps = PropTypes.shape({
 });
 
 export const filmsProps = PropTypes.arrayOf(filmProps).isRequired;
+
+export const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`,
+};
