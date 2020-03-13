@@ -1,14 +1,27 @@
-import React, {PureComponent, createRef} from "react";
+import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 
 class SignIn extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.loginRef = createRef();
-    this.passwordRef = createRef();
+    this.state = {
+      email: null,
+      password: null,
+    };
 
     this._handleSubmit = this._handleSubmit.bind(this);
+    this._handleInputChange = this._handleInputChange.bind(this);
+  }
+
+  _handleInputChange(evt) {
+    const target = evt.target;
+    const value = target.value;
+    let name = target.name.replace(/user-/, ``);
+
+    this.setState({
+      [name]: value
+    });
   }
 
   _handleSubmit(evt) {
@@ -17,8 +30,8 @@ class SignIn extends PureComponent {
     evt.preventDefault();
 
     onSubmit({
-      login: this.loginRef.current.value,
-      password: this.passwordRef.current.value,
+      email: this.state.email,
+      password: this.state.password,
     });
   }
 
@@ -41,11 +54,11 @@ class SignIn extends PureComponent {
           <form action="#" className="sign-in__form" onSubmit={this._handleSubmit}>
             <div className="sign-in__fields">
               <div className="sign-in__field">
-                <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" ref={this.loginRef}/>
+                <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" onChange={this._handleInputChange}/>
                 <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
               </div>
               <div className="sign-in__field">
-                <input className="sign-in__input" type="password" placeholder="Password" name="user-password" id="user-password" ref={this.passwordRef}/>
+                <input className="sign-in__input" type="password" placeholder="Password" name="user-password" id="user-password" onChange={this._handleInputChange}/>
                 <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
               </div>
             </div>
