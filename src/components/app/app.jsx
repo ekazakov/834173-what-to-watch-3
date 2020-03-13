@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 import {Operation as UserOperation} from "../../reducer/user/user.js";
 import {AuthorizationStatus} from "../../consts.js";
 import SignIn from "../sign-in/sign-in.jsx";
-import withAuthInformation from "../../hocs/with-auth-information.js";
+import withAuthInformation from "../../hocs/with-auth-information.jsx";
 
 const SignInWrapper = withAuthInformation(SignIn);
 

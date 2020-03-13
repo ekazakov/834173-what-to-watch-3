@@ -4,7 +4,10 @@ import SignIn from "./sign-in.jsx";
 
 it(`SignIn render correctly`, () => {
   const tree = renderer.create(
-      <SignIn onSubmit={()=>{}} />
+      <SignIn
+        onSubmit={()=>{}}
+        onChange={() => {}}
+      />
   );
 
   expect(tree).toMatchSnapshot();
