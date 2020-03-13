@@ -7,6 +7,9 @@ import {connect} from "react-redux";
 import {Operation as UserOperation} from "../../reducer/user/user.js";
 import {AuthorizationStatus} from "../../consts.js";
 import SignIn from "../sign-in/sign-in.jsx";
+import withAuthInformation from "../../hocs/with-auth-information.js";
+
+const SignInWrapper = withAuthInformation(SignIn);
 
 const titleOfMovieHandler = () => {};
 
@@ -16,7 +19,7 @@ class App extends PureComponent {
     const {login} = this.props;
 
     return (
-      <SignIn onSubmit={login}/>
+      <SignInWrapper onSubmit={login}/>
     );
   }
 

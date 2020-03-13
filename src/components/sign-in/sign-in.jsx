@@ -2,40 +2,10 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 
 class SignIn extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      email: null,
-      password: null,
-    };
-
-    this._handleSubmit = this._handleSubmit.bind(this);
-    this._handleInputChange = this._handleInputChange.bind(this);
-  }
-
-  _handleInputChange(evt) {
-    const target = evt.target;
-    const value = target.value;
-    let name = target.name.replace(/user-/, ``);
-
-    this.setState({
-      [name]: value
-    });
-  }
-
-  _handleSubmit(evt) {
-    const {onSubmit} = this.props;
-
-    evt.preventDefault();
-
-    onSubmit({
-      email: this.state.email,
-      password: this.state.password,
-    });
-  }
 
   render() {
+
+    const {onSubmit, onChange} = this.props;
 
     return (
       <div className="user-page">
@@ -51,14 +21,14 @@ class SignIn extends PureComponent {
           <h1 className="page-title user-page__title">Sign in</h1>
         </header>
         <div className="sign-in user-page__content">
-          <form action="#" className="sign-in__form" onSubmit={this._handleSubmit}>
+          <form action="#" className="sign-in__form" onSubmit={onSubmit}>
             <div className="sign-in__fields">
               <div className="sign-in__field">
-                <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" onChange={this._handleInputChange}/>
+                <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" onChange={onChange}/>
                 <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
               </div>
               <div className="sign-in__field">
-                <input className="sign-in__input" type="password" placeholder="Password" name="user-password" id="user-password" onChange={this._handleInputChange}/>
+                <input className="sign-in__input" type="password" placeholder="Password" name="user-password" id="user-password" onChange={onChange}/>
                 <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
               </div>
             </div>
@@ -87,6 +57,7 @@ class SignIn extends PureComponent {
 
 SignIn.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default SignIn;
