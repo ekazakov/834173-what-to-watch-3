@@ -9,10 +9,9 @@ import {AuthorizationStatus} from "../../consts.js";
 import SignIn from "../sign-in/sign-in.jsx";
 import withAuthInformation from "../../hocs/with-auth-information.jsx";
 import FilmDetails from "../film-details/film-details.jsx";
+import {filmProps} from "../../consts";
 
 const SignInWrapper = withAuthInformation(SignIn);
-
-const titleOfMovieHandler = () => {};
 
 class App extends PureComponent {
 
@@ -26,15 +25,15 @@ class App extends PureComponent {
 
   _renderMain() {
     return (
-      <Main
-        onTitleOfMovieClick={titleOfMovieHandler}
-      />
+      <Main />
     );
   }
 
   _renderFilmDetails() {
+    const {film} = this.props;
+
     return (
-      <FilmDetails/>
+      <FilmDetails film={film}/>
     );
   }
 
@@ -66,6 +65,7 @@ class App extends PureComponent {
 App.propTypes = {
   login: PropTypes.func.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
+  film: filmProps,
 };
 
 const mapStateToProps = (state) => ({
