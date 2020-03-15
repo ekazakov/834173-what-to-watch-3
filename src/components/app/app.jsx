@@ -8,6 +8,7 @@ import {Operation as UserOperation} from "../../reducer/user/user.js";
 import {AuthorizationStatus} from "../../consts.js";
 import SignIn from "../sign-in/sign-in.jsx";
 import withAuthInformation from "../../hocs/with-auth-information.jsx";
+import FilmDetails from "../film-details/film-details.jsx";
 
 const SignInWrapper = withAuthInformation(SignIn);
 
@@ -31,6 +32,12 @@ class App extends PureComponent {
     );
   }
 
+  _renderFilmDetails() {
+    return (
+      <FilmDetails/>
+    );
+  }
+
   render() {
     const {authorizationStatus} = this.props;
 
@@ -46,6 +53,9 @@ class App extends PureComponent {
               :
               this._renderMain()
             }
+          </Route>
+          <Route exact path="/dev-film">
+            {this._renderFilmDetails()}
           </Route>
         </Switch>
       </BrowserRouter>
