@@ -1,9 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import GenresList from "../genres-list/genres-list.jsx";
+import {connect} from "react-redux";
+import {AuthorizationStatus} from "../../consts";
+import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
+import {Link} from "react-router-dom";
 
 const Main = (props) => {
-  const {onTitleOfMovieClick} = props;
+  const {onTitleOfMovieClick, authorizationStatus} = props;
 
   return (
     <React.Fragment>
@@ -24,9 +28,14 @@ const Main = (props) => {
           </div>
 
           <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-            </div>
+            {
+              authorizationStatus === AuthorizationStatus.NO_AUTH ?
+                <Link to="sign-in" className="user-block__link">Sign in</Link>
+                :
+                <div className="user-block__avatar">
+                  <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
+                </div>
+            }
           </div>
         </header>
 
@@ -91,8 +100,14 @@ const Main = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  authorizationStatus: getAuthorizationStatus(state),
+});
+
 Main.propTypes = {
   onTitleOfMovieClick: PropTypes.func.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
 };
 
-export default Main;
+export {Main};
+export default connect(mapStateToProps)(Main);

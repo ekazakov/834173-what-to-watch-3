@@ -1,10 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Main from "./main.jsx";
+import {Main} from "./main.jsx";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import {Genres} from "../../consts.js";
 import NameSpace from "../../reducer/name-space";
+import {AuthorizationStatus} from "../../consts.js";
+import {MemoryRouter} from "react-router-dom";
 
 const films = [
   {
@@ -54,16 +56,23 @@ it(`Should main render correctly`, () => {
     [NameSpace.DATA]: {
       films,
     },
+    [NameSpace.USER]: {
+      authorizationStatus: AuthorizationStatus.NO_AUTH,
+    },
   });
 
   const tree = renderer
     .create(
         <Provider store={store}>
-          <Main
-            films={films}
-            onTitleOfMovieClick={() => {}}
-          />
-        </Provider>, {
+          <MemoryRouter>
+            <Main
+              authorizationStatus={AuthorizationStatus.NO_AUTH}
+              films={films}
+              onTitleOfMovieClick={() => {}}
+            />
+          </MemoryRouter>
+        </Provider>
+        , {
           createNodeMock: () => {
             return {};
           }
