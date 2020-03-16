@@ -42,13 +42,13 @@ Enzyme.configure({
 });
 
 it(`Should title of movie be pressed`, () => {
-  const onTitleOfMovieClick = jest.fn();
+  const onTitleOfFilmClick = jest.fn();
 
   const main = shallow(
       <Main
         authorizationStatus={AuthorizationStatus.NO_AUTH}
         films={films}
-        onTitleOfMovieClick={onTitleOfMovieClick}
+        onTitleOfFilmClick={onTitleOfFilmClick}
       />
   );
 
@@ -58,5 +58,5 @@ it(`Should title of movie be pressed`, () => {
     title.props().onClick();
   });
 
-  expect(onTitleOfMovieClick).toHaveBeenCalledTimes(titlesOfMovie.length);
+  expect(onTitleOfFilmClick).toHaveBeenCalledTimes(titlesOfMovie.length);
 });

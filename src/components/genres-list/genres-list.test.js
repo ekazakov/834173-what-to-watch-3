@@ -2,63 +2,103 @@ import React from "react";
 import renderer from "react-test-renderer";
 import {GenresList} from "./genres-list.jsx";
 import {Genres} from "../../consts.js";
+import {MemoryRouter} from "react-router-dom";
 
 const films = [
   {
     id: 1,
     name: `Harry Potter and the Goblet of Fire`,
-    genre: `drama`,
+    posterBig: `https://unsplash.it/280/175/`,
     poster: `https://unsplash.it/280/175/`,
+    background: `https://unsplash.it/280/175/`,
+    backgroundColor: `#ffffff`,
+    video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    description: `Самый увлекательный в мире фильм`,
+    genre: `drama`,
+    rating: 6.7,
+    score: 290,
+    director: `Tarantino`,
+    starring: [`Donatello`, `Rafael`, `Leonardo`],
+    duration: 90,
+    year: 2067,
+    favorite: false,
   },
   {
     id: 2,
     name: `EuroTrip`,
-    genre: `comedy`,
+    posterBig: `https://unsplash.it/280/175/`,
     poster: `https://unsplash.it/280/175/`,
+    background: `https://unsplash.it/280/175/`,
+    backgroundColor: `#ffffff`,
+    video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    description: `Самый увлекательный в мире фильм`,
+    genre: `drama`,
+    rating: 6.7,
+    score: 290,
+    director: `Tarantino`,
+    starring: [`Donatello`, `Rafael`, `Leonardo`],
+    duration: 90,
+    year: 2067,
+    favorite: false,
   },
   {
     id: 3,
     name: `The Autopsy of Jane Doe`,
-    genre: `thriller`,
+    posterBig: `https://unsplash.it/280/175/`,
     poster: `https://unsplash.it/280/175/`,
+    background: `https://unsplash.it/280/175/`,
+    backgroundColor: `#ffffff`,
+    video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    description: `Самый увлекательный в мире фильм`,
+    genre: `drama`,
+    rating: 6.7,
+    score: 290,
+    director: `Tarantino`,
+    starring: [`Donatello`, `Rafael`, `Leonardo`],
+    duration: 90,
+    year: 2067,
+    favorite: false
   },
   {
     id: 4,
     name: `The Notebook`,
-    genre: `romance`,
+    posterBig: `https://unsplash.it/280/175/`,
     poster: `https://unsplash.it/280/175/`,
+    background: `https://unsplash.it/280/175/`,
+    backgroundColor: `#ffffff`,
+    video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    description: `Самый увлекательный в мире фильм`,
+    genre: `drama`,
+    rating: 6.7,
+    score: 290,
+    director: `Tarantino`,
+    starring: [`Donatello`, `Rafael`, `Leonardo`],
+    duration: 90,
+    year: 2067,
+    favorite: false
   },
   {
     id: 5,
     name: `Carri`,
-    genre: `horror`,
+    posterBig: `https://unsplash.it/280/175/`,
     poster: `https://unsplash.it/280/175/`,
+    background: `https://unsplash.it/280/175/`,
+    backgroundColor: `#ffffff`,
+    video: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-  },
-  {
-    id: 6,
-    name: `Mulan`,
-    genre: `history`,
-    poster: `https://unsplash.it/280/175/`,
-    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-  },
-  {
-    id: 7,
-    name: `Jaws`,
-    genre: `horror`,
-    poster: `https://unsplash.it/280/175/`,
-    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-  },
-  {
-    id: 8,
-    name: `The Fellowship of the Ring`,
-    genre: `fantasy`,
-    poster: `https://unsplash.it/280/175/`,
-    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    description: `Самый увлекательный в мире фильм`,
+    genre: `drama`,
+    rating: 6.7,
+    score: 290,
+    director: `Tarantino`,
+    starring: [`Donatello`, `Rafael`, `Leonardo`],
+    duration: 90,
+    year: 2067,
+    favorite: false
   },
 ];
 
@@ -66,12 +106,15 @@ const genres = [`all-genres`, `drama`, `comedy`, `thriller`, `romance`, `horror`
 
 it(`Should GenresList render correctly`, () => {
   const tree = renderer.create(
-      <GenresList
-        filteredFilms={films}
-        genre={Genres.ALL}
-        genres={genres}
-        changeGenre={() => {}}
-      />, {
+      <MemoryRouter>
+        <GenresList
+          filteredFilms={films}
+          genre={Genres.ALL}
+          genres={genres}
+          changeGenre={() => {}}
+          onTitleOfFilmClick={() => {}}
+        />
+      </MemoryRouter>, {
         createNodeMock: () => {
           return {};
         }

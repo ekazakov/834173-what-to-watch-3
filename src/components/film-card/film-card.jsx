@@ -1,12 +1,13 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 
 import {filmProps} from "../../consts.js";
 
 class FilmCard extends PureComponent {
 
   render() {
-    const {film, onFilmCardHover, onFilmCardLeave, onTitleOfMovieClick, renderPlayer} = this.props;
+    const {film, onFilmCardHover, onFilmCardLeave, renderPlayer, onTitleOfFilmClick} = this.props;
 
     return (
       <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onFilmCardHover(film)} onMouseLeave={() => onFilmCardLeave(film)}>
@@ -14,9 +15,9 @@ class FilmCard extends PureComponent {
           {renderPlayer(film.preview, film.poster, film.id)}
         </div>
         <h3 className="small-movie-card__title">
-          <a className="small-movie-card__link" href="movie-page.html" onClick={onTitleOfMovieClick}>
+          <Link className="small-movie-card__link" to="dev-film" onClick={onTitleOfFilmClick}>
             {film.name}
-          </a>
+          </Link>
         </h3>
       </article>
     );
@@ -27,8 +28,8 @@ FilmCard.propTypes = {
   film: filmProps,
   onFilmCardHover: PropTypes.func.isRequired,
   onFilmCardLeave: PropTypes.func.isRequired,
-  onTitleOfMovieClick: PropTypes.func.isRequired,
   renderPlayer: PropTypes.func.isRequired,
+  onTitleOfFilmClick: PropTypes.func.isRequired,
 };
 
 export default FilmCard;

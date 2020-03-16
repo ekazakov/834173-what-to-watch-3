@@ -108,7 +108,7 @@ Array [
       >
         <a
           className="small-movie-card__link"
-          href="movie-page.html"
+          href="/dev-film"
           onClick={[Function]}
         >
           Harry Potter and the Goblet of Fire
@@ -134,7 +134,7 @@ Array [
       >
         <a
           className="small-movie-card__link"
-          href="movie-page.html"
+          href="/dev-film"
           onClick={[Function]}
         >
           EuroTrip
@@ -160,7 +160,7 @@ Array [
       >
         <a
           className="small-movie-card__link"
-          href="movie-page.html"
+          href="/dev-film"
           onClick={[Function]}
         >
           The Autopsy of Jane Doe
@@ -186,7 +186,7 @@ Array [
       >
         <a
           className="small-movie-card__link"
-          href="movie-page.html"
+          href="/dev-film"
           onClick={[Function]}
         >
           The Notebook
@@ -212,88 +212,10 @@ Array [
       >
         <a
           className="small-movie-card__link"
-          href="movie-page.html"
+          href="/dev-film"
           onClick={[Function]}
         >
           Carri
-        </a>
-      </h3>
-    </article>
-    <article
-      className="small-movie-card catalog__movies-card"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      <div
-        className="small-movie-card__image"
-      >
-        <video
-          height="175"
-          muted={true}
-          width="100%"
-        />
-      </div>
-      <h3
-        className="small-movie-card__title"
-      >
-        <a
-          className="small-movie-card__link"
-          href="movie-page.html"
-          onClick={[Function]}
-        >
-          Mulan
-        </a>
-      </h3>
-    </article>
-    <article
-      className="small-movie-card catalog__movies-card"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      <div
-        className="small-movie-card__image"
-      >
-        <video
-          height="175"
-          muted={true}
-          width="100%"
-        />
-      </div>
-      <h3
-        className="small-movie-card__title"
-      >
-        <a
-          className="small-movie-card__link"
-          href="movie-page.html"
-          onClick={[Function]}
-        >
-          Jaws
-        </a>
-      </h3>
-    </article>
-    <article
-      className="small-movie-card catalog__movies-card"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      <div
-        className="small-movie-card__image"
-      >
-        <video
-          height="175"
-          muted={true}
-          width="100%"
-        />
-      </div>
-      <h3
-        className="small-movie-card__title"
-      >
-        <a
-          className="small-movie-card__link"
-          href="movie-page.html"
-          onClick={[Function]}
-        >
-          The Fellowship of the Ring
         </a>
       </h3>
     </article>

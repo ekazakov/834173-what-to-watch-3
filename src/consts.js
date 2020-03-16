@@ -10,8 +10,21 @@ export const Genres = {
 export const filmProps = PropTypes.shape({
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
+  posterBig: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired,
+  background: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string.isRequired,
+  video: PropTypes.string.isRequired,
   preview: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
+  director: PropTypes.string.isRequired,
+  starring: PropTypes.arrayOf(PropTypes.string).isRequired,
+  duration: PropTypes.number.isRequired,
+  year: PropTypes.number.isRequired,
+  favorite: PropTypes.bool.isRequired,
 });
 
 export const filmsProps = PropTypes.arrayOf(filmProps).isRequired;

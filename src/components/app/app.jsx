@@ -8,12 +8,26 @@ import {Operation as UserOperation} from "../../reducer/user/user.js";
 import {AuthorizationStatus} from "../../consts.js";
 import SignIn from "../sign-in/sign-in.jsx";
 import withAuthInformation from "../../hocs/with-auth-information.jsx";
+import FilmDetails from "../film-details/film-details.jsx";
+import {filmProps, filmsProps} from "../../consts";
+import {getFilms, getChosenFilm} from "../../reducer/state/selectors.js";
+import {ActionCreator} from "../../reducer/state/state.js";
 
 const SignInWrapper = withAuthInformation(SignIn);
 
-const titleOfMovieHandler = () => {};
-
 class App extends PureComponent {
+
+  constructor(props) {
+    super(props);
+
+    this.onTitleOfFilmClick = this.onTitleOfFilmClick.bind(this);
+  }
+
+  onTitleOfFilmClick(id) {
+    const {chooseFilmId} = this.props;
+
+    chooseFilmId(id);
+  }
 
   _renderSignIn() {
     const {login} = this.props;
@@ -25,13 +39,20 @@ class App extends PureComponent {
 
   _renderMain() {
     return (
-      <Main
-        onTitleOfMovieClick={titleOfMovieHandler}
-      />
+      <Main onTitleOfFilmClick={this.onTitleOfFilmClick}/>
+    );
+  }
+
+  _renderFilmDetails() {
+    const {films, chosenFilmId} = this.props;
+
+    return (
+      <FilmDetails film={films[chosenFilmId]}/>
     );
   }
 
   render() {
+
     const {authorizationStatus} = this.props;
 
     return (
@@ -47,6 +68,9 @@ class App extends PureComponent {
               this._renderMain()
             }
           </Route>
+          <Route exact path="/dev-film">
+            {this._renderFilmDetails()}
+          </Route>
         </Switch>
       </BrowserRouter>
     );
@@ -56,15 +80,24 @@ class App extends PureComponent {
 App.propTypes = {
   login: PropTypes.func.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
+  film: filmProps,
+  films: filmsProps,
+  chooseFilmId: PropTypes.func.isRequired,
+  chosenFilmId: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatus(state),
+  films: getFilms(state),
+  chosenFilmId: getChosenFilm(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   login(authData) {
     dispatch(UserOperation.login(authData));
+  },
+  chooseFilmId(id) {
+    dispatch(ActionCreator.chooseFilmId(id));
   },
 });
 

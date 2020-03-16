@@ -2,15 +2,14 @@ import React, {PureComponent} from "react";
 import FilmCard from "../film-card/film-card.jsx";
 import withVideoPlayer from "../../hocs/with-video-player.jsx";
 import {filmsProps} from "../../consts.js";
-
-const titleOfMovieHandler = () => {};
+import PropTypes from "prop-types";
 
 const FilmCardWrapper = withVideoPlayer(FilmCard);
 
 class FilmsList extends PureComponent {
 
   render() {
-    const {films} = this.props;
+    const {films, onTitleOfFilmClick} = this.props;
 
     return (
       <div className="catalog__movies-list">
@@ -19,7 +18,7 @@ class FilmsList extends PureComponent {
           <FilmCardWrapper
             key={`${movie.id}-${movie.name}`}
             film={movie}
-            onTitleOfMovieClick={titleOfMovieHandler}
+            onTitleOfFilmClick={() => onTitleOfFilmClick(movie.id)}
           />
         ))}
 
@@ -30,6 +29,7 @@ class FilmsList extends PureComponent {
 
 FilmsList.propTypes = {
   films: filmsProps,
+  onTitleOfFilmClick: PropTypes.func.isRequired,
 };
 
 export default FilmsList;

@@ -23,7 +23,7 @@ exports[`Should FilmsList render correctly 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/dev-film"
         onClick={[Function]}
       >
         Harry Potter and the Goblet of Fire
@@ -49,7 +49,7 @@ exports[`Should FilmsList render correctly 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/dev-film"
         onClick={[Function]}
       >
         EuroTrip
@@ -75,7 +75,7 @@ exports[`Should FilmsList render correctly 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/dev-film"
         onClick={[Function]}
       >
         The Autopsy of Jane Doe
@@ -101,7 +101,7 @@ exports[`Should FilmsList render correctly 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/dev-film"
         onClick={[Function]}
       >
         The Notebook
@@ -127,7 +127,7 @@ exports[`Should FilmsList render correctly 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/dev-film"
         onClick={[Function]}
       >
         Carri
