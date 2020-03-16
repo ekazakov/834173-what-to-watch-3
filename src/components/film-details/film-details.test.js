@@ -1,7 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import FilmCard from "./film-card.jsx";
-import {MemoryRouter} from "react-router-dom";
+import FilmDetails from "./film-details.jsx";
 
 const film = {
   id: 1,
@@ -23,20 +22,11 @@ const film = {
   favorite: false,
 };
 
-it(`Should FilmCard render correctly`, () => {
-  const tree = renderer
-    .create(
-        <MemoryRouter>
-          <FilmCard
-            film={film}
-            onFilmCardHover={() => {}}
-            onFilmCardLeave={() => {}}
-            renderPlayer={() => {}}
-            onTitleOfFilmClick={() => {}}
-          />
-        </MemoryRouter>
-    )
-    .toJSON();
+
+it(`Should FilmDetails render correctly`, () => {
+  const tree = renderer.create(
+      <FilmDetails film={film}/>
+  ).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

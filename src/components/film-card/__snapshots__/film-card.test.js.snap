@@ -14,10 +14,10 @@ exports[`Should FilmCard render correctly 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="movie-page.html"
+      href="/dev-film"
       onClick={[Function]}
     >
-      Волан-де-Морт против братства кольца
+      Harry Potter and the Goblet of Fire
     </a>
   </h3>
 </article>

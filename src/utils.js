@@ -34,7 +34,7 @@ export const getTextScore = (score) => {
   } else if (score >= 8 && score < 10) {
     return (`Very good`);
   } else if (score === 10) {
-    return (`Awesom`)
+    return (`Awesome`);
   }
 
   return ``;
