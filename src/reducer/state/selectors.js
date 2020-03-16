@@ -24,3 +24,10 @@ export const getFilteredFilms = createSelector(
       return genre === Genres.ALL ? films : films.filter((film) => film.genre === genre);
     }
 );
+
+export const getChosenFilm = (state) => {
+  const films = getFilms(state);
+  const id = state[NameSpace.STATE].chosenFilmId;
+
+  return films.findIndex((film) => film.id === id);
+};

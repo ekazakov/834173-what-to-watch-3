@@ -7,7 +7,7 @@ import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
 import {Link} from "react-router-dom";
 
 const Main = (props) => {
-  const {authorizationStatus} = props;
+  const {authorizationStatus, onTitleOfFilmClick} = props;
 
   return (
     <React.Fragment>
@@ -75,7 +75,7 @@ const Main = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenresList/>
+          <GenresList onTitleOfFilmClick={onTitleOfFilmClick}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -106,6 +106,7 @@ const mapStateToProps = (state) => ({
 
 Main.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
+  onTitleOfFilmClick: PropTypes.func.isRequired,
 };
 
 export {Main};

@@ -7,7 +7,7 @@ import {filmsProps} from "../../consts.js";
 import {getGenre, getGenres, getFilteredFilms} from "../../reducer/state/selectors.js";
 
 const GenresList = (props) => {
-  const {genre, genres, changeGenre, filteredFilms} = props;
+  const {genre, genres, changeGenre, filteredFilms, onTitleOfFilmClick} = props;
 
   return (
     <React.Fragment>
@@ -23,7 +23,10 @@ const GenresList = (props) => {
         ))}
       </ul>
 
-      <FilmsList films={filteredFilms}/>
+      <FilmsList
+        films={filteredFilms}
+        onTitleOfFilmClick={onTitleOfFilmClick}
+      />
     </React.Fragment>
   );
 };
@@ -33,6 +36,7 @@ GenresList.propTypes = {
   genre: PropTypes.string.isRequired,
   changeGenre: PropTypes.func.isRequired,
   genres: PropTypes.array.isRequired,
+  onTitleOfFilmClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
