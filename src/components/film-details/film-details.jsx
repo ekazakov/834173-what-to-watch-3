@@ -1,6 +1,5 @@
 import React from "react";
 import {filmProps} from "../../consts.js";
-import {getTextScore} from "../../utils.js";
 import Tabs from "../tabs/tabs.jsx";
 
 const FilmDetails = (props) => {
