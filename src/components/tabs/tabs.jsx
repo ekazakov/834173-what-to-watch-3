@@ -5,23 +5,26 @@ import {TabsName} from "../../consts.js";
 class Tabs extends PureComponent {
   constructor(props) {
     super(props);
+
+    this.state = {
+      currentTab: TabsName.OVERVIEW,
+    };
   }
 
   render() {
+    const {currentTab} = this.state;
+
     return (
       <React.Fragment>
         <nav className="movie-nav movie-card__nav">
           <ul className="movie-nav__list">
-
-            <li className="movie-nav__item movie-nav__item--active">
-              <a href="#" className="movie-nav__link">Overview</a>
-            </li>
-            <li className="movie-nav__item">
-              <a href="#" className="movie-nav__link">Details</a>
-            </li>
-            <li className="movie-nav__item">
-              <a href="#" className="movie-nav__link">Reviews</a>
-            </li>
+            {Object.values(TabsName).map((tabName, index) => (
+              <li key={tabName + index} className={`movie-nav__item ${currentTab === tabName ? `movie-nav__item--active` : ``}`}>
+                <a href="#" className="movie-nav__link" onClick={() => {}}>
+                  {tabName}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
         {/* overview*/}
