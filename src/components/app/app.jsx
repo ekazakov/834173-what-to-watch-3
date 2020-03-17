@@ -47,7 +47,7 @@ class App extends PureComponent {
     const {films, chosenFilmId} = this.props;
 
     return (
-      <FilmDetails film={films[chosenFilmId]}/>
+      <FilmDetails film={films[chosenFilmId]} films={films}/>
     );
   }
 
