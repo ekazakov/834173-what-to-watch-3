@@ -1,10 +1,11 @@
 import {reducer, ActionType, ActionCreator} from "./state.js";
-import {Genres} from "../../consts.js";
+import {Genres, TabsName} from "../../consts.js";
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({
     genre: Genres.ALL,
     chosenFilmId: 0,
+    currentTab: TabsName.OVERVIEW,
   });
 });
 
@@ -30,6 +31,17 @@ it(`Reducer should return selected film id`, () => {
   });
 });
 
+it(`Reducer should return selected tab`, () => {
+  expect(reducer({
+    currentTab: TabsName.OVERVIEW,
+  }, {
+    type: ActionType.CHANGE_TAB,
+    payload: TabsName.DETAILS,
+  })).toEqual({
+    currentTab: TabsName.DETAILS,
+  });
+});
+
 it(`Action creators work correctly`, () => {
   expect(ActionCreator.changeGenre()).toEqual({
     type: ActionType.CHANGE_GENRE,
@@ -39,5 +51,10 @@ it(`Action creators work correctly`, () => {
   expect(ActionCreator.chooseFilmId()).toEqual({
     type: ActionType.CHOOSE_FILM_ID,
     payload: 0,
+  });
+
+  expect(ActionCreator.changeTab()).toEqual({
+    type: ActionType.CHANGE_TAB,
+    payload: TabsName.OVERVIEW,
   });
 });

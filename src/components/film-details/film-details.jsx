@@ -2,9 +2,10 @@ import React from "react";
 import {filmProps, filmsProps} from "../../consts.js";
 import Tabs from "../tabs/tabs.jsx";
 import SameFilms from "../same-films/same-films.jsx";
+import PropTypes from "prop-types";
 
 const FilmDetails = (props) => {
-  const {film, films} = props;
+  const {film, films, onTitleOfFilmClick} = props;
 
   return (
     <React.Fragment>
@@ -78,7 +79,7 @@ const FilmDetails = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <SameFilms films={films} film={film}/>
+          <SameFilms films={films} film={film} onTitleOfFilmClick={onTitleOfFilmClick}/>
         </section>
 
         <footer className="page-footer">
@@ -102,6 +103,7 @@ const FilmDetails = (props) => {
 FilmDetails.propTypes = {
   film: filmProps,
   films: filmsProps,
+  onTitleOfFilmClick: PropTypes.func.isRequired,
 };
 
 export default FilmDetails;

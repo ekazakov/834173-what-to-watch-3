@@ -9,7 +9,7 @@ import {AuthorizationStatus} from "../../consts.js";
 import SignIn from "../sign-in/sign-in.jsx";
 import withAuthInformation from "../../hocs/with-auth-information.jsx";
 import FilmDetails from "../film-details/film-details.jsx";
-import {commentsProps, filmProps, filmsProps} from "../../consts";
+import {filmProps, filmsProps} from "../../consts";
 import {getFilms, getChosenFilm} from "../../reducer/state/selectors.js";
 import {ActionCreator} from "../../reducer/state/state.js";
 
@@ -48,7 +48,7 @@ class App extends PureComponent {
     const {films, chosenFilmId} = this.props;
 
     return (
-      <FilmDetails film={films[chosenFilmId]} films={films}/>
+      <FilmDetails film={films[chosenFilmId]} films={films} onTitleOfFilmClick={this.onTitleOfFilmClick}/>
     );
   }
 
@@ -85,7 +85,7 @@ App.propTypes = {
   films: filmsProps,
   chooseFilmId: PropTypes.func.isRequired,
   chosenFilmId: PropTypes.number.isRequired,
-  getComments: commentsProps,
+  getComments: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

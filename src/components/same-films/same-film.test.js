@@ -2,10 +2,10 @@ import React from "react";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import renderer from "react-test-renderer";
-import {App} from "./app.jsx";
-import {Genres} from "../../consts";
+import SameFilms from "./same-films.jsx";
 import NameSpace from "../../reducer/name-space";
-import {AuthorizationStatus} from "../../consts.js";
+import {AuthorizationStatus, Genres} from "../../consts";
+import {MemoryRouter} from "react-router-dom";
 
 const mockStore = configureStore([]);
 
@@ -107,7 +107,7 @@ const films = [
   },
 ];
 
-it(`Render App`, () => {
+it(`Should SameFilms render correctly`, () => {
   const store = mockStore({
     [NameSpace.STATE]: {
       genre: Genres.ALL,
@@ -121,23 +121,19 @@ it(`Render App`, () => {
     },
   });
 
-  const tree = renderer
-    .create(
-        <Provider store={store}>
-          <App
-            films={films}
-            login={() => {}}
-            authorizationStatus={AuthorizationStatus.NO_AUTH}
-            chosenFilmId={films[0].id}
-            chooseFilmId={() => {}}
-            getComments={() => {}}
-          />
-        </Provider>, {
-          createNodeMock: () => {
-            return {};
-          }
+  const tree = renderer.create(
+      <Provider store={store}>
+        <MemoryRouter>
+          <SameFilms onTitleOfFilmClick={() => {}} films={films} film={films[0]}/>
+        </MemoryRouter>
+      </Provider>, {
+        createNodeMock: () => {
+          return {};
         }
-    ).toJSON();
+      }
+  ).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
+
+
