@@ -78,7 +78,7 @@ const FilmDetails = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <SameFilms films={films}/>
+          <SameFilms films={films} film={film}/>
         </section>
 
         <footer className="page-footer">
