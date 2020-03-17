@@ -12,6 +12,12 @@ class Tabs extends PureComponent {
     };
   }
 
+  _onChangeTab(tabName) {
+    this.setState({
+      currentTab: tabName,
+    });
+  }
+
   render() {
     const {currentTab} = this.state;
     const {film} = this.props;
@@ -22,7 +28,11 @@ class Tabs extends PureComponent {
           <ul className="movie-nav__list">
             {Object.values(TabsName).map((tabName, index) => (
               <li key={tabName + index} className={`movie-nav__item ${currentTab === tabName ? `movie-nav__item--active` : ``}`}>
-                <a href="#" className="movie-nav__link" onClick={() => {}}>
+                <a href="#" className="movie-nav__link"
+                  onClick={(evt) => {
+                    evt.preventDefault();
+                    this._onChangeTab(tabName);
+                  }}>
                   {tabName}
                 </a>
               </li>
