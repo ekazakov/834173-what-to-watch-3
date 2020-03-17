@@ -29,7 +29,11 @@ store.dispatch(UserOperation.checkAuth());
 
 ReactDOM.render(
     <Provider store={store}>
-      <App/>
+      <App
+        getComments={(id) => {
+          store.dispatch(DataOperation.loadComments(id));
+        }}
+      />
     </Provider>,
     document.querySelector(`#root`)
 );

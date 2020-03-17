@@ -3,12 +3,12 @@ import FilmsList from "../films-list/films-list.jsx";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getFilms} from "../../reducer/state/selectors.js";
-import {filmsProps, filmProps, SAME_FILMS} from "../../consts.js";
+import {filmsProps, filmProps, SAME_FILMS_COUNT} from "../../consts.js";
 
 const getSameFilms = (films, film) => {
   return films.filter(
       (sameFilm) => sameFilm.genre === film.genre && sameFilm.name !== film.name)
-    .slice(0, SAME_FILMS);
+    .slice(0, SAME_FILMS_COUNT);
 };
 
 const SameFilms = (props) => {

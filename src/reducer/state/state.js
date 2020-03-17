@@ -8,7 +8,7 @@ const initialState = {
 
 const ActionType = {
   CHANGE_GENRE: `CHANGE_GENRE`,
-  CHOOSE_FILM_ID: `CHOOSE_FILM`,
+  CHOOSE_FILM_ID: `CHOOSE_FILM_ID`,
 };
 
 const ActionCreator = {

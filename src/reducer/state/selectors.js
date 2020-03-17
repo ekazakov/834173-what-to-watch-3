@@ -6,6 +6,10 @@ export const getFilms = (state) => {
   return state[NameSpace.DATA].films;
 };
 
+export const getComments = (state) => {
+  return state[NameSpace.DATA].comments;
+};
+
 export const getGenre = (state) => {
   return state[NameSpace.STATE].genre;
 };
