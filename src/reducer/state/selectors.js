@@ -18,6 +18,10 @@ export const getGenre = (state) => {
   return state[NameSpace.STATE].genre;
 };
 
+export const getShownFilms = (state) => {
+  return state[NameSpace.STATE].shownFilms;
+};
+
 export const getGenres = createSelector(
     getFilms,
     (films) => {
