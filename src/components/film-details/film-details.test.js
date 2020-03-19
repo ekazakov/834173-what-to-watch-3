@@ -149,7 +149,7 @@ it(`Should FilmDetails render correctly`, () => {
   const tree = renderer.create(
       <Provider store={store}>
         <MemoryRouter>
-          <FilmDetails film={films[0]} films={films} onTitleOfFilmClick={() => {}}/>
+          <FilmDetails film={films[0]} films={films} onTitleOfFilmClick={() => {}} />
         </MemoryRouter>
       </Provider>, {
         createNodeMock: () => {

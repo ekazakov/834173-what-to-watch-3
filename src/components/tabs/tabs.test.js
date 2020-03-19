@@ -1,12 +1,7 @@
 import React from "react";
-import {Provider} from "react-redux";
-import configureStore from "redux-mock-store";
 import renderer from "react-test-renderer";
 import Tabs from "./tabs.jsx";
-import NameSpace from "../../reducer/name-space";
-import {AuthorizationStatus, Genres, TabsName} from "../../consts.js";
-
-const mockStore = configureStore([]);
+import {TabsName} from "../../consts.js";
 
 const films = [
   {
@@ -130,25 +125,8 @@ const comments = [
 ];
 
 it(`Should Tabs render correctly`, () => {
-  const store = mockStore({
-    [NameSpace.STATE]: {
-      genre: Genres.ALL,
-      chosenFilm: films[0].id,
-      currentTab: TabsName.OVERVIEW,
-    },
-    [NameSpace.DATA]: {
-      films,
-      comments,
-    },
-    [NameSpace.USER]: {
-      authorizationStatus: AuthorizationStatus.NO_AUTH,
-    },
-  });
-
   const tree = renderer.create(
-      <Provider store={store}>
-        <Tabs film={films[0]} changeTab={() => {}} currentTab={TabsName.OVERVIEW}/>
-      </Provider>
+      <Tabs film={films[0]} changeTab={() => {}} currentTab={TabsName.OVERVIEW} comments={comments}/>
   )
     .toJSON();
 

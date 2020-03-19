@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import {TabsName} from "../consts.js";
-import Tabs from "../components/tabs/tabs.jsx";
+import {commentsProps} from "../consts";
 
 const withCurrentTab = (Component) => {
   class WithCurrentTab extends PureComponent {
@@ -24,20 +24,22 @@ const withCurrentTab = (Component) => {
 
     render() {
       const {currentTab} = this.state;
+      const {comments} = this.props;
 
       return (
         <Component
           {...this.props}
           currentTab={currentTab}
           changeTab={this._handleTabClick}
-        >
-          <Tabs />
-        </Component>
+          comments={comments}
+        />
       );
     }
   }
 
-  WithCurrentTab.propTypes = {};
+  WithCurrentTab.propTypes = {
+    comments: commentsProps,
+  };
 
   return WithCurrentTab;
 };
