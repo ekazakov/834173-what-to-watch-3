@@ -3,11 +3,11 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {ActionCreator} from "../../reducer/state/state.js";
 import FilmsList from "../films-list/films-list.jsx";
-import {filmsProps} from "../../consts.js";
+import {filmsProps, SHOWN_FILMS_DEFAULT} from "../../consts.js";
 import {getGenre, getGenres, getFilteredFilms} from "../../reducer/state/selectors.js";
 
 const GenresList = (props) => {
-  const {genre, genres, changeGenre, filteredFilms, onTitleOfFilmClick} = props;
+  const {genre, genres, changeGenre, filteredFilms, onTitleOfFilmClick, resetFilmsAmount} = props;
 
   return (
     <React.Fragment>
@@ -16,7 +16,10 @@ const GenresList = (props) => {
           <li
             className={`catalog__genres-item ${genre === availableGenre ? `catalog__genres-item--active` : ``}`}
             key={availableGenre + index}>
-            <a className="catalog__genres-link" onClick={() => changeGenre(availableGenre)}>
+            <a className="catalog__genres-link" onClick={() => {
+              changeGenre(availableGenre);
+              resetFilmsAmount(SHOWN_FILMS_DEFAULT);
+            }}>
               {availableGenre}
             </a>
           </li>
@@ -37,6 +40,7 @@ GenresList.propTypes = {
   changeGenre: PropTypes.func.isRequired,
   genres: PropTypes.array.isRequired,
   onTitleOfFilmClick: PropTypes.func.isRequired,
+  resetFilmsAmount: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -48,6 +52,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   changeGenre(genre) {
     dispatch(ActionCreator.changeGenre(genre));
+  },
+  resetFilmsAmount(shownFilms) {
+    dispatch(ActionCreator.resetFilmsAmount(shownFilms));
   },
 });
 

@@ -13,6 +13,7 @@ const ActionType = {
   CHOOSE_FILM_ID: `CHOOSE_FILM_ID`,
   CHANGE_TAB: `CHANGE_TAB`,
   SHOW_MORE_FILMS: `SHOW_MORE_FILMS`,
+  RESET_FILMS_AMOUNT: `RESET_FILMS_AMOUNT`,
 };
 
 const ActionCreator = {
@@ -30,6 +31,10 @@ const ActionCreator = {
   }),
   showMoreFilms: (filmsCount = SHOWN_FILMS_DEFAULT) => ({
     type: ActionType.SHOW_MORE_FILMS,
+    payload: filmsCount,
+  }),
+  resetFilmsAmount: (filmsCount = SHOWN_FILMS_DEFAULT) => ({
+    type: ActionType.RESET_FILMS_AMOUNT,
     payload: filmsCount,
   }),
 };
@@ -51,6 +56,10 @@ const reducer = (state = initialState, action) => {
     case ActionType.SHOW_MORE_FILMS:
       return extend(state, {
         shownFilms: action.payload + SHOWN_FILMS_DEFAULT,
+      });
+    case ActionType.RESET_FILMS_AMOUNT:
+      return extend(state, {
+        shownFilms: action.payload,
       });
   }
 

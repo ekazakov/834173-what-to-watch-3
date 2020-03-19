@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import {filmsProps, SHOWN_FILMS_DEFAULT} from "../../consts.js";
+import {filmsProps} from "../../consts.js";
 import {getFilms, getShownFilms} from "../../reducer/state/selectors.js";
 import {ActionCreator} from "../../reducer/state/state.js";
 
