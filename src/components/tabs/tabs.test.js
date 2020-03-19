@@ -133,7 +133,7 @@ it(`Should Tabs render correctly`, () => {
   const store = mockStore({
     [NameSpace.STATE]: {
       genre: Genres.ALL,
-      chosenFilmId: films[0].id,
+      chosenFilm: films[0].id,
       currentTab: TabsName.OVERVIEW,
     },
     [NameSpace.DATA]: {
@@ -147,7 +147,7 @@ it(`Should Tabs render correctly`, () => {
 
   const tree = renderer.create(
       <Provider store={store}>
-        <Tabs comments={comments} film={films[0]}/>
+        <Tabs film={films[0]}/>
       </Provider>
   )
     .toJSON();

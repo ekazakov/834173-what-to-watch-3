@@ -134,7 +134,7 @@ it(`Should FilmDetails render correctly`, () => {
   const store = mockStore({
     [NameSpace.STATE]: {
       genre: Genres.ALL,
-      chosenFilmId: films[0].id,
+      chosenFilm: films[0].id,
       currentTab: TabsName.OVERVIEW,
     },
     [NameSpace.DATA]: {

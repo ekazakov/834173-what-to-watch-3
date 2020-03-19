@@ -3,7 +3,7 @@ import {Genres, TabsName} from "../../consts.js";
 
 const initialState = {
   genre: Genres.ALL,
-  chosenFilmId: 0,
+  chosenFilm: 0,
   currentTab: TabsName.OVERVIEW,
 };
 
@@ -18,7 +18,7 @@ const ActionCreator = {
     type: ActionType.CHANGE_GENRE,
     payload: genre,
   }),
-  chooseFilmId: (id = 0) => ({
+  chooseFilmIndex: (id = 0) => ({
     type: ActionType.CHOOSE_FILM_ID,
     payload: id,
   }),
@@ -36,7 +36,7 @@ const reducer = (state = initialState, action) => {
       });
     case ActionType.CHOOSE_FILM_ID:
       return extend(state, {
-        chosenFilmId: action.payload,
+        chosenFilm: action.payload,
       });
     case ActionType.CHANGE_TAB:
       return extend(state, {

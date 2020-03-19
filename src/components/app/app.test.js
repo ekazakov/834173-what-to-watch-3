@@ -111,7 +111,7 @@ it(`Render App`, () => {
   const store = mockStore({
     [NameSpace.STATE]: {
       genre: Genres.ALL,
-      chosenFilmId: films[0].id,
+      chosenFilm: films[0].id,
     },
     [NameSpace.DATA]: {
       films,

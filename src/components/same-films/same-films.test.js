@@ -111,7 +111,7 @@ it(`Should SameFilms render correctly`, () => {
   const store = mockStore({
     [NameSpace.STATE]: {
       genre: Genres.ALL,
-      chosenFilmId: films[0].id,
+      chosenFilm: films[0].id,
     },
     [NameSpace.DATA]: {
       films,
@@ -124,7 +124,7 @@ it(`Should SameFilms render correctly`, () => {
   const tree = renderer.create(
       <Provider store={store}>
         <MemoryRouter>
-          <SameFilms onTitleOfFilmClick={() => {}} films={films} film={films[0]}/>
+          <SameFilms onTitleOfFilmClick={() => {}} film={films[0]}/>
         </MemoryRouter>
       </Provider>, {
         createNodeMock: () => {

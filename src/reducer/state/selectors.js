@@ -35,7 +35,7 @@ export const getFilteredFilms = createSelector(
 
 export const getChosenFilm = (state) => {
   const films = getFilms(state);
-  const id = state[NameSpace.STATE].chosenFilmId;
+  const id = state[NameSpace.STATE].chosenFilm;
 
-  return films.findIndex((film) => film.id === id);
+  return films.find((film) => film.id === id);
 };
