@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react";
 import FilmCard from "../film-card/film-card.jsx";
 import withVideoPlayer from "../../hocs/with-video-player.jsx";
-import {filmsProps} from "../../consts.js";
+import {filmsProps, SHOWN_FILMS} from "../../consts.js";
 import PropTypes from "prop-types";
 
 const FilmCardWrapper = withVideoPlayer(FilmCard);
@@ -14,7 +14,7 @@ class FilmsList extends PureComponent {
     return (
       <div className="catalog__movies-list">
 
-        {films.map((movie) => (
+        {films.slice(0, SHOWN_FILMS).map((movie) => (
           <FilmCardWrapper
             key={`${movie.id}-${movie.name}`}
             film={movie}
