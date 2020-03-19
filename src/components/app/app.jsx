@@ -24,9 +24,9 @@ class App extends PureComponent {
   }
 
   onTitleOfFilmClick(id) {
-    const {chooseFilmId, getComments} = this.props;
+    const {chooseFilmIndex, getComments} = this.props;
 
-    chooseFilmId(id);
+    chooseFilmIndex(id);
     getComments(id);
   }
 
@@ -45,10 +45,10 @@ class App extends PureComponent {
   }
 
   _renderFilmDetails() {
-    const {films, chosenFilmId} = this.props;
+    const {films, chosenFilm} = this.props;
 
     return (
-      <FilmDetails film={films[chosenFilmId]} films={films} onTitleOfFilmClick={this.onTitleOfFilmClick}/>
+      <FilmDetails film={chosenFilm} films={films} onTitleOfFilmClick={this.onTitleOfFilmClick}/>
     );
   }
 
@@ -83,23 +83,23 @@ App.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
   film: filmProps,
   films: filmsProps,
-  chooseFilmId: PropTypes.func.isRequired,
-  chosenFilmId: PropTypes.number.isRequired,
+  chooseFilmIndex: PropTypes.func.isRequired,
+  chosenFilm: filmProps,
   getComments: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatus(state),
   films: getFilms(state),
-  chosenFilmId: getChosenFilm(state),
+  chosenFilm: getChosenFilm(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   login(authData) {
     dispatch(UserOperation.login(authData));
   },
-  chooseFilmId(id) {
-    dispatch(ActionCreator.chooseFilmId(id));
+  chooseFilmIndex(id) {
+    dispatch(ActionCreator.chooseFilmIndex(id));
   },
 });
 

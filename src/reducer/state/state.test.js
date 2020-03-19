@@ -23,23 +23,12 @@ it(`Reducer should return selected genre`, () => {
 
 it(`Reducer should return selected film id`, () => {
   expect(reducer({
-    chosenFilmId: 0,
+    chosenFilm: 0,
   }, {
-    type: ActionType.CHOOSE_FILM_ID,
+    type: ActionType.CHOOSE_FILM_INDEX,
     payload: 1,
   })).toEqual({
-    chosenFilmId: 1,
-  });
-});
-
-it(`Reducer should return selected tab`, () => {
-  expect(reducer({
-    currentTab: TabsName.OVERVIEW,
-  }, {
-    type: ActionType.CHANGE_TAB,
-    payload: TabsName.DETAILS,
-  })).toEqual({
-    currentTab: TabsName.DETAILS,
+    chosenFilm: 1,
   });
 });
 
@@ -58,14 +47,9 @@ it(`Action creators work correctly`, () => {
     payload: Genres.ALL,
   });
 
-  expect(ActionCreator.chooseFilmId()).toEqual({
-    type: ActionType.CHOOSE_FILM_ID,
+  expect(ActionCreator.chooseFilmIndex()).toEqual({
+    type: ActionType.CHOOSE_FILM_INDEX,
     payload: 0,
-  });
-
-  expect(ActionCreator.changeTab()).toEqual({
-    type: ActionType.CHANGE_TAB,
-    payload: TabsName.OVERVIEW,
   });
 
   expect(ActionCreator.showMoreFilms()).toEqual({
