@@ -4,13 +4,14 @@ import PropTypes from "prop-types";
 import Tabs from "../tabs/tabs.jsx";
 import withCurrentTab from "../../hocs/with-current-tab.jsx";
 import {connect} from "react-redux";
-import {getSimilarFilms} from "../../reducer/state/selectors.js";
+import {getSimilarFilms, getComments} from "../../reducer/state/selectors.js";
 import FilmsList from "../films-list/films-list.jsx";
+import {commentsProps} from "../../consts";
 
 const TabsWrapper = withCurrentTab(Tabs);
 
 const FilmDetails = (props) => {
-  const {film, onTitleOfFilmClick, similarFilms} = props;
+  const {film, onTitleOfFilmClick, similarFilms, comments} = props;
 
   return (
     <React.Fragment>
@@ -73,7 +74,7 @@ const FilmDetails = (props) => {
 
             <div className="movie-card__desc">
 
-              <TabsWrapper film={film}/>
+              <TabsWrapper film={film} key={film.id} comments={comments}/>
 
             </div>
           </div>
@@ -109,10 +110,12 @@ FilmDetails.propTypes = {
   film: filmProps,
   similarFilms: filmsProps,
   onTitleOfFilmClick: PropTypes.func.isRequired,
+  comments: commentsProps,
 };
 
 const mapStateToProps = (state) => ({
   similarFilms: getSimilarFilms(state),
+  comments: getComments(state),
 });
 
 export {FilmDetails};
