@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {AuthorizationStatus} from "../../consts";
 import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
 import {Link} from "react-router-dom";
+import ShowMore from "../show-more/show-more.jsx";
 
 const Main = (props) => {
   const {authorizationStatus, onTitleOfFilmClick} = props;
@@ -77,9 +78,7 @@ const Main = (props) => {
 
           <GenresList onTitleOfFilmClick={onTitleOfFilmClick}/>
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          <ShowMore onShowMoreButtonClick={() => {}}/>
         </section>
 
         <footer className="page-footer">
