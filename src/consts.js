@@ -4,7 +4,7 @@ export const VIDEO_TIMER_HOVER = 1000;
 
 export const SAME_FILMS_COUNT = 4;
 
-export const SHOWN_FILMS = 8;
+export const SHOWN_FILMS_DEFAULT = 8;
 
 export const Genres = {
   ALL: `All-genres`,

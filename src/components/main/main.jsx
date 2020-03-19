@@ -78,7 +78,7 @@ const Main = (props) => {
 
           <GenresList onTitleOfFilmClick={onTitleOfFilmClick}/>
 
-          <ShowMore onShowMoreButtonClick={() => {}}/>
+          <ShowMore />
         </section>
 
         <footer className="page-footer">
