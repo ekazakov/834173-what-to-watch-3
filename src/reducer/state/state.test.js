@@ -1,11 +1,10 @@
 import {reducer, ActionType, ActionCreator} from "./state.js";
-import {Genres, TabsName, SHOWN_FILMS_DEFAULT} from "../../consts.js";
+import {Genres, SHOWN_FILMS_DEFAULT} from "../../consts.js";
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({
     genre: Genres.ALL,
     chosenFilmId: 0,
-    currentTab: TabsName.OVERVIEW,
     shownFilms: SHOWN_FILMS_DEFAULT,
   });
 });
