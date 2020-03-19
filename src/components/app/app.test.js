@@ -128,8 +128,8 @@ it(`Render App`, () => {
             films={films}
             login={() => {}}
             authorizationStatus={AuthorizationStatus.NO_AUTH}
-            chosenFilmId={films[0].id}
-            chooseFilmId={() => {}}
+            chosenFilm={films[0]}
+            chooseFilmIndex={() => {}}
             getComments={() => {}}
           />
         </Provider>, {

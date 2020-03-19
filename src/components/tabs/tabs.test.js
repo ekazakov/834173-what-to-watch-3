@@ -147,7 +147,7 @@ it(`Should Tabs render correctly`, () => {
 
   const tree = renderer.create(
       <Provider store={store}>
-        <Tabs film={films[0]}/>
+        <Tabs film={films[0]} changeTab={() => {}} currentTab={TabsName.OVERVIEW}/>
       </Provider>
   )
     .toJSON();
