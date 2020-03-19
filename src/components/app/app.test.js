@@ -3,7 +3,7 @@ import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import renderer from "react-test-renderer";
 import {App} from "./app.jsx";
-import {Genres} from "../../consts";
+import {Genres, SHOWN_FILMS_DEFAULT} from "../../consts";
 import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus} from "../../consts.js";
 
@@ -112,6 +112,7 @@ it(`Render App`, () => {
     [NameSpace.STATE]: {
       genre: Genres.ALL,
       chosenFilmId: films[0].id,
+      shownFilms: SHOWN_FILMS_DEFAULT
     },
     [NameSpace.DATA]: {
       films,

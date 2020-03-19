@@ -1,12 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {GenresList} from "./genres-list.jsx";
-import {Genres} from "../../consts.js";
-import {MemoryRouter} from "react-router-dom";
+import ShowMore from "./show-more.jsx";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import NameSpace from "../../reducer/name-space";
-import {AuthorizationStatus, SHOWN_FILMS_DEFAULT, TabsName} from "../../consts";
+import {AuthorizationStatus, Genres, SHOWN_FILMS_DEFAULT, TabsName} from "../../consts";
 
 const mockStore = configureStore([]);
 
@@ -107,6 +105,7 @@ const films = [
     favorite: false
   },
 ];
+
 const comments = [
   {
     id: 0,
@@ -130,9 +129,7 @@ const comments = [
   },
 ];
 
-const genres = [`all-genres`, `drama`, `comedy`, `thriller`, `romance`, `horror`, `history`, `fantasy`];
-
-it(`Should GenresList render correctly`, () => {
+it(`Should ShowMore render correctly`, () => {
   const store = mockStore({
     [NameSpace.STATE]: {
       genre: Genres.ALL,
@@ -149,25 +146,12 @@ it(`Should GenresList render correctly`, () => {
     },
   });
 
-
   const tree = renderer.create(
-      <MemoryRouter>
-        <Provider store={store}>
-          <GenresList
-            filteredFilms={films}
-            genre={Genres.ALL}
-            genres={genres}
-            changeGenre={() => {}}
-            onTitleOfFilmClick={() => {}}
-            resetFilmsAmount={() => {}}
-          />
-        </Provider>
-      </MemoryRouter>, {
-        createNodeMock: () => {
-          return {};
-        }
-      }
-  ).toJSON();
+      <Provider store={store}>
+        <ShowMore />
+      </Provider>
+  )
+   .toJSON();
 
   expect(tree).toMatchSnapshot();
 });

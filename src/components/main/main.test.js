@@ -7,6 +7,7 @@ import {Genres} from "../../consts.js";
 import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus} from "../../consts.js";
 import {MemoryRouter} from "react-router-dom";
+import {SHOWN_FILMS_DEFAULT} from "../../consts";
 
 const films = [
   {
@@ -112,6 +113,7 @@ it(`Should main render correctly`, () => {
   const store = mockStore({
     [NameSpace.STATE]: {
       genre: Genres.ALL,
+      shownFilms: SHOWN_FILMS_DEFAULT
     },
     [NameSpace.DATA]: {
       films,

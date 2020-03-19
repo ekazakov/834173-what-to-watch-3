@@ -4,7 +4,7 @@ import configureStore from "redux-mock-store";
 import renderer from "react-test-renderer";
 import FilmDetails from "./film-details.jsx";
 import NameSpace from "../../reducer/name-space";
-import {AuthorizationStatus, Genres, TabsName} from "../../consts";
+import {AuthorizationStatus, Genres, SHOWN_FILMS_DEFAULT, TabsName} from "../../consts";
 import {MemoryRouter} from "react-router-dom";
 
 const films = [
@@ -136,6 +136,7 @@ it(`Should FilmDetails render correctly`, () => {
       genre: Genres.ALL,
       chosenFilmId: films[0].id,
       currentTab: TabsName.OVERVIEW,
+      shownFilms: SHOWN_FILMS_DEFAULT
     },
     [NameSpace.DATA]: {
       films,

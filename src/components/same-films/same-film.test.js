@@ -4,7 +4,7 @@ import configureStore from "redux-mock-store";
 import renderer from "react-test-renderer";
 import SameFilms from "./same-films.jsx";
 import NameSpace from "../../reducer/name-space";
-import {AuthorizationStatus, Genres} from "../../consts";
+import {AuthorizationStatus, Genres, SHOWN_FILMS_DEFAULT} from "../../consts";
 import {MemoryRouter} from "react-router-dom";
 
 const mockStore = configureStore([]);
@@ -112,6 +112,7 @@ it(`Should SameFilms render correctly`, () => {
     [NameSpace.STATE]: {
       genre: Genres.ALL,
       chosenFilmId: films[0].id,
+      shownFilms: SHOWN_FILMS_DEFAULT
     },
     [NameSpace.DATA]: {
       films,
