@@ -2,8 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {getTextScore, formatDate} from "../../utils.js";
 import {TabsName, commentsProps, filmProps} from "../../consts.js";
-import {getComments, getTab} from "../../reducer/state/selectors.js";
-import {ActionCreator} from "../../reducer/state/state.js";
+import {getComments} from "../../reducer/state/selectors.js";
 import PropTypes from "prop-types";
 
 const Tabs = (props) => {
@@ -16,10 +15,7 @@ const Tabs = (props) => {
           {Object.values(TabsName).map((tabName, index) => (
             <li key={tabName + index} className={`movie-nav__item ${currentTab === tabName ? `movie-nav__item--active` : ``}`}>
               <a href="#" className="movie-nav__link"
-                onClick={(evt) => {
-                  evt.preventDefault();
-                  changeTab(tabName);
-                }}>
+                onClick={(evt) => changeTab(evt, tabName)}>
                 {tabName}
               </a>
             </li>
@@ -120,15 +116,7 @@ Tabs.propTypes = {
 
 const mapStateTopProps = (state) => ({
   comments: getComments(state),
-  currentTab: getTab(state),
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  changeTab(tab) {
-    dispatch(ActionCreator.changeTab(tab));
-  }
 });
 
 export {Tabs};
-
-export default connect(mapStateTopProps, mapDispatchToProps)(Tabs);
+export default connect(mapStateTopProps)(Tabs);

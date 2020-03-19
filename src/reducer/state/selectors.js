@@ -10,10 +10,6 @@ export const getComments = (state) => {
   return state[NameSpace.DATA].comments;
 };
 
-export const getTab = (state) => {
-  return state[NameSpace.STATE].currentTab;
-};
-
 export const getGenre = (state) => {
   return state[NameSpace.STATE].genre;
 };

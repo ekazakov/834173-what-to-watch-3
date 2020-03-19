@@ -4,13 +4,11 @@ import {Genres, TabsName} from "../../consts.js";
 const initialState = {
   genre: Genres.ALL,
   chosenFilm: 0,
-  currentTab: TabsName.OVERVIEW,
 };
 
 const ActionType = {
   CHANGE_GENRE: `CHANGE_GENRE`,
   CHOOSE_FILM_ID: `CHOOSE_FILM_ID`,
-  CHANGE_TAB: `CHANGE_TAB`,
 };
 
 const ActionCreator = {
@@ -21,10 +19,6 @@ const ActionCreator = {
   chooseFilmIndex: (id = 0) => ({
     type: ActionType.CHOOSE_FILM_ID,
     payload: id,
-  }),
-  changeTab: (tab = TabsName.OVERVIEW) => ({
-    type: ActionType.CHANGE_TAB,
-    payload: tab,
   }),
 };
 
@@ -37,10 +31,6 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHOOSE_FILM_ID:
       return extend(state, {
         chosenFilm: action.payload,
-      });
-    case ActionType.CHANGE_TAB:
-      return extend(state, {
-        currentTab: action.payload,
       });
   }
 

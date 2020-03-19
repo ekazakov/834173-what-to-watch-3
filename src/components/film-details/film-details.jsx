@@ -1,8 +1,11 @@
 import React from "react";
 import {filmProps, filmsProps} from "../../consts.js";
+import PropTypes from "prop-types";
 import Tabs from "../tabs/tabs.jsx";
 import SameFilms from "../same-films/same-films.jsx";
-import PropTypes from "prop-types";
+import withCurrentTab from "../../hocs/with-current-tab.jsx";
+
+const TabsWrapper = withCurrentTab(Tabs);
 
 const FilmDetails = (props) => {
   const {film, films, onTitleOfFilmClick} = props;
@@ -68,7 +71,7 @@ const FilmDetails = (props) => {
 
             <div className="movie-card__desc">
 
-              <Tabs film={film}/>
+              <TabsWrapper film={film}/>
 
             </div>
           </div>

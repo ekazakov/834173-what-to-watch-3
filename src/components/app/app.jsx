@@ -47,8 +47,6 @@ class App extends PureComponent {
   _renderFilmDetails() {
     const {films, chosenFilm} = this.props;
 
-    console.log(chosenFilm);
-
     return (
       <FilmDetails film={chosenFilm} films={films} onTitleOfFilmClick={this.onTitleOfFilmClick}/>
     );
