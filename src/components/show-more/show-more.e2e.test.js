@@ -1,7 +1,12 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import Enzyme, {mount} from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 import {ShowMore} from "./show-more.jsx";
 import {SHOWN_FILMS_DEFAULT} from "../../consts";
+
+Enzyme.configure({
+  adapter: new Adapter(),
+});
 
 const films = [
   {
@@ -195,15 +200,20 @@ const films = [
     favorite: false
   },
 ];
-
 const shownFilms = SHOWN_FILMS_DEFAULT;
 
-it(`Should ShowMore render correctly`, () => {
+it(`Click for ShowMore button`, () => {
 
-  const tree = renderer.create(
-      <ShowMore films={films} shownFilms={shownFilms} showMoreFilms={() => {}}/>
-  )
-   .toJSON();
+  const showMoreButtonClick = jest.fn();
 
-  expect(tree).toMatchSnapshot();
+  const showMore = mount(
+      <ShowMore showMoreFilms={showMoreButtonClick} films={films} shownFilms={shownFilms}/>
+  );
+
+  const button = showMore.find(`button.catalog__button`);
+
+  button.simulate(`click`);
+
+  expect(showMoreButtonClick).toHaveBeenCalledTimes(1);
 });
+

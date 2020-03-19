@@ -8,14 +8,11 @@ import {ActionCreator} from "../../reducer/state/state.js";
 const ShowMore = (props) => {
   const {films, shownFilms, showMoreFilms} = props;
 
-  return (
-    films.length > shownFilms ?
-      <div className="catalog__more">
-        <button className="catalog__button" type="button" onClick={() => showMoreFilms(shownFilms)}>Show more</button>
-      </div>
-      :
-      null
-  );
+  return shownFilms < films.length ? (
+    <div className="catalog__more">
+      <button className="catalog__button" type="button" onClick={() => showMoreFilms(shownFilms)}>Show more</button>
+    </div>
+  ) : null;
 };
 
 ShowMore.propTypes = {
