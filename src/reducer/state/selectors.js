@@ -1,6 +1,7 @@
 import {Genres} from "../../consts.js";
 import NameSpace from "../name-space.js";
 import {createSelector} from "reselect";
+import {SAME_FILMS_COUNT} from "../../consts";
 
 export const getFilms = (state) => {
   return state[NameSpace.DATA].films;
@@ -13,6 +14,14 @@ export const getComments = (state) => {
 export const getGenre = (state) => {
   return state[NameSpace.STATE].genre;
 };
+
+export const getChosenFilm = (state) => {
+  const films = getFilms(state);
+  const id = state[NameSpace.STATE].chosenFilm;
+
+  return films.find((film) => film.id === id);
+};
+
 
 export const getGenres = createSelector(
     getFilms,
@@ -28,10 +37,12 @@ export const getFilteredFilms = createSelector(
       return genre === Genres.ALL ? films : films.filter((film) => film.genre === genre);
     }
 );
-
-export const getChosenFilm = (state) => {
-  const films = getFilms(state);
-  const id = state[NameSpace.STATE].chosenFilm;
-
-  return films.find((film) => film.id === id);
-};
+export const getSimilarFilms = createSelector(
+    getFilms,
+    getChosenFilm,
+    (films, film) => {
+      return films.filter(
+          (sameFilm) => sameFilm.genre === film.genre && sameFilm.name !== film.name)
+      .slice(0, SAME_FILMS_COUNT);
+    }
+);

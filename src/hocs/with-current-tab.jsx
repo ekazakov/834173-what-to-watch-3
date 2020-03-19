@@ -23,10 +23,12 @@ const withCurrentTab = (Component) => {
     }
 
     render() {
+      const {currentTab} = this.state;
+
       return (
         <Component
           {...this.props}
-          currentTab={this.state.currentTab}
+          currentTab={currentTab}
           changeTab={this._handleTabClick}
         >
           <Tabs />

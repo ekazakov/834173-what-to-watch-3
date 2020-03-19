@@ -2,13 +2,15 @@ import React from "react";
 import {filmProps, filmsProps} from "../../consts.js";
 import PropTypes from "prop-types";
 import Tabs from "../tabs/tabs.jsx";
-import SameFilms from "../same-films/same-films.jsx";
 import withCurrentTab from "../../hocs/with-current-tab.jsx";
+import {connect} from "react-redux";
+import {getSimilarFilms} from "../../reducer/state/selectors.js";
+import FilmsList from "../films-list/films-list.jsx";
 
 const TabsWrapper = withCurrentTab(Tabs);
 
 const FilmDetails = (props) => {
-  const {film, films, onTitleOfFilmClick} = props;
+  const {film, onTitleOfFilmClick, similarFilms} = props;
 
   return (
     <React.Fragment>
@@ -82,7 +84,7 @@ const FilmDetails = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <SameFilms films={films} film={film} onTitleOfFilmClick={onTitleOfFilmClick}/>
+          <FilmsList onTitleOfFilmClick={onTitleOfFilmClick} films={similarFilms}/>
         </section>
 
         <footer className="page-footer">
@@ -105,8 +107,13 @@ const FilmDetails = (props) => {
 
 FilmDetails.propTypes = {
   film: filmProps,
-  films: filmsProps,
+  similarFilms: filmsProps,
   onTitleOfFilmClick: PropTypes.func.isRequired,
 };
 
-export default FilmDetails;
+const mapStateToProps = (state) => ({
+  similarFilms: getSimilarFilms(state),
+});
+
+export {FilmDetails};
+export default connect(mapStateToProps)(FilmDetails);

@@ -1,9 +1,9 @@
 import {extend} from "../../utils.js";
-import {Genres, TabsName} from "../../consts.js";
+import {Genres} from "../../consts.js";
 
 const initialState = {
   genre: Genres.ALL,
-  chosenFilm: 0,
+  chosenFilm: null,
 };
 
 const ActionType = {
