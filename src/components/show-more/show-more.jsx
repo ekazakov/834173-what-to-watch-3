@@ -2,13 +2,11 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {filmsProps} from "../../consts.js";
-import {getFilms, getShownFilms} from "../../reducer/state/selectors.js";
+import {getFilteredFilms, getShownFilms} from "../../reducer/state/selectors.js";
 import {ActionCreator} from "../../reducer/state/state.js";
 
 const ShowMore = (props) => {
   const {films, shownFilms, showMoreFilms} = props;
-
-  console.log(shownFilms);
 
   return (
     films.length > shownFilms ?
@@ -27,7 +25,7 @@ ShowMore.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  films: getFilms(state),
+  films: getFilteredFilms(state),
   shownFilms: getShownFilms(state),
 });
 

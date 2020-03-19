@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react";
 import FilmCard from "../film-card/film-card.jsx";
 import withVideoPlayer from "../../hocs/with-video-player.jsx";
-import {filmsProps, SHOWN_FILMS_DEFAULT} from "../../consts.js";
+import {filmsProps} from "../../consts.js";
 import {connect} from "react-redux";
 import {getShownFilms} from "../../reducer/state/selectors.js";
 import PropTypes from "prop-types";

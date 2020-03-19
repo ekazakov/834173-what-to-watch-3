@@ -22,6 +22,13 @@ export const getShownFilms = (state) => {
   return state[NameSpace.STATE].shownFilms;
 };
 
+export const getChosenFilm = (state) => {
+  const films = getFilms(state);
+  const id = state[NameSpace.STATE].chosenFilmId;
+
+  return films.findIndex((film) => film.id === id);
+};
+
 export const getGenres = createSelector(
     getFilms,
     (films) => {
@@ -32,14 +39,8 @@ export const getGenres = createSelector(
 export const getFilteredFilms = createSelector(
     getFilms,
     getGenre,
-    (films, genre) => {
-      return genre === Genres.ALL ? films : films.filter((film) => film.genre === genre);
+    getShownFilms,
+    (films, genre, shownFilms) => {
+      return genre === Genres.ALL ? films : films.filter((film) => film.genre === genre).slice(0, shownFilms);
     }
 );
-
-export const getChosenFilm = (state) => {
-  const films = getFilms(state);
-  const id = state[NameSpace.STATE].chosenFilmId;
-
-  return films.findIndex((film) => film.id === id);
-};
