@@ -16,7 +16,7 @@ const ActionCreator = {
     type: ActionType.CHANGE_GENRE,
     payload: genre,
   }),
-  chooseFilmIndex: (id = 0) => ({
+  chooseFilmId: (id = 0) => ({
     type: ActionType.CHOOSE_FILM_INDEX,
     payload: id,
   }),

@@ -111,7 +111,7 @@ it(`Render App`, () => {
   const store = mockStore({
     [NameSpace.STATE]: {
       genre: Genres.ALL,
-      chosenFilm: films[0].id,
+      chosenFilmId: films[0].id,
     },
     [NameSpace.DATA]: {
       films,
@@ -129,7 +129,7 @@ it(`Render App`, () => {
             login={() => {}}
             authorizationStatus={AuthorizationStatus.NO_AUTH}
             chosenFilm={films[0]}
-            chooseFilmIndex={() => {}}
+            chooseFilmId={() => {}}
             getComments={() => {}}
           />
         </Provider>, {

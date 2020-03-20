@@ -36,7 +36,7 @@ it(`Action creators work correctly`, () => {
     payload: Genres.ALL,
   });
 
-  expect(ActionCreator.chooseFilmIndex()).toEqual({
+  expect(ActionCreator.chooseFilmId()).toEqual({
     type: ActionType.CHOOSE_FILM_INDEX,
     payload: 0,
   });
