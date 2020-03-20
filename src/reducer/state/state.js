@@ -3,12 +3,12 @@ import {Genres} from "../../consts.js";
 
 const initialState = {
   genre: Genres.ALL,
-  chosenFilmId: 0,
+  chosenFilm: 0,
 };
 
 const ActionType = {
   CHANGE_GENRE: `CHANGE_GENRE`,
-  CHOOSE_FILM_ID: `CHOOSE_FILM`,
+  CHOOSE_FILM_INDEX: `CHOOSE_FILM_INDEX`,
 };
 
 const ActionCreator = {
@@ -17,7 +17,7 @@ const ActionCreator = {
     payload: genre,
   }),
   chooseFilmId: (id = 0) => ({
-    type: ActionType.CHOOSE_FILM_ID,
+    type: ActionType.CHOOSE_FILM_INDEX,
     payload: id,
   }),
 };
@@ -28,9 +28,9 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         genre: action.payload,
       });
-    case ActionType.CHOOSE_FILM_ID:
+    case ActionType.CHOOSE_FILM_INDEX:
       return extend(state, {
-        chosenFilmId: action.payload,
+        chosenFilm: action.payload,
       });
   }
 

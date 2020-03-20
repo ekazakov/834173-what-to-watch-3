@@ -1,13 +1,7 @@
 import React from "react";
-import {Provider} from "react-redux";
-import configureStore from "redux-mock-store";
 import renderer from "react-test-renderer";
-import {App} from "./app.jsx";
-import {Genres} from "../../consts";
-import NameSpace from "../../reducer/name-space";
-import {AuthorizationStatus} from "../../consts.js";
-
-const mockStore = configureStore([]);
+import Tabs from "./tabs.jsx";
+import {TabsName} from "../../consts.js";
 
 const films = [
   {
@@ -107,37 +101,34 @@ const films = [
   },
 ];
 
-it(`Render App`, () => {
-  const store = mockStore({
-    [NameSpace.STATE]: {
-      genre: Genres.ALL,
-      chosenFilmId: films[0].id,
+const comments = [
+  {
+    id: 0,
+    user: {
+      id: 0,
+      name: `Kate`,
     },
-    [NameSpace.DATA]: {
-      films,
+    rating: 7.6,
+    comment: `OMG`,
+    date: `122`,
+  },
+  {
+    id: 1,
+    user: {
+      id: 0,
+      name: `David`,
     },
-    [NameSpace.USER]: {
-      authorizationStatus: AuthorizationStatus.NO_AUTH,
-    },
-  });
+    rating: 7.6,
+    comment: `OMG`,
+    date: `122`,
+  },
+];
 
-  const tree = renderer
-    .create(
-        <Provider store={store}>
-          <App
-            films={films}
-            login={() => {}}
-            authorizationStatus={AuthorizationStatus.NO_AUTH}
-            chosenFilm={films[0]}
-            chooseFilmId={() => {}}
-            getComments={() => {}}
-          />
-        </Provider>, {
-          createNodeMock: () => {
-            return {};
-          }
-        }
-    ).toJSON();
+it(`Should Tabs render correctly`, () => {
+  const tree = renderer.create(
+      <Tabs film={films[0]} changeTab={() => {}} currentTab={TabsName.OVERVIEW} comments={comments}/>
+  )
+    .toJSON();
 
   expect(tree).toMatchSnapshot();
 });

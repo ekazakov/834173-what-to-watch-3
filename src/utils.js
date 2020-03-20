@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
 };
@@ -38,6 +40,10 @@ export const getTextScore = (score) => {
   }
 
   return ``;
+};
+
+export const formatDate = (date) => {
+  return moment(date).format(`MMMM D, YYYY`);
 };
 
 export const normalizeFilmsData = (films) => films.map(normalizeFilmData);

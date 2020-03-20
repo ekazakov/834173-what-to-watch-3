@@ -63,9 +63,33 @@ const films = [
   },
 ];
 
+const comments = [
+  {
+    id: 0,
+    user: {
+      id: 0,
+      name: `Kate`,
+    },
+    rating: 7.6,
+    comment: `OMG`,
+    date: `122`,
+  },
+  {
+    id: 1,
+    user: {
+      id: 0,
+      name: `David`,
+    },
+    rating: 7.6,
+    comment: `OMG`,
+    date: `122`,
+  },
+];
+
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({
     films: [],
+    comments: [],
   });
 });
 
@@ -80,19 +104,48 @@ it(`Reducer should update films by load films`, () => {
   });
 });
 
+it(`Reducer should load comments by current film`, () => {
+  expect(reducer({
+    comments: [],
+  }, {
+    type: ActionType.LOAD_COMMENTS,
+    payload: comments,
+  })).toEqual({
+    comments,
+  });
+});
+
 describe(`Operation work correctly`, () => {
   it(`Should make a correct API call to /films`, () => {
     const apiMock = new MockAdapter(api);
     const dispatch = jest.fn();
     const filmsLoader = Operation.loadFilms();
 
-    apiMock.onGet(`/films`).reply(200, [{fake: true}]);
+    apiMock.onGet(`/films`).reply(200, [{}]);
 
     return filmsLoader(dispatch, () => {}, api)
       .then(() => {
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_FILMS,
+          payload: [{}],
+        });
+      });
+  });
+
+  it(`Should make a correct API call to /comments/1`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const filmId = films[1].id;
+    const commentsLoader = Operation.loadComments(filmId);
+
+    apiMock.onGet(`/comments/${filmId}`).reply(200, [{}]);
+
+    return commentsLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.LOAD_COMMENTS,
           payload: [{}],
         });
       });
