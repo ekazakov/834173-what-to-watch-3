@@ -2,7 +2,7 @@ import React from "react";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import renderer from "react-test-renderer";
-import {App} from "./app.jsx";
+import App from "./app.jsx";
 import {Genres, SHOWN_FILMS_DEFAULT} from "../../consts";
 import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus} from "../../consts.js";
@@ -29,7 +29,6 @@ it(`Render App`, () => {
     .create(
         <Provider store={store}>
           <App
-            films={films}
             login={() => {}}
             authorizationStatus={AuthorizationStatus.NO_AUTH}
             chooseFilmId={() => {}}
