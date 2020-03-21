@@ -9,6 +9,11 @@ import {getGenre, getGenres, getFilteredFilms} from "../../reducer/state/selecto
 const GenresList = (props) => {
   const {genre, genres, changeGenre, filteredFilms, onTitleOfFilmClick, resetFilmsAmount} = props;
 
+  const onGenreClick = (availableGenre) => {
+    changeGenre(availableGenre);
+    resetFilmsAmount(SHOWN_FILMS_DEFAULT);
+  };
+
   return (
     <React.Fragment>
       <ul className="catalog__genres-list">
@@ -16,10 +21,7 @@ const GenresList = (props) => {
           <li
             className={`catalog__genres-item ${genre === availableGenre ? `catalog__genres-item--active` : ``}`}
             key={availableGenre + index}>
-            <a className="catalog__genres-link" onClick={() => {
-              changeGenre(availableGenre);
-              resetFilmsAmount(SHOWN_FILMS_DEFAULT);
-            }}>
+            <a className="catalog__genres-link" onClick={() => onGenreClick(availableGenre)}>
               {availableGenre}
             </a>
           </li>
