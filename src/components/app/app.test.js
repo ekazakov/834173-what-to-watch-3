@@ -112,7 +112,7 @@ it(`Render App`, () => {
     [NameSpace.STATE]: {
       genre: Genres.ALL,
       chosenFilmId: films[0].id,
-      shownFilms: SHOWN_FILMS_DEFAULT
+      shownFilms: SHOWN_FILMS_DEFAULT,
     },
     [NameSpace.DATA]: {
       films,
@@ -130,7 +130,7 @@ it(`Render App`, () => {
             login={() => {}}
             authorizationStatus={AuthorizationStatus.NO_AUTH}
             chosenFilm={films[0]}
-            chooseFilmIndex={() => {}}
+            chooseFilmId={() => {}}
             getComments={() => {}}
           />
         </Provider>, {

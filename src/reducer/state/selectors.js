@@ -42,6 +42,13 @@ export const getFilteredFilms = createSelector(
     }
 );
 
+export const getHaveMoreFilms = (state) => {
+  const films = getFilteredFilms(state);
+  const shownFilms = getShownFilms(state);
+
+  return shownFilms < films.length;
+};
+
 export const getSimilarFilms = createSelector(
     getFilms,
     getChosenFilm,

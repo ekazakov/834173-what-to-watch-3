@@ -24,9 +24,9 @@ class App extends PureComponent {
   }
 
   onTitleOfFilmClick(id) {
-    const {chooseFilmIndex, getComments} = this.props;
+    const {chooseFilmId, getComments} = this.props;
 
-    chooseFilmIndex(id);
+    chooseFilmId(id);
     getComments(id);
   }
 
@@ -83,7 +83,7 @@ App.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
   film: filmProps,
   films: filmsProps,
-  chooseFilmIndex: PropTypes.func.isRequired,
+  chooseFilmId: PropTypes.func.isRequired,
   chosenFilm: filmProps,
   getComments: PropTypes.func.isRequired,
 };
@@ -98,8 +98,8 @@ const mapDispatchToProps = (dispatch) => ({
   login(authData) {
     dispatch(UserOperation.login(authData));
   },
-  chooseFilmIndex(id) {
-    dispatch(ActionCreator.chooseFilmIndex(id));
+  chooseFilmId(id) {
+    dispatch(ActionCreator.chooseFilmId(id));
   },
 });
 
