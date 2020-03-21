@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import {ActionCreator} from "../../reducer/state/state.js";
 import FilmsList from "../films-list/films-list.jsx";
 import {filmsProps, SHOWN_FILMS_DEFAULT} from "../../consts.js";
-import {getGenre, getGenres, getFilteredFilms} from "../../reducer/state/selectors.js";
+import {getGenre, getGenres, getFilteredFilms, getShownFilms} from "../../reducer/state/selectors.js";
 
 const GenresList = (props) => {
-  const {genre, genres, changeGenre, filteredFilms, onTitleOfFilmClick, resetFilmsAmount} = props;
+  const {genre, genres, changeGenre, filteredFilms, onTitleOfFilmClick, resetFilmsAmount, shownFilms} = props;
 
   const onGenreClick = (availableGenre) => {
     changeGenre(availableGenre);
@@ -29,6 +29,7 @@ const GenresList = (props) => {
       </ul>
 
       <FilmsList
+        shownFilms={shownFilms}
         films={filteredFilms}
         onTitleOfFilmClick={onTitleOfFilmClick}
       />
@@ -43,12 +44,14 @@ GenresList.propTypes = {
   genres: PropTypes.array.isRequired,
   onTitleOfFilmClick: PropTypes.func.isRequired,
   resetFilmsAmount: PropTypes.func.isRequired,
+  shownFilms: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   genre: getGenre(state),
   genres: getGenres(state),
   filteredFilms: getFilteredFilms(state),
+  shownFilms: getShownFilms(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

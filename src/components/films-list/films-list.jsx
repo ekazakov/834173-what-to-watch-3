@@ -2,8 +2,6 @@ import React, {PureComponent} from "react";
 import FilmCard from "../film-card/film-card.jsx";
 import withVideoPlayer from "../../hocs/with-video-player.jsx";
 import {filmsProps} from "../../consts.js";
-import {connect} from "react-redux";
-import {getShownFilms} from "../../reducer/state/selectors.js";
 import PropTypes from "prop-types";
 
 const FilmCardWrapper = withVideoPlayer(FilmCard);
@@ -35,9 +33,4 @@ FilmsList.propTypes = {
   shownFilms: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  shownFilms: getShownFilms(state),
-});
-
-export {FilmsList};
-export default connect(mapStateToProps)(FilmsList);
+export default FilmsList;
