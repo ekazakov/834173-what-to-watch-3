@@ -36,9 +36,8 @@ export const getGenres = createSelector(
 export const getFilteredFilms = createSelector(
     getFilms,
     getGenre,
-    getShownFilms,
-    (films, genre, shownFilms) => {
-      return genre === Genres.ALL ? films : films.filter((film) => film.genre === genre).slice(0, shownFilms);
+    (films, genre) => {
+      return genre === Genres.ALL ? films : films.filter((film) => film.genre === genre);
     }
 );
 

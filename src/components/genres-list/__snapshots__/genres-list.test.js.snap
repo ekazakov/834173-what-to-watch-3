@@ -6,13 +6,13 @@ Array [
     className="catalog__genres-list"
   >
     <li
-      className="catalog__genres-item "
+      className="catalog__genres-item catalog__genres-item--active"
     >
       <a
         className="catalog__genres-link"
         onClick={[Function]}
       >
-        all-genres
+        All-genres
       </a>
     </li>
     <li
@@ -23,66 +23,6 @@ Array [
         onClick={[Function]}
       >
         drama
-      </a>
-    </li>
-    <li
-      className="catalog__genres-item "
-    >
-      <a
-        className="catalog__genres-link"
-        onClick={[Function]}
-      >
-        comedy
-      </a>
-    </li>
-    <li
-      className="catalog__genres-item "
-    >
-      <a
-        className="catalog__genres-link"
-        onClick={[Function]}
-      >
-        thriller
-      </a>
-    </li>
-    <li
-      className="catalog__genres-item "
-    >
-      <a
-        className="catalog__genres-link"
-        onClick={[Function]}
-      >
-        romance
-      </a>
-    </li>
-    <li
-      className="catalog__genres-item "
-    >
-      <a
-        className="catalog__genres-link"
-        onClick={[Function]}
-      >
-        horror
-      </a>
-    </li>
-    <li
-      className="catalog__genres-item "
-    >
-      <a
-        className="catalog__genres-link"
-        onClick={[Function]}
-      >
-        history
-      </a>
-    </li>
-    <li
-      className="catalog__genres-item "
-    >
-      <a
-        className="catalog__genres-link"
-        onClick={[Function]}
-      >
-        fantasy
       </a>
     </li>
   </ul>,

@@ -30,7 +30,7 @@ const GenresList = (props) => {
 
       <FilmsList
         shownFilms={shownFilms}
-        films={filteredFilms}
+        films={filteredFilms.slice(0, shownFilms)}
         onTitleOfFilmClick={onTitleOfFilmClick}
       />
     </React.Fragment>
