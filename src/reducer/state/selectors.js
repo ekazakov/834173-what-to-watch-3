@@ -61,3 +61,11 @@ export const getSimilarFilms = createSelector(
       .slice(0, SAME_FILMS_COUNT);
     }
 );
+
+export const getLimitedFilms = createSelector(
+    getFilteredFilms,
+    getShownFilms,
+    (films, shownFilms) => {
+      return films.slice(0, shownFilms);
+    }
+);
