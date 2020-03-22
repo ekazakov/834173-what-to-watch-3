@@ -1,14 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import GenresList from "../genres-list/genres-list.jsx";
-import {connect} from "react-redux";
-import {AuthorizationStatus} from "../../consts";
-import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
-import {Link} from "react-router-dom";
 import ShowMore from "../show-more/show-more.jsx";
+import UserBlock from "../user-block/user-block.jsx";
 
 const Main = (props) => {
-  const {authorizationStatus, onTitleOfFilmClick} = props;
+  const {onTitleOfFilmClick} = props;
 
   return (
     <React.Fragment>
@@ -28,16 +25,7 @@ const Main = (props) => {
             </a>
           </div>
 
-          <div className="user-block">
-            {
-              authorizationStatus === AuthorizationStatus.NO_AUTH ?
-                <Link to="sign-in" className="user-block__link">Sign in</Link>
-                :
-                <div className="user-block__avatar">
-                  <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-                </div>
-            }
-          </div>
+          <UserBlock/>
         </header>
 
         <div className="movie-card__wrap">
@@ -99,14 +87,8 @@ const Main = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  authorizationStatus: getAuthorizationStatus(state),
-});
-
 Main.propTypes = {
-  authorizationStatus: PropTypes.string.isRequired,
   onTitleOfFilmClick: PropTypes.func.isRequired,
 };
 
-export {Main};
-export default connect(mapStateToProps)(Main);
+export default Main;

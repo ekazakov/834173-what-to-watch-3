@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should UserBlock render correctly Should render for authorization user 1`] = `
+<div
+  className="user-block"
+>
+  <div
+    className="user-block__avatar"
+  >
+    <img
+      alt="User avatar"
+      height="63"
+      src="img/avatar.jpg"
+      width="63"
+    />
+  </div>
+</div>
+`;
+
+exports[`Should UserBlock render correctly Should render for no-authorization user 1`] = `
+<div
+  className="user-block"
+>
+  <a
+    className="user-block__link"
+    href="/sign-in"
+    onClick={[Function]}
+  >
+    Sign in
+  </a>
+</div>
+`;

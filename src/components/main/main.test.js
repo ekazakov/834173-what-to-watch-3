@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {Main} from "./main.jsx";
+import Main from "./main.jsx";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import {Genres} from "../../consts.js";
@@ -31,7 +31,6 @@ it(`Should main render correctly`, () => {
         <Provider store={store}>
           <MemoryRouter>
             <Main
-              authorizationStatus={AuthorizationStatus.NO_AUTH}
               onTitleOfFilmClick={() => {}}
             />
           </MemoryRouter>
