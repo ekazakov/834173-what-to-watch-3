@@ -9,12 +9,12 @@ const FilmCardWrapper = withVideoPlayer(FilmCard);
 class FilmsList extends PureComponent {
 
   render() {
-    const {films, onTitleOfFilmClick, shownFilms} = this.props;
+    const {films, onTitleOfFilmClick} = this.props;
 
     return (
       <div className="catalog__movies-list">
 
-        {films.slice(0, shownFilms).map((movie) => (
+        {films.map((movie) => (
           <FilmCardWrapper
             key={`${movie.id}-${movie.name}`}
             film={movie}
@@ -30,7 +30,6 @@ class FilmsList extends PureComponent {
 FilmsList.propTypes = {
   films: filmsProps,
   onTitleOfFilmClick: PropTypes.func.isRequired,
-  shownFilms: PropTypes.number.isRequired,
 };
 
 export default FilmsList;
