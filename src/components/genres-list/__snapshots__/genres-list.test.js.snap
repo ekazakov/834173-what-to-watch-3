@@ -6,13 +6,13 @@ Array [
     className="catalog__genres-list"
   >
     <li
-      className="catalog__genres-item "
+      className="catalog__genres-item catalog__genres-item--active"
     >
       <a
         className="catalog__genres-link"
         onClick={[Function]}
       >
-        all-genres
+        All-genres
       </a>
     </li>
     <li
@@ -23,66 +23,6 @@ Array [
         onClick={[Function]}
       >
         drama
-      </a>
-    </li>
-    <li
-      className="catalog__genres-item "
-    >
-      <a
-        className="catalog__genres-link"
-        onClick={[Function]}
-      >
-        comedy
-      </a>
-    </li>
-    <li
-      className="catalog__genres-item "
-    >
-      <a
-        className="catalog__genres-link"
-        onClick={[Function]}
-      >
-        thriller
-      </a>
-    </li>
-    <li
-      className="catalog__genres-item "
-    >
-      <a
-        className="catalog__genres-link"
-        onClick={[Function]}
-      >
-        romance
-      </a>
-    </li>
-    <li
-      className="catalog__genres-item "
-    >
-      <a
-        className="catalog__genres-link"
-        onClick={[Function]}
-      >
-        horror
-      </a>
-    </li>
-    <li
-      className="catalog__genres-item "
-    >
-      <a
-        className="catalog__genres-link"
-        onClick={[Function]}
-      >
-        history
-      </a>
-    </li>
-    <li
-      className="catalog__genres-item "
-    >
-      <a
-        className="catalog__genres-link"
-        onClick={[Function]}
-      >
-        fantasy
       </a>
     </li>
   </ul>,
@@ -190,6 +130,84 @@ Array [
           onClick={[Function]}
         >
           The Notebook
+        </a>
+      </h3>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height="175"
+          muted={true}
+          width="100%"
+        />
+      </div>
+      <h3
+        className="small-movie-card__title"
+      >
+        <a
+          className="small-movie-card__link"
+          href="/dev-film"
+          onClick={[Function]}
+        >
+          Carri
+        </a>
+      </h3>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height="175"
+          muted={true}
+          width="100%"
+        />
+      </div>
+      <h3
+        className="small-movie-card__title"
+      >
+        <a
+          className="small-movie-card__link"
+          href="/dev-film"
+          onClick={[Function]}
+        >
+          Carri
+        </a>
+      </h3>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height="175"
+          muted={true}
+          width="100%"
+        />
+      </div>
+      <h3
+        className="small-movie-card__title"
+      >
+        <a
+          className="small-movie-card__link"
+          href="/dev-film"
+          onClick={[Function]}
+        >
+          Carri
         </a>
       </h3>
     </article>

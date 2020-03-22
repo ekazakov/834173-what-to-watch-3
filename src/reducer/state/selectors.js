@@ -15,13 +15,16 @@ export const getGenre = (state) => {
   return state[NameSpace.STATE].genre;
 };
 
+export const getShownFilms = (state) => {
+  return state[NameSpace.STATE].shownFilms;
+};
+
 export const getChosenFilm = (state) => {
   const films = getFilms(state);
   const id = state[NameSpace.STATE].chosenFilm;
 
   return films.find((film) => film.id === id);
 };
-
 
 export const getGenres = createSelector(
     getFilms,
@@ -37,6 +40,14 @@ export const getFilteredFilms = createSelector(
       return genre === Genres.ALL ? films : films.filter((film) => film.genre === genre);
     }
 );
+
+export const getHaveMoreFilms = (state) => {
+  const films = getFilteredFilms(state);
+  const shownFilms = getShownFilms(state);
+
+  return shownFilms < films.length;
+};
+
 export const getSimilarFilms = createSelector(
     getFilms,
     getChosenFilm,
