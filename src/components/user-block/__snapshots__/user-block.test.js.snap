@@ -23,7 +23,7 @@ exports[`Should UserBlock render correctly Should render for no-authorization us
 >
   <a
     className="user-block__link"
-    href="/sign-in"
+    href="/login"
     onClick={[Function]}
   >
     Sign in

@@ -62,7 +62,7 @@ class App extends PureComponent {
           <Route exact path="/">
             {this._renderMain()}
           </Route>
-          <Route exact path="/sign-in">
+          <Route exact path="/login">
             {authorizationStatus === AuthorizationStatus.NO_AUTH ?
               this._renderSignIn()
               :
