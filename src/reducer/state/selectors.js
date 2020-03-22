@@ -11,6 +11,10 @@ export const getComments = (state) => {
   return state[NameSpace.DATA].comments;
 };
 
+export const getPromoFilm = (state) => {
+  return state[NameSpace.DATA].promoFilm;
+};
+
 export const getGenre = (state) => {
   return state[NameSpace.STATE].genre;
 };

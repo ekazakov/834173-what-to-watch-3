@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import GenresList from "../genres-list/genres-list.jsx";
 import ShowMore from "../show-more/show-more.jsx";
 import UserBlock from "../user-block/user-block.jsx";
+import {filmProps} from "../../consts";
 
 const Main = (props) => {
-  const {onTitleOfFilmClick} = props;
+  const {onTitleOfFilmClick, promoFilm} = props;
 
   return (
     <React.Fragment>
@@ -31,14 +32,14 @@ const Main = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327"/>
+              <img src={promoFilm.posterBig} alt={promoFilm.name} width="218" height="327"/>
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">The Grand Budapest</h2>
+              <h2 className="movie-card__title">{promoFilm.name}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">comedy</span>
-                <span className="movie-card__year">1998</span>
+                <span className="movie-card__genre">{promoFilm.genre}</span>
+                <span className="movie-card__year">{promoFilm.year}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -89,6 +90,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   onTitleOfFilmClick: PropTypes.func.isRequired,
+  promoFilm: filmProps,
 };
 
 export default Main;

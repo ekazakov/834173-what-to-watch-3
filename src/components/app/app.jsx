@@ -10,9 +10,8 @@ import SignIn from "../sign-in/sign-in.jsx";
 import withAuthInformation from "../../hocs/with-auth-information.jsx";
 import FilmDetails from "../film-details/film-details.jsx";
 import {filmProps, filmsProps} from "../../consts";
-import {getFilms, getChosenFilm} from "../../reducer/state/selectors.js";
+import {getFilms, getChosenFilm, getPromoFilm} from "../../reducer/state/selectors.js";
 import {ActionCreator} from "../../reducer/state/state.js";
-
 const SignInWrapper = withAuthInformation(SignIn);
 
 class App extends PureComponent {
@@ -39,8 +38,10 @@ class App extends PureComponent {
   }
 
   _renderMain() {
+    const {promoFilm} = this.props;
+
     return (
-      <Main onTitleOfFilmClick={this.onTitleOfFilmClick}/>
+      <Main onTitleOfFilmClick={this.onTitleOfFilmClick} promoFilm={promoFilm}/>
     );
   }
 
@@ -86,12 +87,14 @@ App.propTypes = {
   chooseFilmId: PropTypes.func.isRequired,
   chosenFilm: filmProps,
   getComments: PropTypes.func.isRequired,
+  promoFilm: filmProps,
 };
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatus(state),
   films: getFilms(state),
   chosenFilm: getChosenFilm(state),
+  promoFilm: getPromoFilm(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
