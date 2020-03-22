@@ -29,7 +29,6 @@ const GenresList = (props) => {
       </ul>
 
       <FilmsList
-        shownFilms={shownFilms}
         films={filteredFilms.slice(0, shownFilms)}
         onTitleOfFilmClick={onTitleOfFilmClick}
       />
