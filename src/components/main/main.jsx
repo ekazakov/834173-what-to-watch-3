@@ -4,9 +4,10 @@ import GenresList from "../genres-list/genres-list.jsx";
 import ShowMore from "../show-more/show-more.jsx";
 import UserBlock from "../user-block/user-block.jsx";
 import {filmProps} from "../../consts";
+import {Link} from "react-router-dom";
 
 const Main = (props) => {
-  const {onTitleOfFilmClick, promoFilm} = props;
+  const {onTitleOfFilmClick, promoFilm, onActivePlayerButtonClick} = props;
 
   return (
     <React.Fragment>
@@ -43,12 +44,12 @@ const Main = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <Link to="dev-player" className="btn btn--play movie-card__button" onClick={onActivePlayerButtonClick}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s" />
                   </svg>
                   <span>Play</span>
-                </button>
+                </Link>
                 <button className="btn btn--list movie-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add" />
@@ -90,6 +91,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   onTitleOfFilmClick: PropTypes.func.isRequired,
+  onActivePlayerButtonClick: PropTypes.func.isRequired,
   promoFilm: filmProps,
 };
 
