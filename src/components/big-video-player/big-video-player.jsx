@@ -4,21 +4,21 @@ import {filmProps} from "../../consts";
 import {Link} from "react-router-dom";
 
 const BigVideoPlayer = (props) => {
-  const {playerRef, film, isPlaying, onPlayClick} = props;
+  const {playerRef, film, isPlaying, onPlayClick, onFullScreenClick, onLoadMetadata, onTimeUpdate, progress, remainingTime} = props;
 
   return (
     <div className="player">
-      <video className="player__video" ref={playerRef} src={film.video} poster={film.background} width="100%" />
+      <video className="player__video" ref={playerRef} onLoadedMetadata={onLoadMetadata} onTimeUpdate={onTimeUpdate} src={film.video} poster={film.background} width="100%" />
 
       <Link to="dev-film" className="player__exit">Exit</Link>
 
       <div className="player__controls">
         <div className="player__controls-row">
           <div className="player__time">
-            <progress className="player__progress" value="30" max="100"/>
-            <div className="player__toggler" style={{left: 30 + `%`}}>Toggler</div>
+            <progress className="player__progress" value={progress} max="100"/>
+            <div className="player__toggler" style={{left: `${progress}` + `%`}}>Toggler</div>
           </div>
-          <div className="player__time-value">1:30:29</div>
+          <div className="player__time-value">{remainingTime}</div>
         </div>
 
         <div className="player__controls-row">
@@ -40,7 +40,7 @@ const BigVideoPlayer = (props) => {
           </button>
           <div className="player__name">Transpotting</div>
 
-          <button type="button" className="player__full-screen">
+          <button type="button" className="player__full-screen" onClick={onFullScreenClick}>
             <svg viewBox="0 0 27 27" width="27" height="27">
               <use xlinkHref="#full-screen"/>
             </svg>
@@ -60,6 +60,11 @@ BigVideoPlayer.propTypes = {
     PropTypes.shape({current: PropTypes.instanceOf(Element)})
   ]).isRequired,
   onPlayClick: PropTypes.func.isRequired,
+  onFullScreenClick: PropTypes.func.isRequired,
+  onLoadMetadata: PropTypes.func.isRequired,
+  onTimeUpdate: PropTypes.func.isRequired,
+  progress: PropTypes.string.isRequired,
+  remainingTime: PropTypes.string.isRequired,
 };
 
 export default BigVideoPlayer;

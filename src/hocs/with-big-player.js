@@ -1,6 +1,7 @@
 import React, {PureComponent, createRef} from "react";
 import PropTypes from "prop-types";
 import {filmProps} from "../consts";
+import {getProgress, getRemainingTime} from "../utils.js"
 
 const withBigPlayer = (Component) => {
   class WithBigPlayer extends PureComponent {
@@ -15,11 +16,10 @@ const withBigPlayer = (Component) => {
 
       this._playerRef = createRef();
 
-      //  Обработчики:
-      //  обновление времени
-      //  перехода в полноэкранный режим
-
       this._handleVideoPlay = this._handleVideoPlay.bind(this);
+      this._handleFullScreen = this._handleFullScreen.bind(this);
+      this._handleLoadMetadata = this._handleLoadMetadata.bind(this);
+      this._handleTimeUpdate = this._handleTimeUpdate.bind(this);
     }
 
     _handleVideoPlay() {
@@ -36,7 +36,27 @@ const withBigPlayer = (Component) => {
           isPlaying: false,
         });
       }
-    };
+    }
+
+    _handleFullScreen() {
+      const player = this._playerRef.current;
+
+      player.requestFullscreen();
+    }
+
+    _handleLoadMetadata(evt) {
+
+      this.setState({
+        duration: Math.floor(evt.target.duration),
+      });
+    }
+
+    _handleTimeUpdate(evt) {
+
+      this.setState({
+        progress: Math.floor(evt.target.currentTime),
+      });
+    }
 
     componentWillUnmount() {
       const player = this._playerRef.current;
@@ -57,6 +77,11 @@ const withBigPlayer = (Component) => {
           isPlaying={isPlaying}
           isActivePlayer={isActive}
           onPlayClick={this._handleVideoPlay}
+          onFullScreenClick={this._handleFullScreen}
+          onLoadMetadata={this._handleLoadMetadata}
+          onTimeUpdate={this._handleTimeUpdate}
+          progress={getProgress(this.state.duration, this.state.progress)}
+          remainingTime={getRemainingTime(this.state.duration, this.state.progress)}
         />
       );
     }
