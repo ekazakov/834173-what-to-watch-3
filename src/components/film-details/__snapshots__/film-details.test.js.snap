@@ -88,9 +88,10 @@ Array [
           <div
             className="movie-card__buttons"
           >
-            <button
+            <a
               className="btn btn--play movie-card__button"
-              type="button"
+              href="/dev-player"
+              onClick={[Function]}
             >
               <svg
                 height="19"
@@ -104,7 +105,7 @@ Array [
               <span>
                 Play
               </span>
-            </button>
+            </a>
             <button
               className="btn btn--list movie-card__button"
               type="button"

@@ -1,7 +1,6 @@
 import React, {PureComponent, createRef} from "react";
-import PropTypes from "prop-types";
 import {filmProps} from "../consts";
-import {getProgress, getRemainingTime} from "../utils.js"
+import {getProgress, getRemainingTime} from "../utils.js";
 
 const withBigPlayer = (Component) => {
   class WithBigPlayer extends PureComponent {

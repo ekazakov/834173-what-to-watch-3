@@ -63,7 +63,7 @@ BigVideoPlayer.propTypes = {
   onFullScreenClick: PropTypes.func.isRequired,
   onLoadMetadata: PropTypes.func.isRequired,
   onTimeUpdate: PropTypes.func.isRequired,
-  progress: PropTypes.string.isRequired,
+  progress: PropTypes.number.isRequired,
   remainingTime: PropTypes.string.isRequired,
 };
 
