@@ -13,7 +13,7 @@ import {Link} from "react-router-dom";
 const TabsWrapper = withCurrentTab(Tabs);
 
 const FilmDetails = (props) => {
-  const {film, onTitleOfFilmClick, similarFilms, comments, onActivePlayerButtonClick} = props;
+  const {film, onTitleOfFilmClick, similarFilms, comments, onActivePlayerButtonClick, onAddReviewButtonClick} = props;
 
   return (
     <React.Fragment>
@@ -58,7 +58,7 @@ const FilmDetails = (props) => {
                   </svg>
                   <span>My list</span>
                 </button>
-                <a href="add-review.html" className="btn movie-card__button">Add review</a>
+                <Link to="dev-review" className="btn movie-card__button" onClick={onAddReviewButtonClick}>Add review</Link>
               </div>
             </div>
           </div>
@@ -110,6 +110,7 @@ FilmDetails.propTypes = {
   onTitleOfFilmClick: PropTypes.func.isRequired,
   comments: commentsProps,
   onActivePlayerButtonClick: PropTypes.func.isRequired,
+  onAddReviewButtonClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -14,6 +14,7 @@ import {getFilms, getChosenFilm, getPromoFilm} from "../../reducer/state/selecto
 import {ActionCreator} from "../../reducer/state/state.js";
 import BigVideoPlayer from "../big-video-player/big-video-player.jsx";
 import withBigVideoPlayer from "../../hocs/with-big-player.jsx";
+import AddReview from "../add-review/add-review.jsx";
 
 const SignInWrapper = withAuthInformation(SignIn);
 const BigPlayerWrapper = withBigVideoPlayer(BigVideoPlayer);
@@ -24,7 +25,7 @@ class App extends PureComponent {
     super(props);
 
     this.onTitleOfFilmClick = this.onTitleOfFilmClick.bind(this);
-    this.onActivePlayerButtonClick = this.onActivePlayerButtonClick.bind(this);
+    this.onChoseFilmButtonClick = this.onChoseFilmButtonClick.bind(this);
   }
 
   onTitleOfFilmClick(id) {
@@ -34,7 +35,7 @@ class App extends PureComponent {
     getComments(id);
   }
 
-  onActivePlayerButtonClick(id) {
+  onChoseFilmButtonClick(id) {
     const {chooseFilmId} = this.props;
 
     chooseFilmId(id);
@@ -53,7 +54,7 @@ class App extends PureComponent {
     const {promoFilm} = this.props;
 
     return (
-      <Main promoFilm={promoFilm} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onActivePlayerButtonClick(promoFilm.id)}/>
+      <Main promoFilm={promoFilm} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(promoFilm.id)}/>
     );
   }
 
@@ -61,7 +62,7 @@ class App extends PureComponent {
     const {films, chosenFilm} = this.props;
 
     return (
-      <FilmDetails film={chosenFilm} films={films} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onActivePlayerButtonClick(chosenFilm.id)}/>
+      <FilmDetails film={chosenFilm} films={films} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)} onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}/>
     );
   }
 
@@ -70,6 +71,14 @@ class App extends PureComponent {
 
     return (
       <BigPlayerWrapper film={chosenFilm} />
+    );
+  }
+
+  _renderAddReview() {
+    const {chosenFilm} = this.props;
+
+    return (
+      <AddReview onSubmit={() => {}} film={chosenFilm}/>
     );
   }
 
@@ -95,6 +104,9 @@ class App extends PureComponent {
           </Route>
           <Route exact path="/dev-player">
             {this._renderBigPlayer()}
+          </Route>
+          <Route exact path="/dev-review">
+            {this._renderAddReview()}
           </Route>
         </Switch>
       </BrowserRouter>
