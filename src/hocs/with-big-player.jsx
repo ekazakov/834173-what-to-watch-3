@@ -57,12 +57,6 @@ const withBigPlayer = (Component) => {
       });
     }
 
-    componentDidMount() {
-      const player = this._playerRef.current;
-
-      player.controls = false;
-    }
-
     componentWillUnmount() {
       const player = this._playerRef.current;
 

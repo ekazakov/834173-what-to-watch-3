@@ -13,7 +13,7 @@ import {filmProps, filmsProps} from "../../consts";
 import {getFilms, getChosenFilm, getPromoFilm} from "../../reducer/state/selectors.js";
 import {ActionCreator} from "../../reducer/state/state.js";
 import BigVideoPlayer from "../big-video-player/big-video-player.jsx";
-import withBigVideoPlayer from "../../hocs/with-big-player.js";
+import withBigVideoPlayer from "../../hocs/with-big-player.jsx";
 
 const SignInWrapper = withAuthInformation(SignIn);
 const BigPlayerWrapper = withBigVideoPlayer(BigVideoPlayer);
