@@ -4,7 +4,7 @@ import {normalizeFilmsData, normalizeFilmData} from "../../utils.js";
 const initialState = {
   films: [],
   comments: [],
-  promoFilm: {},
+  promoFilm: null,
 };
 
 const ActionType = {

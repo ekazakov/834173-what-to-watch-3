@@ -21,14 +21,11 @@ it(`Should title of movie be pressed`, () => {
   );
 
   const titlesOfMovie = main.find(`.small-movie-card__link`);
-  const playButton = main.find(`.btn--play.movie-card__button`);
 
   titlesOfMovie.forEach((title) => {
     title.props().onClick();
   });
 
-  playButton.props().onClick();
 
   expect(onTitleOfFilmClick).toHaveBeenCalledTimes(titlesOfMovie.length);
-  expect(onActivePlayerButtonClick).toHaveBeenCalledTimes(1);
 });

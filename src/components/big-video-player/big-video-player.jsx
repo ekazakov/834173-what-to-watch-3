@@ -38,7 +38,7 @@ const BigVideoPlayer = (props) => {
               </React.Fragment>
             )}
           </button>
-          <div className="player__name">Transpotting</div>
+          <div className="player__name">{film.name}</div>
 
           <button type="button" className="player__full-screen" onClick={onFullScreenClick}>
             <svg viewBox="0 0 27 27" width="27" height="27">
@@ -63,7 +63,7 @@ BigVideoPlayer.propTypes = {
   onFullScreenClick: PropTypes.func.isRequired,
   onLoadMetadata: PropTypes.func.isRequired,
   onTimeUpdate: PropTypes.func.isRequired,
-  progress: PropTypes.number.isRequired,
+  progress: PropTypes.string.isRequired,
   remainingTime: PropTypes.string.isRequired,
 };
 

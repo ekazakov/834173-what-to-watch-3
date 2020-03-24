@@ -105,7 +105,6 @@ class App extends PureComponent {
 App.propTypes = {
   login: PropTypes.func.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
-  film: filmProps,
   films: filmsProps,
   chooseFilmId: PropTypes.func.isRequired,
   chosenFilm: filmProps,

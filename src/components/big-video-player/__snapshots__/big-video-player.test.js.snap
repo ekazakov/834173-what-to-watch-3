@@ -31,7 +31,7 @@ exports[`Should BigVideoPlayer render correctly 1`] = `
         <progress
           className="player__progress"
           max="100"
-          value={10}
+          value="10"
         />
         <div
           className="player__toggler"
@@ -74,7 +74,7 @@ exports[`Should BigVideoPlayer render correctly 1`] = `
       <div
         className="player__name"
       >
-        Transpotting
+        Harry Potter and the Goblet of Fire
       </div>
       <button
         className="player__full-screen"

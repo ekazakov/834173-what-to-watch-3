@@ -14,7 +14,7 @@ it(`Should BigVideoPlayer render correctly`, () => {
           onFullScreenClick={() => {}}
           onLoadMetadata={() => {}}
           onTimeUpdate={() => {}}
-          progress={10}
+          progress={`10`}
           remainingTime={`00:00:00`}
           film={films[0]}
         />
