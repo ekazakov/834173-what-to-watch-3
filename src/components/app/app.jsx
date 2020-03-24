@@ -15,9 +15,12 @@ import {ActionCreator} from "../../reducer/state/state.js";
 import BigVideoPlayer from "../big-video-player/big-video-player.jsx";
 import withBigVideoPlayer from "../../hocs/with-big-player.jsx";
 import AddReview from "../add-review/add-review.jsx";
+import {Operation as CommentOperation} from "../../reducer/comment/comment.js";
+import withNewComment from "../../hocs/with-new-comment.jsx";
 
 const SignInWrapper = withAuthInformation(SignIn);
 const BigPlayerWrapper = withBigVideoPlayer(BigVideoPlayer);
+const AddReviewWrapper = withNewComment(AddReview);
 
 class App extends PureComponent {
 
@@ -75,10 +78,10 @@ class App extends PureComponent {
   }
 
   _renderAddReview() {
-    const {chosenFilm} = this.props;
+    const {chosenFilm, postComment} = this.props;
 
     return (
-      <AddReview onSubmit={() => {}} film={chosenFilm}/>
+      <AddReviewWrapper onSubmit={postComment} film={chosenFilm}/>
     );
   }
 
@@ -122,6 +125,7 @@ App.propTypes = {
   chosenFilm: filmProps,
   getComments: PropTypes.func.isRequired,
   promoFilm: filmProps,
+  postComment: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -138,6 +142,9 @@ const mapDispatchToProps = (dispatch) => ({
   chooseFilmId(id) {
     dispatch(ActionCreator.chooseFilmId(id));
   },
+  postComment(commentData) {
+    dispatch(CommentOperation.postComment(commentData));
+  }
 });
 
 export {App};
