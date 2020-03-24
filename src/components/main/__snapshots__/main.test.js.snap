@@ -49,7 +49,7 @@ Array [
       >
         <a
           className="user-block__link"
-          href="/sign-in"
+          href="/login"
           onClick={[Function]}
         >
           Sign in
@@ -66,9 +66,9 @@ Array [
           className="movie-card__poster"
         >
           <img
-            alt="The Grand Budapest Hotel poster"
+            alt="Harry Potter and the Goblet of Fire"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src="https://unsplash.it/280/175/"
             width="218"
           />
         </div>
@@ -78,7 +78,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            The Grand Budapest
+            Harry Potter and the Goblet of Fire
           </h2>
           <p
             className="movie-card__meta"
@@ -86,20 +86,21 @@ Array [
             <span
               className="movie-card__genre"
             >
-              comedy
+              drama
             </span>
             <span
               className="movie-card__year"
             >
-              1998
+              2067
             </span>
           </p>
           <div
             className="movie-card__buttons"
           >
-            <button
+            <a
               className="btn btn--play movie-card__button"
-              type="button"
+              href="/dev-player"
+              onClick={[Function]}
             >
               <svg
                 height="19"
@@ -113,7 +114,7 @@ Array [
               <span>
                 Play
               </span>
-            </button>
+            </a>
             <button
               className="btn btn--list movie-card__button"
               type="button"

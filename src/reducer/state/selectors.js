@@ -11,6 +11,10 @@ export const getComments = (state) => {
   return state[NameSpace.DATA].comments;
 };
 
+export const getPromoFilm = (state) => {
+  return state[NameSpace.DATA].promoFilm;
+};
+
 export const getGenre = (state) => {
   return state[NameSpace.STATE].genre;
 };
@@ -55,5 +59,13 @@ export const getSimilarFilms = createSelector(
       return films.filter(
           (sameFilm) => sameFilm.genre === film.genre && sameFilm.name !== film.name)
       .slice(0, SAME_FILMS_COUNT);
+    }
+);
+
+export const getLimitedFilms = createSelector(
+    getFilteredFilms,
+    getShownFilms,
+    (films, shownFilms) => {
+      return films.slice(0, shownFilms);
     }
 );

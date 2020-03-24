@@ -10,10 +10,13 @@ import SignIn from "../sign-in/sign-in.jsx";
 import withAuthInformation from "../../hocs/with-auth-information.jsx";
 import FilmDetails from "../film-details/film-details.jsx";
 import {filmProps, filmsProps} from "../../consts";
-import {getFilms, getChosenFilm} from "../../reducer/state/selectors.js";
+import {getFilms, getChosenFilm, getPromoFilm} from "../../reducer/state/selectors.js";
 import {ActionCreator} from "../../reducer/state/state.js";
+import BigVideoPlayer from "../big-video-player/big-video-player.jsx";
+import withBigVideoPlayer from "../../hocs/with-big-player.jsx";
 
 const SignInWrapper = withAuthInformation(SignIn);
+const BigPlayerWrapper = withBigVideoPlayer(BigVideoPlayer);
 
 class App extends PureComponent {
 
@@ -21,6 +24,7 @@ class App extends PureComponent {
     super(props);
 
     this.onTitleOfFilmClick = this.onTitleOfFilmClick.bind(this);
+    this.onActivePlayerButtonClick = this.onActivePlayerButtonClick.bind(this);
   }
 
   onTitleOfFilmClick(id) {
@@ -29,6 +33,13 @@ class App extends PureComponent {
     chooseFilmId(id);
     getComments(id);
   }
+
+  onActivePlayerButtonClick(id) {
+    const {chooseFilmId} = this.props;
+
+    chooseFilmId(id);
+  }
+
 
   _renderSignIn() {
     const {login} = this.props;
@@ -39,8 +50,10 @@ class App extends PureComponent {
   }
 
   _renderMain() {
+    const {promoFilm} = this.props;
+
     return (
-      <Main onTitleOfFilmClick={this.onTitleOfFilmClick}/>
+      <Main promoFilm={promoFilm} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onActivePlayerButtonClick(promoFilm.id)}/>
     );
   }
 
@@ -48,7 +61,15 @@ class App extends PureComponent {
     const {films, chosenFilm} = this.props;
 
     return (
-      <FilmDetails film={chosenFilm} films={films} onTitleOfFilmClick={this.onTitleOfFilmClick}/>
+      <FilmDetails film={chosenFilm} films={films} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onActivePlayerButtonClick(chosenFilm.id)}/>
+    );
+  }
+
+  _renderBigPlayer() {
+    const {chosenFilm} = this.props;
+
+    return (
+      <BigPlayerWrapper film={chosenFilm} />
     );
   }
 
@@ -62,7 +83,7 @@ class App extends PureComponent {
           <Route exact path="/">
             {this._renderMain()}
           </Route>
-          <Route exact path="/sign-in">
+          <Route exact path="/login">
             {authorizationStatus === AuthorizationStatus.NO_AUTH ?
               this._renderSignIn()
               :
@@ -71,6 +92,9 @@ class App extends PureComponent {
           </Route>
           <Route exact path="/dev-film">
             {this._renderFilmDetails()}
+          </Route>
+          <Route exact path="/dev-player">
+            {this._renderBigPlayer()}
           </Route>
         </Switch>
       </BrowserRouter>
@@ -81,17 +105,18 @@ class App extends PureComponent {
 App.propTypes = {
   login: PropTypes.func.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
-  film: filmProps,
   films: filmsProps,
   chooseFilmId: PropTypes.func.isRequired,
   chosenFilm: filmProps,
   getComments: PropTypes.func.isRequired,
+  promoFilm: filmProps,
 };
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatus(state),
   films: getFilms(state),
   chosenFilm: getChosenFilm(state),
+  promoFilm: getPromoFilm(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

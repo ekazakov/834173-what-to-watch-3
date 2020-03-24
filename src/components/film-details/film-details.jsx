@@ -7,11 +7,13 @@ import {connect} from "react-redux";
 import {getSimilarFilms, getComments} from "../../reducer/state/selectors.js";
 import FilmsList from "../films-list/films-list.jsx";
 import {commentsProps} from "../../consts";
+import UserBlock from "../user-block/user-block.jsx";
+import {Link} from "react-router-dom";
 
 const TabsWrapper = withCurrentTab(Tabs);
 
 const FilmDetails = (props) => {
-  const {film, onTitleOfFilmClick, similarFilms, comments} = props;
+  const {film, onTitleOfFilmClick, similarFilms, comments, onActivePlayerButtonClick} = props;
 
   return (
     <React.Fragment>
@@ -32,11 +34,7 @@ const FilmDetails = (props) => {
               </a>
             </div>
 
-            <div className="user-block">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-              </div>
-            </div>
+            <UserBlock/>
           </header>
 
           <div className="movie-card__wrap">
@@ -48,15 +46,15 @@ const FilmDetails = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <Link to="dev-player" className="btn btn--play movie-card__button" onClick={onActivePlayerButtonClick}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
+                    <use xlinkHref="#play-s" />
                   </svg>
                   <span>Play</span>
-                </button>
+                </Link>
                 <button className="btn btn--list movie-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
+                    <use xlinkHref="#add" />
                   </svg>
                   <span>My list</span>
                 </button>
@@ -111,6 +109,7 @@ FilmDetails.propTypes = {
   similarFilms: filmsProps,
   onTitleOfFilmClick: PropTypes.func.isRequired,
   comments: commentsProps,
+  onActivePlayerButtonClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

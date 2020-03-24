@@ -19,6 +19,7 @@ it(`Render App`, () => {
     },
     [NameSpace.DATA]: {
       films,
+      promoFilm: films[0],
     },
     [NameSpace.USER]: {
       authorizationStatus: AuthorizationStatus.NO_AUTH,
