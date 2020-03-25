@@ -59,4 +59,5 @@ export const TabsName = {
 export const AppRoute = {
   ROOT: `/`,
   LOGIN: `/login`,
+  FAVORITE: `/myList`,
 };
