@@ -5,7 +5,6 @@ import Main from "../main/main.jsx";
 import {getAuthorizationStatus} from "../../reducer/user/selectors";
 import {connect} from "react-redux";
 import {Operation as UserOperation} from "../../reducer/user/user.js";
-import {AuthorizationStatus} from "../../consts.js";
 import SignIn from "../sign-in/sign-in.jsx";
 import withAuthInformation from "../../hocs/with-auth-information.jsx";
 import FilmDetails from "../film-details/film-details.jsx";

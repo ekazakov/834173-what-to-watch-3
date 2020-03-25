@@ -6,6 +6,7 @@ import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus} from "../../consts";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
+import {MemoryRouter} from "react-router-dom";
 
 const mockStore = configureStore([]);
 
@@ -18,14 +19,16 @@ it(`Should AddReview render correctly`, () => {
 
   const tree = renderer.create(
       <Provider store={store}>
-        <AddReview
-          onSubmit={() => {}}
-          onTextChange={() => {}}
-          onRatingChange={() => {}}
-          buttonIsAvailable={true}
-          formIsAvailable={true}
-          film={films[0]}
-        />
+        <MemoryRouter>
+          <AddReview
+            onSubmit={() => {}}
+            onTextChange={() => {}}
+            onRatingChange={() => {}}
+            buttonIsAvailable={true}
+            formIsAvailable={true}
+            film={films[0]}
+          />
+        </MemoryRouter>
       </Provider>
 
   ).toJSON();

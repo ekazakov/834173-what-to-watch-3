@@ -1,6 +1,5 @@
 import {extend} from "../../utils.js";
 import {normalizeFilmsData, normalizeFilmData} from "../../utils.js";
-import NameSpace from "../name-space";
 
 const initialState = {
   films: [],
