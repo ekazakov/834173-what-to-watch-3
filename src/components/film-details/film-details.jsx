@@ -17,6 +17,8 @@ const TabsWrapper = withCurrentTab(Tabs);
 const FilmDetails = (props) => {
   const {film, onTitleOfFilmClick, similarFilms, comments, onActivePlayerButtonClick, onAddReviewButtonClick, authorizationStatus} = props;
 
+  console.log(film.favorite)
+
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">

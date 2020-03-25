@@ -66,3 +66,8 @@ export const AppRoute = {
   LOGIN: `/login`,
   FAVORITE: `/myList`,
 };
+
+export const FavoriteStatus = {
+  ADD: 1,
+  DELETE: 0,
+};
