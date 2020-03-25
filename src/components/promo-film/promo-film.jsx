@@ -1,7 +1,8 @@
 import React from "react";
-import {filmProps, AppRoute} from "../../consts.js";
+import {filmProps} from "../../consts.js";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
+import MyListButton from "../my-list-button/my-list-button.jsx";
 
 const PromoFilm = (props) => {
   const {promoFilm, onActivePlayerButtonClick} = props;
@@ -27,18 +28,7 @@ const PromoFilm = (props) => {
               </svg>
               <span>Play</span>
             </Link>
-            <button type="button" className="btn btn--list movie-card__button">
-              {promoFilm.favorite ? (
-                <svg viewBox="0 0 18 14" width="18" height="14">
-                  <use xlinkHref="#in-list"/>
-                </svg>
-              ) : (
-                <svg viewBox="0 0 19 20" width="19" height="20">
-                  <use xlinkHref="#add" />
-                </svg>
-              )}
-              <span>My list</span>
-            </button>
+            <MyListButton film={promoFilm}/>
           </div>
         </div>
       </div>
