@@ -67,14 +67,13 @@ const withBigPlayer = (Component) => {
     }
 
     render() {
-      const {isPlaying, isActive} = this.state;
+      const {isPlaying} = this.state;
 
       return (
         <Component
           {...this.props}
           playerRef={this._playerRef}
           isPlaying={isPlaying}
-          isActivePlayer={isActive}
           onPlayClick={this._handleVideoPlay}
           onFullScreenClick={this._handleFullScreen}
           onLoadMetadata={this._handleLoadMetadata}

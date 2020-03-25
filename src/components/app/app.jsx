@@ -15,7 +15,7 @@ import {ActionCreator} from "../../reducer/state/state.js";
 import BigVideoPlayer from "../big-video-player/big-video-player.jsx";
 import withBigVideoPlayer from "../../hocs/with-big-player.jsx";
 import AddReview from "../add-review/add-review.jsx";
-import {Operation as CommentOperation} from "../../reducer/comment/comment.js";
+import {Operation as DataOperation} from "../../reducer/data/data.js";
 import withNewComment from "../../hocs/with-new-comment.jsx";
 
 const SignInWrapper = withAuthInformation(SignIn);
@@ -142,8 +142,8 @@ const mapDispatchToProps = (dispatch) => ({
   chooseFilmId(id) {
     dispatch(ActionCreator.chooseFilmId(id));
   },
-  postComment(commentData) {
-    dispatch(CommentOperation.postComment(commentData));
+  postComment(commentData, onSuccess, onError) {
+    dispatch(DataOperation.postComment(commentData, onSuccess, onError));
   }
 });
 

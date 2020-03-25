@@ -53,6 +53,19 @@ const Operation = {
         dispatch(ActionCreator.loadPromoFilm(normalizeFilmData(response.data)));
       });
   },
+  postComment: (commentData, onSuccess, onError) => (dispatch, getState, api) => {
+    return api.post(`/comments/${commentData.id}`, {
+      rating: commentData.rating,
+      comment: commentData.comment,
+    })
+      .then(() => {
+        dispatch(Operation.loadComments(commentData.id));
+        onSuccess();
+      })
+      .catch(() => {
+        onError();
+      });
+  },
 };
 
 const reducer = (state = initialState, action) => {
