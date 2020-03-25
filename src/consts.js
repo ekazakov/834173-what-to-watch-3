@@ -55,3 +55,8 @@ export const TabsName = {
   DETAILS: `Details`,
   REVIEWS: `Reviews`,
 };
+
+export const AppRoute = {
+  ROOT: `/`,
+  LOGIN: `/login`,
+};
