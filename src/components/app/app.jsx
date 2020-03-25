@@ -15,9 +15,13 @@ import {ActionCreator} from "../../reducer/state/state.js";
 import BigVideoPlayer from "../big-video-player/big-video-player.jsx";
 import withBigVideoPlayer from "../../hocs/with-big-player.jsx";
 import history from "../../history.js";
+import AddReview from "../add-review/add-review.jsx";
+import {Operation as DataOperation} from "../../reducer/data/data.js";
+import withNewComment from "../../hocs/with-new-comment.jsx";
 
 const SignInWrapper = withAuthInformation(SignIn);
 const BigPlayerWrapper = withBigVideoPlayer(BigVideoPlayer);
+const AddReviewWrapper = withNewComment(AddReview);
 
 class App extends PureComponent {
 
@@ -25,7 +29,7 @@ class App extends PureComponent {
     super(props);
 
     this.onTitleOfFilmClick = this.onTitleOfFilmClick.bind(this);
-    this.onActivePlayerButtonClick = this.onActivePlayerButtonClick.bind(this);
+    this.onChoseFilmButtonClick = this.onChoseFilmButtonClick.bind(this);
   }
 
   onTitleOfFilmClick(id) {
@@ -35,7 +39,7 @@ class App extends PureComponent {
     getComments(id);
   }
 
-  onActivePlayerButtonClick(id) {
+  onChoseFilmButtonClick(id) {
     const {chooseFilmId} = this.props;
 
     chooseFilmId(id);
@@ -54,7 +58,7 @@ class App extends PureComponent {
     const {promoFilm} = this.props;
 
     return (
-      <Main promoFilm={promoFilm} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onActivePlayerButtonClick(promoFilm.id)}/>
+      <Main promoFilm={promoFilm} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(promoFilm.id)}/>
     );
   }
 
@@ -62,7 +66,7 @@ class App extends PureComponent {
     const {films, chosenFilm} = this.props;
 
     return (
-      <FilmDetails film={chosenFilm} films={films} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onActivePlayerButtonClick(chosenFilm.id)}/>
+      <FilmDetails film={chosenFilm} films={films} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)} onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}/>
     );
   }
 
@@ -71,6 +75,14 @@ class App extends PureComponent {
 
     return (
       <BigPlayerWrapper film={chosenFilm} />
+    );
+  }
+
+  _renderAddReview() {
+    const {chosenFilm, postComment} = this.props;
+
+    return (
+      <AddReviewWrapper onSubmit={postComment} film={chosenFilm}/>
     );
   }
 
@@ -91,6 +103,9 @@ class App extends PureComponent {
           <Route exact path="/dev-player">
             {this._renderBigPlayer()}
           </Route>
+          <Route exact path="/dev-review">
+            {this._renderAddReview()}
+          </Route>
         </Switch>
       </Router>
     );
@@ -105,6 +120,7 @@ App.propTypes = {
   chosenFilm: filmProps,
   getComments: PropTypes.func.isRequired,
   promoFilm: filmProps,
+  postComment: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -121,6 +137,9 @@ const mapDispatchToProps = (dispatch) => ({
   chooseFilmId(id) {
     dispatch(ActionCreator.chooseFilmId(id));
   },
+  postComment(commentData, onSuccess, onError) {
+    dispatch(DataOperation.postComment(commentData, onSuccess, onError));
+  }
 });
 
 export {App};

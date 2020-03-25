@@ -1,11 +1,16 @@
 import React from "react";
 import {filmProps} from "../../consts.js";
+import PropTypes from "prop-types";
+import {Operation as DataOperation} from "../../reducer/data/data.js";
+import {connect} from "react-redux";
 
 const MyListButton = (props) => {
-  const {film} = props;
+  const {film, addFilmToFavorite} = props;
+
+  console.log(film);
 
   return (
-    <button type="button" className="btn btn--list movie-card__button">
+    <button type="button" className="btn btn--list movie-card__button" onClick={() => addFilmToFavorite(film)}>
       {film.favorite ? (
         <svg viewBox="0 0 18 14" width="18" height="14">
           <use xlinkHref="#in-list"/>
@@ -22,6 +27,14 @@ const MyListButton = (props) => {
 
 MyListButton.propTypes = {
   film: filmProps,
+  addFilmToFavorite: PropTypes.func.isRequired,
 };
 
-export default MyListButton;
+const mapDispatchToProps = (dispatch) => ({
+  addFilmToFavorite(film) {
+    dispatch(DataOperation.addFilmToFavorite(film));
+  },
+});
+
+export {MyListButton};
+export default connect(null, mapDispatchToProps)(MyListButton);

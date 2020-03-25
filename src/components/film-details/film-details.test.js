@@ -10,34 +10,68 @@ import {films, comments} from "../../mock-for-tests.js";
 
 const mockStore = configureStore([]);
 
-it(`Should FilmDetails render correctly`, () => {
-  const store = mockStore({
-    [NameSpace.STATE]: {
-      genre: Genres.ALL,
-      chosenFilm: films[0].id,
-      currentTab: TabsName.OVERVIEW,
-      shownFilms: SHOWN_FILMS_DEFAULT
-    },
-    [NameSpace.DATA]: {
-      films,
-      comments,
-    },
-    [NameSpace.USER]: {
-      authorizationStatus: AuthorizationStatus.NO_AUTH,
-    },
+describe(`Should FilmDetails render correctly`, () => {
+  it(`for auth user`, () => {
+    const store = mockStore({
+      [NameSpace.STATE]: {
+        genre: Genres.ALL,
+        chosenFilm: films[0].id,
+        currentTab: TabsName.OVERVIEW,
+        shownFilms: SHOWN_FILMS_DEFAULT
+      },
+      [NameSpace.DATA]: {
+        films,
+        comments,
+      },
+      [NameSpace.USER]: {
+        authorizationStatus: AuthorizationStatus.AUTH,
+      },
+    });
+
+    const tree = renderer.create(
+        <Provider store={store}>
+          <MemoryRouter>
+            <FilmDetails film={films[0]} onTitleOfFilmClick={() => {}} onActivePlayerButtonClick={() => {}} onAddReviewButtonClick={() => {}}/>
+          </MemoryRouter>
+        </Provider>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
   });
 
-  const tree = renderer.create(
-      <Provider store={store}>
-        <MemoryRouter>
-          <FilmDetails film={films[0]} onTitleOfFilmClick={() => {}} onActivePlayerButtonClick={() => {}} />
-        </MemoryRouter>
-      </Provider>, {
-        createNodeMock: () => {
-          return {};
-        }
-      }
-  ).toJSON();
+  it(`for no-auth user`, () => {
+    const store = mockStore({
+      [NameSpace.STATE]: {
+        genre: Genres.ALL,
+        chosenFilm: films[0].id,
+        currentTab: TabsName.OVERVIEW,
+        shownFilms: SHOWN_FILMS_DEFAULT
+      },
+      [NameSpace.DATA]: {
+        films,
+        comments,
+      },
+      [NameSpace.USER]: {
+        authorizationStatus: AuthorizationStatus.NO_AUTH,
+      },
+    });
 
-  expect(tree).toMatchSnapshot();
+    const tree = renderer.create(
+        <Provider store={store}>
+          <MemoryRouter>
+            <FilmDetails film={films[0]} onTitleOfFilmClick={() => {}} onActivePlayerButtonClick={() => {}} onAddReviewButtonClick={() => {}}/>
+          </MemoryRouter>
+        </Provider>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });
