@@ -1,5 +1,6 @@
 import {extend} from "../../utils.js";
 import {normalizeFilmsData, normalizeFilmData} from "../../utils.js";
+import NameSpace from "../name-space";
 
 const initialState = {
   films: [],
@@ -11,7 +12,6 @@ const ActionType = {
   LOAD_FILMS: `LOAD_FILMS`,
   LOAD_COMMENTS: `LOAD_COMMENTS`,
   LOAD_PROMO_FILM: `LOAD_PROMO_FILM`,
-  // CHANGE_FAVORITE: `CHANGE_FAVORITE`,
 };
 
 const ActionCreator = {
@@ -33,12 +33,6 @@ const ActionCreator = {
       payload: promoFilm,
     };
   },
-  // changeFavorite: (film = {}) => {
-  //   return {
-  //     type: ActionType.CHANGE_FAVORITE,
-  //     payload: film,
-  //   };
-  // },
 };
 
 const Operation = {
@@ -75,9 +69,20 @@ const Operation = {
   },
   changeFavorite: (film, status) => (dispatch, getState, api) => {
     return api.post(`/favorite/${film.id}/${status}`)
-      .then((response) => {
-        dispatch(ActionCreator.changeFavorite(normalizeFilmData(response.data)));
+    .then((response) => {
+      const addedFilm = normalizeFilmData(response.data);
+      const state = getState();
+
+      if (addedFilm.id === state[NameSpace.DATA].promoFilm.id) {
+        dispatch(ActionCreator.loadPromoFilm(addedFilm));
+      }
+
+      state[NameSpace.DATA].films.map((movie) => {
+        if (movie.id === addedFilm.id) {
+          dispatch(Operation.loadFilms());
+        }
       });
+    });
   },
 };
 
@@ -95,14 +100,6 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         promoFilm: action.payload,
       });
-    // case ActionType.CHANGE_FAVORITE:
-    //   return extend(state, {
-    //     films: [
-    //       ...state.films.filter((film) => film.id !== action.payload.id),
-    //       action.payload
-    //     ],
-    //     // promoFilm: ,
-    //   });
   }
 
   return state;
