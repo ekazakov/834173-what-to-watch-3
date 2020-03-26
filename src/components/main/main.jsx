@@ -13,7 +13,11 @@ const Main = (props) => {
     <React.Fragment>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+          {
+            promoFilm ? (
+              <img src={promoFilm.background} alt={promoFilm.name}/>
+            ) : null
+          }
         </div>
 
         <h1 className="visually-hidden">WTW</h1>

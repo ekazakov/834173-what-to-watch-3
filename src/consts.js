@@ -60,3 +60,14 @@ export const TabsName = {
   DETAILS: `Details`,
   REVIEWS: `Reviews`,
 };
+
+export const AppRoute = {
+  ROOT: `/`,
+  LOGIN: `/login`,
+  FAVORITE: `/mylist`,
+};
+
+export const FavoriteStatus = {
+  ADD: 1,
+  DELETE: 0,
+};

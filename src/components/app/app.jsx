@@ -1,19 +1,19 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {Switch, Route, Router} from "react-router-dom";
 import Main from "../main/main.jsx";
 import {getAuthorizationStatus} from "../../reducer/user/selectors";
 import {connect} from "react-redux";
 import {Operation as UserOperation} from "../../reducer/user/user.js";
-import {AuthorizationStatus} from "../../consts.js";
 import SignIn from "../sign-in/sign-in.jsx";
 import withAuthInformation from "../../hocs/with-auth-information.jsx";
 import FilmDetails from "../film-details/film-details.jsx";
-import {filmProps, filmsProps} from "../../consts";
+import {filmProps, filmsProps, AppRoute} from "../../consts";
 import {getFilms, getChosenFilm, getPromoFilm} from "../../reducer/state/selectors.js";
 import {ActionCreator} from "../../reducer/state/state.js";
 import BigVideoPlayer from "../big-video-player/big-video-player.jsx";
 import withBigVideoPlayer from "../../hocs/with-big-player.jsx";
+import history from "../../history.js";
 import AddReview from "../add-review/add-review.jsx";
 import {Operation as DataOperation} from "../../reducer/data/data.js";
 import withNewComment from "../../hocs/with-new-comment.jsx";
@@ -87,20 +87,14 @@ class App extends PureComponent {
 
   render() {
 
-    const {authorizationStatus} = this.props;
-
     return (
-      <BrowserRouter>
+      <Router history={history}>
         <Switch>
-          <Route exact path="/">
+          <Route exact path={AppRoute.ROOT}>
             {this._renderMain()}
           </Route>
-          <Route exact path="/login">
-            {authorizationStatus === AuthorizationStatus.NO_AUTH ?
-              this._renderSignIn()
-              :
-              this._renderMain()
-            }
+          <Route exact path={AppRoute.LOGIN}>
+            {this._renderSignIn()}
           </Route>
           <Route exact path="/dev-film">
             {this._renderFilmDetails()}
@@ -112,7 +106,7 @@ class App extends PureComponent {
             {this._renderAddReview()}
           </Route>
         </Switch>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

@@ -7,11 +7,14 @@ const api = createAPI(() => {});
 
 const promoFilm = films[0];
 
+const favoriteFilms = [];
+
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({
     films: [],
     comments: [],
     promoFilm: null,
+    favoriteFilms: [],
   });
 });
 
@@ -45,6 +48,17 @@ it(`Reducer should load promoFilm`, () => {
     payload: promoFilm,
   })).toEqual({
     promoFilm,
+  });
+});
+
+it(`Reducer should load favoriteFilms`, () => {
+  expect(reducer({
+    favoriteFilms: [],
+  }, {
+    type: ActionType.LOAD_FAVORITE_FILMS,
+    payload: favoriteFilms,
+  })).toEqual({
+    favoriteFilms,
   });
 });
 
@@ -97,6 +111,23 @@ describe(`Operation work correctly`, () => {
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_PROMO_FILM,
           payload: {},
+        });
+      });
+  });
+
+  it(`Should make a correct API call to /favorite`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const commentsLoader = Operation.loadFavoriteFilms();
+
+    apiMock.onGet(`/favorite`).reply(200, [{}]);
+
+    return commentsLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.LOAD_FAVORITE_FILMS,
+          payload: [{}],
         });
       });
   });

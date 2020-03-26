@@ -9,6 +9,7 @@ import FilmsList from "../films-list/films-list.jsx";
 import {commentsProps, AuthorizationStatus} from "../../consts";
 import UserBlock from "../user-block/user-block.jsx";
 import {Link} from "react-router-dom";
+import MyListButton from "../my-list-button/my-list-button.jsx";
 import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
 
 const TabsWrapper = withCurrentTab(Tabs);
@@ -53,12 +54,7 @@ const FilmDetails = (props) => {
                   </svg>
                   <span>Play</span>
                 </Link>
-                <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add" />
-                  </svg>
-                  <span>My list</span>
-                </button>
+                <MyListButton film={film}/>
                 {isAuthorized ? (
                   <Link to="dev-review" className="btn movie-card__button" onClick={onAddReviewButtonClick}>Add review</Link>
                 ) : null}
