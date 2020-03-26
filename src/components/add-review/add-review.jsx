@@ -4,7 +4,7 @@ import UserBlock from "../user-block/user-block.jsx";
 import PropTypes from "prop-types";
 
 const AddReview = (props) => {
-  const {film, onSubmit, onTextChange, onRatingChange, buttonIsAvailable, formIsAvailable} = props;
+  const {film, onSubmit, onTextChange, onRatingChange, buttonIsAvailable, formIsAvailable, errorMessage} = props;
 
   return (
     <section className="movie-card movie-card--full">
@@ -71,6 +71,9 @@ const AddReview = (props) => {
             </div>
 
           </div>
+          {errorMessage ? (
+            <p>{errorMessage}</p>
+          ) : null}
         </form>
       </div>
 
@@ -85,6 +88,7 @@ AddReview.propTypes = {
   onRatingChange: PropTypes.func.isRequired,
   buttonIsAvailable: PropTypes.bool.isRequired,
   formIsAvailable: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string.isRequired,
 };
 
 export default AddReview;

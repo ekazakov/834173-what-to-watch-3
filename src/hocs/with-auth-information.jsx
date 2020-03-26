@@ -1,5 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import history from "../history.js";
 
 const withAuthInformation = (Component) => {
   class WithAuthInformation extends PureComponent {
@@ -34,6 +35,8 @@ const withAuthInformation = (Component) => {
         email: this.state.email,
         password: this.state.password,
       });
+
+      history.goBack();
     }
 
     render() {

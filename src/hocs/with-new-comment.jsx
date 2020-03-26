@@ -1,6 +1,7 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {filmProps, TextCommentLength} from "../consts.js";
+import history from "../history.js";
 
 const withNewComment = (Component) => {
   class WithNewComment extends PureComponent {
@@ -11,8 +12,9 @@ const withNewComment = (Component) => {
         id: null,
         rating: 0,
         comment: ``,
-        buttonIsAvailable: false,
         formIsAvailable: true,
+        buttonIsAvailable: false,
+        errorMessage: ``,
       };
 
       this._handleSubmit = this._handleSubmit.bind(this);
@@ -28,17 +30,33 @@ const withNewComment = (Component) => {
       });
     }
 
+    checkError(rating, comment) {
+      if (rating === 0) {
+        this.setState({
+          errorMessage: `Необходимо проставить рейтинг`,
+        });
+      } else if (comment.length < TextCommentLength.MIN) {
+        this.setState({
+          errorMessage: `Длина комментария не может быть меньше ${TextCommentLength.MIN}`,
+        });
+      } else if (comment.length > TextCommentLength.MAX) {
+        this.setState({
+          errorMessage: `Длина комментария не может быть больше ${TextCommentLength.MAX}`,
+        });
+      }
+    }
+
     activateForm() {
       this.setState({
-        buttonIsAvailable: true,
         formIsAvailable: true,
+        buttonIsAvailable: true,
       });
     }
 
     deactivateForm() {
       this.setState({
-        buttonIsAvailable: false,
         formIsAvailable: false,
+        buttonIsAvailable: false,
       });
     }
 
@@ -60,6 +78,7 @@ const withNewComment = (Component) => {
 
     _handleSubmit(evt) {
       const {onSubmit, film} = this.props;
+      const {rating, comment} = this.state;
 
       evt.preventDefault();
 
@@ -67,20 +86,21 @@ const withNewComment = (Component) => {
 
       onSubmit({
         id: film.id,
-        rating: this.state.rating,
-        comment: this.state.comment,
+        rating,
+        comment,
       },
       () => {
         this.activateForm();
+        history.goBack();
       },
       () => {
         this.activateForm();
-      }
-      );
+        this.checkError(rating, comment);
+      });
     }
 
     render() {
-      const {buttonIsAvailable, formIsAvailable} = this.state;
+      const {formIsAvailable, errorMessage, buttonIsAvailable} = this.state;
 
       return (
         <Component
@@ -90,6 +110,7 @@ const withNewComment = (Component) => {
           onSubmit={this._handleSubmit}
           buttonIsAvailable={buttonIsAvailable}
           formIsAvailable={formIsAvailable}
+          errorMessage={errorMessage}
         />
       );
     }

@@ -11,7 +11,7 @@ const ActionType = {
   LOAD_FILMS: `LOAD_FILMS`,
   LOAD_COMMENTS: `LOAD_COMMENTS`,
   LOAD_PROMO_FILM: `LOAD_PROMO_FILM`,
-  CHANGE_FAVORITE: `CHANGE_FAVORITE`,
+  // CHANGE_FAVORITE: `CHANGE_FAVORITE`,
 };
 
 const ActionCreator = {
@@ -33,12 +33,12 @@ const ActionCreator = {
       payload: promoFilm,
     };
   },
-  changeFavorite: (film = {}) => {
-    return {
-      type: ActionType.CHANGE_FAVORITE,
-      payload: film,
-    };
-  },
+  // changeFavorite: (film = {}) => {
+  //   return {
+  //     type: ActionType.CHANGE_FAVORITE,
+  //     payload: film,
+  //   };
+  // },
 };
 
 const Operation = {
@@ -66,8 +66,8 @@ const Operation = {
       comment: commentData.comment,
     })
       .then(() => {
-        dispatch(Operation.loadComments(commentData.id));
         onSuccess();
+
       })
       .catch(() => {
         onError();
@@ -95,13 +95,14 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         promoFilm: action.payload,
       });
-    case ActionType.CHANGE_FAVORITE:
-      return extend(state, {
-        films: [
-          ...state.films.filter((film) => film.id !== action.payload.id),
-          action.payload
-        ],
-      });
+    // case ActionType.CHANGE_FAVORITE:
+    //   return extend(state, {
+    //     films: [
+    //       ...state.films.filter((film) => film.id !== action.payload.id),
+    //       action.payload
+    //     ],
+    //     // promoFilm: ,
+    //   });
   }
 
   return state;
