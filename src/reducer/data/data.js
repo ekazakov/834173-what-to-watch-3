@@ -1,17 +1,19 @@
 import {extend} from "../../utils.js";
 import {normalizeFilmsData, normalizeFilmData} from "../../utils.js";
-import NameSpace from "../name-space";
 
 const initialState = {
   films: [],
   comments: [],
   promoFilm: null,
+  favoriteFilms: [],
 };
 
 const ActionType = {
   LOAD_FILMS: `LOAD_FILMS`,
   LOAD_COMMENTS: `LOAD_COMMENTS`,
   LOAD_PROMO_FILM: `LOAD_PROMO_FILM`,
+  LOAD_FAVORITE_FILMS: `LOAD_FAVORITE_FILMS`,
+  SET_FAVORITE_STATUS: `SET_FAVORITE_STATUS`,
 };
 
 const ActionCreator = {
@@ -31,6 +33,18 @@ const ActionCreator = {
     return {
       type: ActionType.LOAD_PROMO_FILM,
       payload: promoFilm,
+    };
+  },
+  loadFavoriteFilms: (films) => {
+    return {
+      type: ActionType.LOAD_FAVORITE_FILMS,
+      payload: films,
+    };
+  },
+  setFavoriteStatus: (id) => {
+    return {
+      type: ActionType.SET_FAVORITE_STATUS,
+      payload: id,
     };
   },
 };
@@ -67,21 +81,18 @@ const Operation = {
         onError();
       });
   },
+  loadFavoriteFilms: () => (dispatch, getState, api) => {
+    return api.get(`/favorite`)
+      .then((response) => {
+        dispatch(ActionCreator.loadFavoriteFilms(normalizeFilmsData(response.data)));
+      });
+  },
   changeFavorite: (film, status) => (dispatch, getState, api) => {
     return api.post(`/favorite/${film.id}/${status}`)
     .then((response) => {
-      const addedFilm = normalizeFilmData(response.data);
-      const state = getState();
 
-      if (addedFilm.id === state[NameSpace.DATA].promoFilm.id) {
-        dispatch(ActionCreator.loadPromoFilm(addedFilm));
-      }
-
-      state[NameSpace.DATA].films.map((movie) => {
-        if (movie.id === addedFilm.id) {
-          dispatch(Operation.loadFilms());
-        }
-      });
+      dispatch(ActionCreator.setFavoriteStatus(response.data.id));
+      dispatch(Operation.loadFavoriteFilms());
     });
   },
 };
@@ -99,6 +110,21 @@ const reducer = (state = initialState, action) => {
     case ActionType.LOAD_PROMO_FILM:
       return extend(state, {
         promoFilm: action.payload,
+      });
+    case ActionType.SET_FAVORITE_STATUS:
+      return extend(state, {
+        films: state.films.map((film) => {
+          if (film.id === action.payload) {
+            return extend(film, {
+              favorite: !film.favorite,
+            });
+          }
+
+          return film;
+        }),
+        promoFilm: extend(state.promoFilm, {
+          favorite: state.promoFilm.id === action.payload ? !state.promoFilm.favorite : state.promoFilm.favorite,
+        })
       });
   }
 
