@@ -27,6 +27,7 @@ it(`Should AddReview render correctly`, () => {
             buttonIsAvailable={true}
             formIsAvailable={true}
             film={films[0]}
+            errorMessage={``}
           />
         </MemoryRouter>
       </Provider>
