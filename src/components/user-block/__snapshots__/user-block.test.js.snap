@@ -8,7 +8,7 @@ exports[`Should UserBlock render correctly Should render for authorization user 
     className="user-block__avatar"
   >
     <a
-      href="/myList"
+      href="/mylist"
       onClick={[Function]}
     >
       <img

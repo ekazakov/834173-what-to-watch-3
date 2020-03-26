@@ -7,8 +7,12 @@ import {connect} from "react-redux";
 const MyListButton = (props) => {
   const {film, changeFavorite} = props;
 
+  const checkFavoriteHandler = () => {
+    return film.favorite ? changeFavorite(film, FavoriteStatus.DELETE) : changeFavorite(film, FavoriteStatus.ADD);
+  };
+
   return (
-    <button type="button" className="btn btn--list movie-card__button" onClick={film.favorite ? () => changeFavorite(film, FavoriteStatus.DELETE) : () => changeFavorite(film, FavoriteStatus.ADD)}>
+    <button type="button" className="btn btn--list movie-card__button" onClick={() => checkFavoriteHandler()}>
       {film.favorite ? (
         <svg viewBox="0 0 19 20" width="19" height="20">
           <use xlinkHref="#in-list" />

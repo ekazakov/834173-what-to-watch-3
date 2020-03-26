@@ -91,7 +91,7 @@ const withNewComment = (Component) => {
       },
       () => {
         this.activateForm();
-        history.goBack();
+        history.push(`dev-film/`);
       },
       () => {
         this.activateForm();

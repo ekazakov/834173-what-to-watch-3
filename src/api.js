@@ -28,8 +28,6 @@ export const createAPI = (onUnauthorized) => {
       if (request.responseURL !== LOGIN_URL) {
         history.push(AppRoute.LOGIN);
       }
-
-      throw err;
     }
 
     throw err;

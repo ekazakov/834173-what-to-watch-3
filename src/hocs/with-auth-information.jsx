@@ -1,6 +1,7 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import history from "../history.js";
+import {AppRoute} from "../consts.js";
 
 const withAuthInformation = (Component) => {
   class WithAuthInformation extends PureComponent {
@@ -36,7 +37,7 @@ const withAuthInformation = (Component) => {
         password: this.state.password,
       });
 
-      history.goBack();
+      history.push(AppRoute.ROOT);
     }
 
     render() {

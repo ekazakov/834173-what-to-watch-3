@@ -55,7 +55,7 @@ Array [
             className="user-block__avatar"
           >
             <a
-              href="/myList"
+              href="/mylist"
               onClick={[Function]}
             >
               <img
