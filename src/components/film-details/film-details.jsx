@@ -6,14 +6,15 @@ import withCurrentTab from "../../hocs/with-current-tab.jsx";
 import {connect} from "react-redux";
 import {getSimilarFilms, getComments} from "../../reducer/state/selectors.js";
 import FilmsList from "../films-list/films-list.jsx";
-import {commentsProps} from "../../consts";
+import {commentsProps, AuthorizationStatus} from "../../consts";
 import UserBlock from "../user-block/user-block.jsx";
 import {Link} from "react-router-dom";
+import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
 
 const TabsWrapper = withCurrentTab(Tabs);
 
 const FilmDetails = (props) => {
-  const {film, onTitleOfFilmClick, similarFilms, comments, onActivePlayerButtonClick} = props;
+  const {film, onTitleOfFilmClick, similarFilms, comments, onActivePlayerButtonClick, onAddReviewButtonClick, isAuthorized} = props;
 
   return (
     <React.Fragment>
@@ -58,7 +59,9 @@ const FilmDetails = (props) => {
                   </svg>
                   <span>My list</span>
                 </button>
-                <a href="add-review.html" className="btn movie-card__button">Add review</a>
+                {isAuthorized ? (
+                  <Link to="dev-review" className="btn movie-card__button" onClick={onAddReviewButtonClick}>Add review</Link>
+                ) : null}
               </div>
             </div>
           </div>
@@ -110,11 +113,14 @@ FilmDetails.propTypes = {
   onTitleOfFilmClick: PropTypes.func.isRequired,
   comments: commentsProps,
   onActivePlayerButtonClick: PropTypes.func.isRequired,
+  onAddReviewButtonClick: PropTypes.func.isRequired,
+  isAuthorized: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   similarFilms: getSimilarFilms(state),
   comments: getComments(state),
+  isAuthorized: getAuthorizationStatus(state) === AuthorizationStatus.AUTH,
 });
 
 export {FilmDetails};

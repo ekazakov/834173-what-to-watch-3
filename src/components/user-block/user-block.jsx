@@ -6,28 +6,28 @@ import {AuthorizationStatus} from "../../consts";
 import {Link} from "react-router-dom";
 
 const UserBlock = (props) => {
-  const {authorizationStatus} = props;
+  const {isAuthorized} = props;
 
   return (
     <div className="user-block">
       {
-        authorizationStatus === AuthorizationStatus.NO_AUTH ?
-          <Link to="login" className="user-block__link">Sign in</Link>
-          :
+        isAuthorized ?
           <div className="user-block__avatar">
             <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
           </div>
+          :
+          <Link to="login" className="user-block__link">Sign in</Link>
       }
     </div>
   );
 };
 
 UserBlock.propTypes = {
-  authorizationStatus: PropTypes.string.isRequired,
+  isAuthorized: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  authorizationStatus: getAuthorizationStatus(state),
+  isAuthorized: getAuthorizationStatus(state) === AuthorizationStatus.AUTH,
 });
 
 export {UserBlock};

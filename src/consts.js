@@ -11,6 +11,11 @@ export const Genres = {
   HORROR: `horrors`,
 };
 
+export const TextCommentLength = {
+  MIN: 40,
+  MAX: 400,
+};
+
 export const filmProps = PropTypes.shape({
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
