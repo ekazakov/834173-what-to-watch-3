@@ -14,7 +14,7 @@ import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
 const TabsWrapper = withCurrentTab(Tabs);
 
 const FilmDetails = (props) => {
-  const {film, onTitleOfFilmClick, similarFilms, comments, onActivePlayerButtonClick, onAddReviewButtonClick, authorizationStatus} = props;
+  const {film, onTitleOfFilmClick, similarFilms, comments, onActivePlayerButtonClick, onAddReviewButtonClick, isAuthorized} = props;
 
   return (
     <React.Fragment>
@@ -59,7 +59,7 @@ const FilmDetails = (props) => {
                   </svg>
                   <span>My list</span>
                 </button>
-                {authorizationStatus === AuthorizationStatus.AUTH ? (
+                {isAuthorized ? (
                   <Link to="dev-review" className="btn movie-card__button" onClick={onAddReviewButtonClick}>Add review</Link>
                 ) : null}
               </div>
@@ -114,13 +114,13 @@ FilmDetails.propTypes = {
   comments: commentsProps,
   onActivePlayerButtonClick: PropTypes.func.isRequired,
   onAddReviewButtonClick: PropTypes.func.isRequired,
-  authorizationStatus: PropTypes.string.isRequired,
+  isAuthorized: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   similarFilms: getSimilarFilms(state),
   comments: getComments(state),
-  authorizationStatus: getAuthorizationStatus(state),
+  isAuthorized: getAuthorizationStatus(state) === AuthorizationStatus.AUTH,
 });
 
 export {FilmDetails};

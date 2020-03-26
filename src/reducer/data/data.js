@@ -59,7 +59,6 @@ const Operation = {
       comment: commentData.comment,
     })
       .then(() => {
-        dispatch(Operation.loadComments(commentData.id));
         onSuccess();
       })
       .catch(() => {
