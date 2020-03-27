@@ -2,7 +2,6 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {Switch, Route, Router} from "react-router-dom";
 import Main from "../main/main.jsx";
-import {getAuthorizationStatus} from "../../reducer/user/selectors";
 import {connect} from "react-redux";
 import {Operation as UserOperation} from "../../reducer/user/user.js";
 import SignIn from "../sign-in/sign-in.jsx";
@@ -18,6 +17,7 @@ import AddReview from "../add-review/add-review.jsx";
 import {Operation as DataOperation} from "../../reducer/data/data.js";
 import withNewComment from "../../hocs/with-new-comment.jsx";
 import MyList from "../my-list/my-list.jsx";
+import PrivateRoute from "../private-route/private-route.jsx";
 
 const SignInWrapper = withAuthInformation(SignIn);
 const BigPlayerWrapper = withBigVideoPlayer(BigVideoPlayer);
@@ -45,15 +45,6 @@ class App extends PureComponent {
     chooseFilmId(id);
   }
 
-
-  _renderSignIn() {
-    const {login} = this.props;
-
-    return (
-      <SignInWrapper onSubmit={login}/>
-    );
-  }
-
   _renderMain() {
     const {promoFilm} = this.props;
 
@@ -78,22 +69,8 @@ class App extends PureComponent {
     );
   }
 
-  _renderAddReview() {
-    const {chosenFilm, postComment} = this.props;
-
-    return (
-      <AddReviewWrapper onSubmit={postComment} film={chosenFilm}/>
-    );
-  }
-
-  _renderMyList() {
-
-    return (
-      <MyList onTitleOfFilmClick={this.onTitleOfFilmClick}/>
-    );
-  }
-
   render() {
+    const {isAuthorized, chosenFilm, postComment, login} = this.props;
 
     return (
       <Router history={history}>
@@ -102,7 +79,7 @@ class App extends PureComponent {
             {this._renderMain()}
           </Route>
           <Route exact path={AppRoute.LOGIN}>
-            {this._renderSignIn()}
+            <SignInWrapper onSubmit={login}/>
           </Route>
           <Route exact path={`${AppRoute.FILM}/:id`}>
             {this._renderFilmDetails()}
@@ -110,12 +87,26 @@ class App extends PureComponent {
           <Route exact path={`${AppRoute.PLAYER}/:id`}>
             {this._renderBigPlayer()}
           </Route>
-          <Route exact path={`${AppRoute.FILM}/:id/${AppRoute.REVIEW}`}>
-            {this._renderAddReview()}
-          </Route>
-          <Route exact path={AppRoute.FAVORITE}>
-            {this._renderMyList()}
-          </Route>
+          <PrivateRoute
+            isAuthorized={isAuthorized}
+            exact
+            path={`${AppRoute.FILM}/:id${AppRoute.REVIEW}`}
+            render={() => {
+              return (
+                <AddReviewWrapper onSubmit={postComment} film={chosenFilm}/>
+              );
+            }}
+          />
+          <PrivateRoute
+            isAuthorized={isAuthorized}
+            exact
+            path={AppRoute.FAVORITE}
+            render={() => {
+              return (
+                <MyList onTitleOfFilmClick={this.onTitleOfFilmClick}/>
+              );
+            }}
+          />
         </Switch>
       </Router>
     );
@@ -124,7 +115,7 @@ class App extends PureComponent {
 
 App.propTypes = {
   login: PropTypes.func.isRequired,
-  authorizationStatus: PropTypes.string.isRequired,
+  isAuthorized: PropTypes.bool.isRequired,
   films: filmsProps,
   chooseFilmId: PropTypes.func.isRequired,
   chosenFilm: filmProps,
@@ -134,7 +125,6 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  authorizationStatus: getAuthorizationStatus(state),
   films: getFilms(state),
   chosenFilm: getChosenFilm(state),
   promoFilm: getPromoFilm(state),

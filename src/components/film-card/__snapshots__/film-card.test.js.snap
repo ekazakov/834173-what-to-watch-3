@@ -14,7 +14,7 @@ exports[`Should FilmCard render correctly 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="/dev-film"
+      href="/films/1"
       onClick={[Function]}
     >
       Harry Potter and the Goblet of Fire

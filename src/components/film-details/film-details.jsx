@@ -56,7 +56,7 @@ const FilmDetails = (props) => {
                 </Link>
                 <MyListButton film={film}/>
                 {isAuthorized ? (
-                  <Link to={`${AppRoute.FILM}/${film.id}/${AppRoute.REVIEW}`} className="btn movie-card__button" onClick={onAddReviewButtonClick}>Add review</Link>
+                  <Link to={`${AppRoute.FILM}/${film.id}${AppRoute.REVIEW}`} className="btn movie-card__button" onClick={onAddReviewButtonClick}>Add review</Link>
                 ) : null}
               </div>
             </div>

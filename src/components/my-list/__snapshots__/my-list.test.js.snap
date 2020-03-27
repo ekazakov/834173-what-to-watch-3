@@ -87,7 +87,7 @@ exports[`Should MyList render correctly 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="/dev-film"
+            href="/films/1"
             onClick={[Function]}
           >
             Harry Potter and the Goblet of Fire
@@ -113,7 +113,7 @@ exports[`Should MyList render correctly 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="/dev-film"
+            href="/films/2"
             onClick={[Function]}
           >
             EuroTrip
@@ -139,7 +139,7 @@ exports[`Should MyList render correctly 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="/dev-film"
+            href="/films/3"
             onClick={[Function]}
           >
             The Autopsy of Jane Doe
@@ -165,7 +165,7 @@ exports[`Should MyList render correctly 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="/dev-film"
+            href="/films/4"
             onClick={[Function]}
           >
             The Notebook
@@ -191,7 +191,7 @@ exports[`Should MyList render correctly 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="/dev-film"
+            href="/films/5"
             onClick={[Function]}
           >
             Carri
@@ -217,7 +217,7 @@ exports[`Should MyList render correctly 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="/dev-film"
+            href="/films/6"
             onClick={[Function]}
           >
             Carri
@@ -243,7 +243,7 @@ exports[`Should MyList render correctly 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="/dev-film"
+            href="/films/7"
             onClick={[Function]}
           >
             Carri
@@ -269,7 +269,7 @@ exports[`Should MyList render correctly 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="/dev-film"
+            href="/films/8"
             onClick={[Function]}
           >
             Carri
@@ -295,7 +295,7 @@ exports[`Should MyList render correctly 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="/dev-film"
+            href="/films/9"
             onClick={[Function]}
           >
             Carri
@@ -321,7 +321,7 @@ exports[`Should MyList render correctly 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="/dev-film"
+            href="/films/10"
             onClick={[Function]}
           >
             Carri

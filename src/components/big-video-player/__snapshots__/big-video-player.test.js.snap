@@ -14,7 +14,7 @@ exports[`Should BigVideoPlayer render correctly 1`] = `
   />
   <a
     className="player__exit"
-    href="/dev-film"
+    href="/films/1"
     onClick={[Function]}
   >
     Exit
