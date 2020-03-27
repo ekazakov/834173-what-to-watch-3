@@ -7,7 +7,7 @@ class SignIn extends PureComponent {
 
   render() {
 
-    const {onSubmit, onChange} = this.props;
+    const {onSubmit, onChange, errorMessage, validEmail, validPassword} = this.props;
 
     return (
       <div className="user-page">
@@ -24,12 +24,17 @@ class SignIn extends PureComponent {
         </header>
         <div className="sign-in user-page__content">
           <form action="#" className="sign-in__form" onSubmit={onSubmit}>
+            {errorMessage ? (
+              <div className="sign-in__message">
+                <p>{errorMessage}</p>
+              </div>
+            ) : null}
             <div className="sign-in__fields">
-              <div className="sign-in__field">
+              <div className={`sign-in__field ${validEmail ? `` : `sign-in__field--error`}`}>
                 <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" onChange={onChange}/>
                 <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
               </div>
-              <div className="sign-in__field">
+              <div className={`sign-in__field ${validPassword ? `` : `sign-in__field--error`}`}>
                 <input className="sign-in__input" type="password" placeholder="Password" name="user-password" id="user-password" onChange={onChange}/>
                 <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
               </div>
@@ -60,6 +65,9 @@ class SignIn extends PureComponent {
 SignIn.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string.isRequired,
+  validEmail: PropTypes.bool.isRequired,
+  validPassword: PropTypes.bool.isRequired,
 };
 
 export default SignIn;

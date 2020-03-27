@@ -9,8 +9,9 @@ const withAuthInformation = (Component) => {
       super(props);
 
       this.state = {
-        email: null,
-        password: null,
+        email: ``,
+        password: ``,
+        errorMessage: ``,
       };
 
       this._handleSubmit = this._handleSubmit.bind(this);
@@ -27,26 +28,59 @@ const withAuthInformation = (Component) => {
       });
     }
 
+    checkError(email, password) {
+      if (email.length === 0 || password.length === 0) {
+        this.setState({
+          errorMessage: `Поля не должны быть пустыми`,
+        });
+      } else if (email.indexOf(`@`) === -1) {
+        this.setState({
+          errorMessage: `Введите валиндый email`,
+        });
+      }
+    }
+
+    checkEmail() {
+      const {email} = this.state;
+
+      return email.length !== 0 && email.indexOf(`@`) !== -1;
+    }
+
+    checkPassword() {
+      const {password} = this.state;
+
+      return password.length !== 0;
+    }
+
     _handleSubmit(evt) {
       const {onSubmit} = this.props;
+      const {email, password} = this.state;
 
       evt.preventDefault();
 
       onSubmit({
         email: this.state.email,
         password: this.state.password,
+      },
+      () => {
+        history.push(AppRoute.ROOT);
+      },
+      () => {
+        this.checkError(email, password);
       });
-
-      history.push(AppRoute.ROOT);
     }
 
     render() {
+      const {errorMessage} = this.state;
 
       return (
         <Component
           {...this.props}
           onChange={this._handleInputChange}
           onSubmit={this._handleSubmit}
+          errorMessage={errorMessage}
+          validEmail={this.checkEmail()}
+          validPassword={this.checkPassword()}
         />
       );
     }

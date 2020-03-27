@@ -46,7 +46,7 @@ class App extends PureComponent {
   }
 
   render() {
-    const {isAuthorized, chosenFilm, postComment, login, promoFilm} = this.props;
+    const {chosenFilm, postComment, login, promoFilm} = this.props;
 
     return (
       <Router history={history}>
@@ -72,7 +72,6 @@ class App extends PureComponent {
             <BigPlayerWrapper film={chosenFilm} />
           </Route>
           <PrivateRoute
-            isAuthorized={isAuthorized}
             exact
             path={`${AppRoute.FILM}/:id${AppRoute.REVIEW}`}
             render={() => {
@@ -82,7 +81,6 @@ class App extends PureComponent {
             }}
           />
           <PrivateRoute
-            isAuthorized={isAuthorized}
             exact
             path={AppRoute.FAVORITE}
             render={() => {
@@ -99,7 +97,6 @@ class App extends PureComponent {
 
 App.propTypes = {
   login: PropTypes.func.isRequired,
-  isAuthorized: PropTypes.bool.isRequired,
   films: filmsProps,
   chooseFilmId: PropTypes.func.isRequired,
   chosenFilm: filmProps,
@@ -115,8 +112,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  login(authData) {
-    dispatch(UserOperation.login(authData));
+  login(authData, onSuccess, onError) {
+    dispatch(UserOperation.login(authData, onSuccess, onError));
   },
   chooseFilmId(id) {
     dispatch(ActionCreator.chooseFilmId(id));
