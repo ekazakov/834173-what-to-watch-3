@@ -45,47 +45,31 @@ class App extends PureComponent {
     chooseFilmId(id);
   }
 
-  _renderMain() {
-    const {promoFilm} = this.props;
-
-    return (
-      <Main promoFilm={promoFilm} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(promoFilm.id)}/>
-    );
-  }
-
-  _renderFilmDetails() {
-    const {chosenFilm} = this.props;
-
-    return (
-      <FilmDetails film={chosenFilm} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)} onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}/>
-    );
-  }
-
-  _renderBigPlayer() {
-    const {chosenFilm} = this.props;
-
-    return (
-      <BigPlayerWrapper film={chosenFilm} />
-    );
-  }
-
   render() {
-    const {isAuthorized, chosenFilm, postComment, login} = this.props;
+    const {isAuthorized, chosenFilm, postComment, login, promoFilm} = this.props;
 
     return (
       <Router history={history}>
         <Switch>
           <Route exact path={AppRoute.ROOT}>
-            {this._renderMain()}
+            <Main
+              promoFilm={promoFilm}
+              onTitleOfFilmClick={this.onTitleOfFilmClick}
+              onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(promoFilm.id)}
+            />
           </Route>
           <Route exact path={AppRoute.LOGIN}>
             <SignInWrapper onSubmit={login}/>
           </Route>
           <Route exact path={`${AppRoute.FILM}/:id`}>
-            {this._renderFilmDetails()}
+            <FilmDetails
+              film={chosenFilm}
+              onTitleOfFilmClick={this.onTitleOfFilmClick}
+              onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}
+              onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}/>
           </Route>
           <Route exact path={`${AppRoute.PLAYER}/:id`}>
-            {this._renderBigPlayer()}
+            <BigPlayerWrapper film={chosenFilm} />
           </Route>
           <PrivateRoute
             isAuthorized={isAuthorized}
