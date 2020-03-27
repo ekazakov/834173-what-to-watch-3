@@ -104,13 +104,13 @@ class App extends PureComponent {
           <Route exact path={AppRoute.LOGIN}>
             {this._renderSignIn()}
           </Route>
-          <Route exact path="/dev-film">
+          <Route exact path={`${AppRoute.FILM}/:id`}>
             {this._renderFilmDetails()}
           </Route>
-          <Route exact path="/dev-player">
+          <Route exact path={`${AppRoute.PLAYER}/:id`}>
             {this._renderBigPlayer()}
           </Route>
-          <Route exact path="/dev-review">
+          <Route exact path={`${AppRoute.FILM}/:id/${AppRoute.REVIEW}`}>
             {this._renderAddReview()}
           </Route>
           <Route exact path={AppRoute.FAVORITE}>

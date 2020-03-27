@@ -4,7 +4,8 @@ import GenresList from "../genres-list/genres-list.jsx";
 import ShowMore from "../show-more/show-more.jsx";
 import UserBlock from "../user-block/user-block.jsx";
 import PromoFilm from "../promo-film/promo-film.jsx";
-import {filmProps} from "../../consts";
+import {filmProps, AppRoute} from "../../consts";
+import {Link} from "react-router-dom";
 
 const Main = (props) => {
   const {onTitleOfFilmClick, promoFilm, onActivePlayerButtonClick} = props;
@@ -24,11 +25,11 @@ const Main = (props) => {
 
         <header className="page-header movie-card__head">
           <div className="logo">
-            <a className="logo__link">
+            <Link to={AppRoute.ROOT} className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
-            </a>
+            </Link>
           </div>
 
           <UserBlock/>
@@ -52,11 +53,11 @@ const Main = (props) => {
 
         <footer className="page-footer">
           <div className="logo">
-            <a className="logo__link logo__link--light">
+            <Link to={AppRoute.ROOT} className="logo__link logo__link--light">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
-            </a>
+            </Link>
           </div>
 
           <div className="copyright">

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
 import {filmProps} from "../../consts.js";
+import {AppRoute} from "../../consts";
 
 class FilmCard extends PureComponent {
 
@@ -15,7 +16,7 @@ class FilmCard extends PureComponent {
           {renderPlayer(film.preview, film.poster, film.id)}
         </div>
         <h3 className="small-movie-card__title">
-          <Link className="small-movie-card__link" to="dev-film" onClick={onTitleOfFilmClick}>
+          <Link className="small-movie-card__link" to={`${AppRoute.FILM}/${film.id}`} onClick={onTitleOfFilmClick}>
             {film.name}
           </Link>
         </h3>

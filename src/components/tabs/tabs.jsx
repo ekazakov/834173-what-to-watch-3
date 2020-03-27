@@ -12,7 +12,7 @@ const Tabs = (props) => {
         <ul className="movie-nav__list">
           {Object.values(TabsName).map((tabName, index) => (
             <li key={tabName + index} className={`movie-nav__item ${currentTab === tabName ? `movie-nav__item--active` : ``}`}>
-              <a href="#" className="movie-nav__link"
+              <a className="movie-nav__link"
                 onClick={(evt) => changeTab(evt, tabName)}>
                 {tabName}
               </a>

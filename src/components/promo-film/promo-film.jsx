@@ -1,5 +1,5 @@
 import React from "react";
-import {filmProps} from "../../consts.js";
+import {filmProps, AppRoute} from "../../consts.js";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import MyListButton from "../my-list-button/my-list-button.jsx";
@@ -22,7 +22,7 @@ const PromoFilm = (props) => {
           </p>
 
           <div className="movie-card__buttons">
-            <Link to="dev-player" className="btn btn--play movie-card__button" onClick={onActivePlayerButtonClick}>
+            <Link to={`${AppRoute.PLAYER}/${promoFilm.id}`} className="btn btn--play movie-card__button" onClick={onActivePlayerButtonClick}>
               <svg viewBox="0 0 19 19" width="19" height="19">
                 <use xlinkHref="#play-s" />
               </svg>

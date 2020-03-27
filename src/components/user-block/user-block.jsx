@@ -18,7 +18,7 @@ const UserBlock = (props) => {
             </Link>
           </div>
           :
-          <Link to="login" className="user-block__link">Sign in</Link>
+          <Link to={AppRoute.LOGIN} className="user-block__link">Sign in</Link>
       }
     </div>
   );
