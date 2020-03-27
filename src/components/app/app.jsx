@@ -63,10 +63,10 @@ class App extends PureComponent {
   }
 
   _renderFilmDetails() {
-    const {films, chosenFilm} = this.props;
+    const {chosenFilm} = this.props;
 
     return (
-      <FilmDetails film={chosenFilm} similarFilms={films} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)} onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}/>
+      <FilmDetails film={chosenFilm} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)} onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}/>
     );
   }
 
@@ -87,10 +87,9 @@ class App extends PureComponent {
   }
 
   _renderMyList() {
-    const {films} = this.props;
 
     return (
-      <MyList favoriteFilms={films} onTitleOfFilmClick={this.onTitleOfFilmClick}/>
+      <MyList onTitleOfFilmClick={this.onTitleOfFilmClick}/>
     );
   }
 

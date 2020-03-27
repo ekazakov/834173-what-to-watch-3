@@ -126,6 +126,10 @@ const reducer = (state = initialState, action) => {
           favorite: state.promoFilm.id === action.payload ? !state.promoFilm.favorite : state.promoFilm.favorite,
         })
       });
+    case ActionType.LOAD_FAVORITE_FILMS:
+      return extend(state, {
+        favoriteFilms: action.payload,
+      });
   }
 
   return state;
