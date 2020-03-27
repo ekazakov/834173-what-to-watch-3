@@ -17,6 +17,7 @@ import history from "../../history.js";
 import AddReview from "../add-review/add-review.jsx";
 import {Operation as DataOperation} from "../../reducer/data/data.js";
 import withNewComment from "../../hocs/with-new-comment.jsx";
+import MyList from "../my-list/my-list.jsx";
 
 const SignInWrapper = withAuthInformation(SignIn);
 const BigPlayerWrapper = withBigVideoPlayer(BigVideoPlayer);
@@ -65,7 +66,7 @@ class App extends PureComponent {
     const {films, chosenFilm} = this.props;
 
     return (
-      <FilmDetails film={chosenFilm} films={films} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)} onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}/>
+      <FilmDetails film={chosenFilm} similarFilms={films} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)} onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}/>
     );
   }
 
@@ -82,6 +83,14 @@ class App extends PureComponent {
 
     return (
       <AddReviewWrapper onSubmit={postComment} film={chosenFilm}/>
+    );
+  }
+
+  _renderMyList() {
+    const {films} = this.props;
+
+    return (
+      <MyList favoriteFilms={films} onTitleOfFilmClick={this.onTitleOfFilmClick}/>
     );
   }
 
@@ -104,6 +113,9 @@ class App extends PureComponent {
           </Route>
           <Route exact path="/dev-review">
             {this._renderAddReview()}
+          </Route>
+          <Route exact path={AppRoute.FAVORITE}>
+            {this._renderMyList()}
           </Route>
         </Switch>
       </Router>

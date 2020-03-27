@@ -23,6 +23,10 @@ export const getShownFilms = (state) => {
   return state[NameSpace.STATE].shownFilms;
 };
 
+export const getFavoriteFilms = (state) => {
+  return state[NameSpace.DATA].favoriteFilms;
+};
+
 export const getChosenFilm = (state) => {
   const films = getFilms(state);
   const id = state[NameSpace.STATE].chosenFilm;
