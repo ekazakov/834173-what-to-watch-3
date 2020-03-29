@@ -14,6 +14,10 @@ const withVideoPlayer = (Component) => {
       this.timerId = null;
     }
 
+    componentWillUnmount() {
+      clearTimeout(this.timerId);
+    }
+
     render() {
 
       return (
