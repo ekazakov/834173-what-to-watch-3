@@ -14,7 +14,7 @@ exports[`Should UserBlock render correctly Should render for authorization user 
       <img
         alt="User avatar"
         height="63"
-        src="img/avatar.jpg"
+        src="/img/avatar.jpg"
         width="63"
       />
     </a>

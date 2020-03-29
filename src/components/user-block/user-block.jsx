@@ -14,7 +14,7 @@ const UserBlock = (props) => {
         isAuthorized ?
           <div className="user-block__avatar">
             <Link to={AppRoute.FAVORITE}>
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
+              <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63"/>
             </Link>
           </div>
           :
