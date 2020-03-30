@@ -34,7 +34,7 @@ it(`Should GenresList render correctly`, () => {
           <GenresList
             genres={genres}
             changeGenre={() => {}}
-            onTitleOfFilmClick={() => {}}
+            onFilmClick={() => {}}
             resetFilmsAmount={() => {}}
             filteredFilms={films}
           />

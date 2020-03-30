@@ -31,7 +31,7 @@ it(`Should main render correctly`, () => {
         <Provider store={store}>
           <MemoryRouter>
             <Main
-              onTitleOfFilmClick={() => {}}
+              onFilmClick={() => {}}
               onActivePlayerButtonClick={() => {}}
               promoFilm={films[0]}
             />

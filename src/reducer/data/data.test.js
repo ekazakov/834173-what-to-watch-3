@@ -2,6 +2,7 @@ import {reducer, Operation, ActionType} from "./data.js";
 import {createAPI} from "../../api.js";
 import MockAdapter from "axios-mock-adapter";
 import {films, comments} from "../../mock-for-tests.js";
+import {ServerStatus} from "../../consts";
 
 const api = createAPI(() => {});
 
@@ -15,6 +16,7 @@ it(`Reducer without additional parameters should return initial state`, () => {
     comments: [],
     promoFilm: null,
     favoriteFilms: [],
+    serverStatus: ServerStatus.NO_AVAILABLE,
   });
 });
 
@@ -72,7 +74,6 @@ describe(`Operation work correctly`, () => {
 
     return filmsLoader(dispatch, () => {}, api)
       .then(() => {
-        expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_FILMS,
           payload: [{}],
@@ -107,7 +108,6 @@ describe(`Operation work correctly`, () => {
 
     return commentsLoader(dispatch, () => {}, api)
       .then(() => {
-        expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_PROMO_FILM,
           payload: {},

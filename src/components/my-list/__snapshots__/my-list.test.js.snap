@@ -70,6 +70,7 @@ exports[`Should MyList render correctly 1`] = `
     >
       <article
         className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -96,6 +97,7 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -122,6 +124,7 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -148,6 +151,7 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -174,6 +178,7 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -200,6 +205,7 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -226,6 +232,7 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -252,6 +259,7 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -278,6 +286,7 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
@@ -304,6 +313,7 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >

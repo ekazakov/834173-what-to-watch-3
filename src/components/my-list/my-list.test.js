@@ -23,7 +23,7 @@ it(`Should MyList render correctly`, () => {
   const tree = renderer.create(
       <Provider store={store}>
         <MemoryRouter>
-          <MyList onTitleOfFilmClick={() => {}}/>
+          <MyList onFilmClick={() => {}}/>
         </MemoryRouter>
       </Provider>, {
         createNodeMock: () => {
