@@ -4,7 +4,7 @@ import {Genres, SHOWN_FILMS_DEFAULT} from "../../consts.js";
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({
     genre: Genres.ALL,
-    chosenFilmId: 0,
+    chosenFilm: 0,
     shownFilms: SHOWN_FILMS_DEFAULT,
   });
 });
