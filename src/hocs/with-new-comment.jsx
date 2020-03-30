@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import {filmProps, TextCommentLength} from "../consts.js";
+import {filmProps, TextCommentLength, AppRoute} from "../consts.js";
 import history from "../history.js";
 
 const withNewComment = (Component) => {
@@ -13,21 +13,12 @@ const withNewComment = (Component) => {
         rating: 0,
         comment: ``,
         formIsAvailable: true,
-        buttonIsAvailable: false,
         errorMessage: ``,
       };
 
       this._handleSubmit = this._handleSubmit.bind(this);
       this._handleTextChange = this._handleTextChange.bind(this);
       this._handleRatingChange = this._handleRatingChange.bind(this);
-    }
-
-    checkValidForm() {
-      const {rating, comment} = this.state;
-
-      this.setState({
-        buttonIsAvailable: comment.length >= TextCommentLength.MIN && comment.length <= TextCommentLength.MAX && rating !== 0,
-      });
     }
 
     checkError(rating, comment) {
@@ -49,14 +40,12 @@ const withNewComment = (Component) => {
     activateForm() {
       this.setState({
         formIsAvailable: true,
-        buttonIsAvailable: true,
       });
     }
 
     deactivateForm() {
       this.setState({
         formIsAvailable: false,
-        buttonIsAvailable: false,
       });
     }
 
@@ -64,16 +53,12 @@ const withNewComment = (Component) => {
       this.setState({
         rating: evt.target.value,
       });
-
-      this.checkValidForm();
     }
 
     _handleTextChange(evt) {
       this.setState({
         comment: evt.target.value,
       });
-
-      this.checkValidForm();
     }
 
     _handleSubmit(evt) {
@@ -91,7 +76,7 @@ const withNewComment = (Component) => {
       },
       () => {
         this.activateForm();
-        history.push(`dev-film/`);
+        history.push(`${AppRoute.FILM}/${film.id}`);
       },
       () => {
         this.activateForm();
@@ -100,7 +85,12 @@ const withNewComment = (Component) => {
     }
 
     render() {
-      const {formIsAvailable, errorMessage, buttonIsAvailable} = this.state;
+      const {formIsAvailable, rating, comment, errorMessage} = this.state;
+
+      const buttonIsAvailable =
+        formIsAvailable &&
+        comment.length >= TextCommentLength.MIN &&
+        comment.length <= TextCommentLength.MAX && rating !== 0;
 
       return (
         <Component

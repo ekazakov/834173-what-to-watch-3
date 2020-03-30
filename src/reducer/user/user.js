@@ -28,13 +28,17 @@ const Operation = {
       });
   },
 
-  login: (authData) => (dispatch, getState, api) => {
+  login: (authData, onSuccess, onError) => (dispatch, getState, api) => {
     return api.post(`/login`, {
       email: authData.email,
       password: authData.password,
     })
       .then(() => {
         dispatch(ActionCreator.requiredAuthorization(AuthorizationStatus.AUTH));
+        onSuccess();
+      })
+      .catch(() => {
+        onError();
       });
   },
 };

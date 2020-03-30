@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {filmProps} from "../../consts";
+import {filmProps, AppRoute} from "../../consts";
 import {Link} from "react-router-dom";
 
 const BigVideoPlayer = (props) => {
@@ -10,7 +10,7 @@ const BigVideoPlayer = (props) => {
     <div className="player">
       <video className="player__video" ref={playerRef} onLoadedMetadata={onLoadMetadata} onTimeUpdate={onTimeUpdate} src={film.video} poster={film.background} width="100%" />
 
-      <Link to="dev-film" className="player__exit">Exit</Link>
+      <Link to={`${AppRoute.FILM}/${film.id}`} className="player__exit">Exit</Link>
 
       <div className="player__controls">
         <div className="player__controls-row">

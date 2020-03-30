@@ -31,7 +31,7 @@ it(`Render App`, () => {
         <Provider store={store}>
           <App
             login={() => {}}
-            authorizationStatus={AuthorizationStatus.NO_AUTH}
+            isAuthorized={false}
             chooseFilmId={() => {}}
             getComments={() => {}}
           />

@@ -1,5 +1,5 @@
 import React from "react";
-import {filmProps, filmsProps} from "../../consts.js";
+import {filmProps, filmsProps, AppRoute} from "../../consts.js";
 import PropTypes from "prop-types";
 import Tabs from "../tabs/tabs.jsx";
 import withCurrentTab from "../../hocs/with-current-tab.jsx";
@@ -29,11 +29,11 @@ const FilmDetails = (props) => {
 
           <header className="page-header movie-card__head">
             <div className="logo">
-              <a href="main.html" className="logo__link">
+              <Link to={AppRoute.ROOT} className="logo__link">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
-              </a>
+              </Link>
             </div>
 
             <UserBlock/>
@@ -48,7 +48,7 @@ const FilmDetails = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <Link to="dev-player" className="btn btn--play movie-card__button" onClick={onActivePlayerButtonClick}>
+                <Link to={`${AppRoute.PLAYER}/${film.id}`} className="btn btn--play movie-card__button" onClick={onActivePlayerButtonClick}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s" />
                   </svg>
@@ -56,7 +56,7 @@ const FilmDetails = (props) => {
                 </Link>
                 <MyListButton film={film}/>
                 {isAuthorized ? (
-                  <Link to="dev-review" className="btn movie-card__button" onClick={onAddReviewButtonClick}>Add review</Link>
+                  <Link to={`${AppRoute.FILM}/${film.id}${AppRoute.REVIEW}`} className="btn movie-card__button" onClick={onAddReviewButtonClick}>Add review</Link>
                 ) : null}
               </div>
             </div>
@@ -87,11 +87,11 @@ const FilmDetails = (props) => {
 
         <footer className="page-footer">
           <div className="logo">
-            <a href="main.html" className="logo__link logo__link--light">
+            <Link to={AppRoute.ROOT} className="logo__link logo__link--light">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
-            </a>
+            </Link>
           </div>
 
           <div className="copyright">

@@ -26,6 +26,8 @@ Array [
       >
         <a
           className="logo__link"
+          href="/"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"
@@ -99,7 +101,7 @@ Array [
           >
             <a
               className="btn btn--play movie-card__button"
-              href="/dev-player"
+              href="/player/1"
               onClick={[Function]}
             >
               <svg
@@ -195,7 +197,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="/dev-film"
+              href="/films/1"
               onClick={[Function]}
             >
               Harry Potter and the Goblet of Fire
@@ -221,7 +223,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="/dev-film"
+              href="/films/2"
               onClick={[Function]}
             >
               EuroTrip
@@ -247,7 +249,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="/dev-film"
+              href="/films/3"
               onClick={[Function]}
             >
               The Autopsy of Jane Doe
@@ -273,7 +275,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="/dev-film"
+              href="/films/4"
               onClick={[Function]}
             >
               The Notebook
@@ -299,7 +301,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="/dev-film"
+              href="/films/5"
               onClick={[Function]}
             >
               Carri
@@ -325,7 +327,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="/dev-film"
+              href="/films/6"
               onClick={[Function]}
             >
               Carri
@@ -351,7 +353,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="/dev-film"
+              href="/films/7"
               onClick={[Function]}
             >
               Carri
@@ -377,7 +379,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="/dev-film"
+              href="/films/8"
               onClick={[Function]}
             >
               Carri
@@ -405,6 +407,8 @@ Array [
       >
         <a
           className="logo__link logo__link--light"
+          href="/"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"

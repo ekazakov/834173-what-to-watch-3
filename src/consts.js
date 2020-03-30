@@ -65,6 +65,9 @@ export const AppRoute = {
   ROOT: `/`,
   LOGIN: `/login`,
   FAVORITE: `/mylist`,
+  FILM: `/films`,
+  REVIEW: `/review`,
+  PLAYER: `/player`,
 };
 
 export const FavoriteStatus = {

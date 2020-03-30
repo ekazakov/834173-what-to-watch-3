@@ -2,7 +2,6 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {Switch, Route, Router} from "react-router-dom";
 import Main from "../main/main.jsx";
-import {getAuthorizationStatus} from "../../reducer/user/selectors";
 import {connect} from "react-redux";
 import {Operation as UserOperation} from "../../reducer/user/user.js";
 import SignIn from "../sign-in/sign-in.jsx";
@@ -17,6 +16,8 @@ import history from "../../history.js";
 import AddReview from "../add-review/add-review.jsx";
 import {Operation as DataOperation} from "../../reducer/data/data.js";
 import withNewComment from "../../hocs/with-new-comment.jsx";
+import MyList from "../my-list/my-list.jsx";
+import PrivateRoute from "../private-route/private-route.jsx";
 
 const SignInWrapper = withAuthInformation(SignIn);
 const BigPlayerWrapper = withBigVideoPlayer(BigVideoPlayer);
@@ -44,67 +45,54 @@ class App extends PureComponent {
     chooseFilmId(id);
   }
 
-
-  _renderSignIn() {
-    const {login} = this.props;
-
-    return (
-      <SignInWrapper onSubmit={login}/>
-    );
-  }
-
-  _renderMain() {
-    const {promoFilm} = this.props;
-
-    return (
-      <Main promoFilm={promoFilm} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(promoFilm.id)}/>
-    );
-  }
-
-  _renderFilmDetails() {
-    const {films, chosenFilm} = this.props;
-
-    return (
-      <FilmDetails film={chosenFilm} films={films} onTitleOfFilmClick={this.onTitleOfFilmClick} onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)} onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}/>
-    );
-  }
-
-  _renderBigPlayer() {
-    const {chosenFilm} = this.props;
-
-    return (
-      <BigPlayerWrapper film={chosenFilm} />
-    );
-  }
-
-  _renderAddReview() {
-    const {chosenFilm, postComment} = this.props;
-
-    return (
-      <AddReviewWrapper onSubmit={postComment} film={chosenFilm}/>
-    );
-  }
-
   render() {
+    const {postComment, login, promoFilm, chosenFilm} = this.props;
 
     return (
       <Router history={history}>
         <Switch>
           <Route exact path={AppRoute.ROOT}>
-            {this._renderMain()}
+            <Main
+              promoFilm={promoFilm}
+              onTitleOfFilmClick={this.onTitleOfFilmClick}
+              onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(promoFilm.id)}
+            />
           </Route>
           <Route exact path={AppRoute.LOGIN}>
-            {this._renderSignIn()}
+            <SignInWrapper onSubmit={login}/>
           </Route>
-          <Route exact path="/dev-film">
-            {this._renderFilmDetails()}
+          <Route
+            exact
+            path={`${AppRoute.FILM}/:id`}
+          >
+            <FilmDetails
+              film={chosenFilm}
+              onTitleOfFilmClick={this.onTitleOfFilmClick}
+              onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}
+              onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}
+            />
           </Route>
-          <Route exact path="/dev-player">
-            {this._renderBigPlayer()}
+          <Route exact path={`${AppRoute.PLAYER}/:id`}>
+            <BigPlayerWrapper film={chosenFilm} />
           </Route>
-          <Route exact path="/dev-review">
-            {this._renderAddReview()}
-          </Route>
+          <PrivateRoute
+            exact
+            path={`${AppRoute.FILM}/:id${AppRoute.REVIEW}`}
+            render={() => {
+              return (
+                <AddReviewWrapper onSubmit={postComment} film={chosenFilm}/>
+              );
+            }}
+          />
+          <PrivateRoute
+            exact
+            path={AppRoute.FAVORITE}
+            render={() => {
+              return (
+                <MyList onTitleOfFilmClick={this.onTitleOfFilmClick}/>
+              );
+            }}
+          />
         </Switch>
       </Router>
     );
@@ -113,7 +101,6 @@ class App extends PureComponent {
 
 App.propTypes = {
   login: PropTypes.func.isRequired,
-  authorizationStatus: PropTypes.string.isRequired,
   films: filmsProps,
   chooseFilmId: PropTypes.func.isRequired,
   chosenFilm: filmProps,
@@ -123,15 +110,14 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  authorizationStatus: getAuthorizationStatus(state),
   films: getFilms(state),
   chosenFilm: getChosenFilm(state),
   promoFilm: getPromoFilm(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  login(authData) {
-    dispatch(UserOperation.login(authData));
+  login(authData, onSuccess, onError) {
+    dispatch(UserOperation.login(authData, onSuccess, onError));
   },
   chooseFilmId(id) {
     dispatch(ActionCreator.chooseFilmId(id));
