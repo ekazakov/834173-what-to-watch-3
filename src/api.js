@@ -8,7 +8,7 @@ const Error = {
 
 const LOGIN_URL = `https://htmlacademy-react-3.appspot.com/wtw/login`;
 
-export const createAPI = (onUnauthorized) => {
+export const createAPI = (onUnauthorized, onServerFailed) => {
   const api = axios.create({
     baseURL: `https://htmlacademy-react-3.appspot.com/wtw`,
     timeout: 5000,
@@ -28,6 +28,11 @@ export const createAPI = (onUnauthorized) => {
       if (request.responseURL !== LOGIN_URL) {
         history.push(AppRoute.LOGIN);
       }
+    }
+
+    if (response.status === 404) {
+      onServerFailed();
+      history.push(AppRoute.ROOT);
     }
 
     throw err;

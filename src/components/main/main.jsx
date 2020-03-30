@@ -1,14 +1,18 @@
 import React from "react";
+import {connect} from "react-redux";
+import {getServerStatus} from "../../reducer/state/selectors.js";
 import PropTypes from "prop-types";
 import GenresList from "../genres-list/genres-list.jsx";
 import ShowMore from "../show-more/show-more.jsx";
 import UserBlock from "../user-block/user-block.jsx";
 import PromoFilm from "../promo-film/promo-film.jsx";
-import {filmProps, AppRoute} from "../../consts";
+import {filmProps, AppRoute, ServerStatus} from "../../consts";
 import {Link} from "react-router-dom";
 
 const Main = (props) => {
-  const {onTitleOfFilmClick, promoFilm, onActivePlayerButtonClick} = props;
+  const {onTitleOfFilmClick, promoFilm, onActivePlayerButtonClick, serverStatusIsAvailable} = props;
+
+  console.log(serverStatusIsAvailable);
 
   return (
     <React.Fragment>
@@ -46,9 +50,19 @@ const Main = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenresList onTitleOfFilmClick={onTitleOfFilmClick}/>
+          {
+            serverStatusIsAvailable ? (
+              <React.Fragment>
+                <GenresList onTitleOfFilmClick={onTitleOfFilmClick}/>
 
-          <ShowMore />
+                <ShowMore />
+              </React.Fragment>
+            ) : (
+              <div>
+                <p>Can`t load the films</p>
+              </div>
+            )
+          }
         </section>
 
         <footer className="page-footer">
@@ -73,6 +87,12 @@ Main.propTypes = {
   onTitleOfFilmClick: PropTypes.func.isRequired,
   onActivePlayerButtonClick: PropTypes.func.isRequired,
   promoFilm: filmProps,
+  serverStatusIsAvailable: PropTypes.bool.isRequired,
 };
 
-export default Main;
+const mapStateToProps = (state) => ({
+  serverStatusIsAvailable: getServerStatus(state) === ServerStatus.AVAILABLE,
+});
+
+export {Main};
+export default connect(mapStateToProps)(Main);
