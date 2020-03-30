@@ -64,8 +64,6 @@ class App extends PureComponent {
           <Route
             exact
             path={`${AppRoute.FILM}/:id`}
-            render={() => {
-            }}
           >
             <FilmDetails
               film={chosenFilm}
