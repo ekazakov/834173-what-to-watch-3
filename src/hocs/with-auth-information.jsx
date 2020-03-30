@@ -18,16 +18,6 @@ const withAuthInformation = (Component) => {
       this._handleInputChange = this._handleInputChange.bind(this);
     }
 
-    _handleInputChange(evt) {
-      const target = evt.target;
-      const value = target.value;
-      let name = target.name.replace(/user-/, ``);
-
-      this.setState({
-        [name]: value
-      });
-    }
-
     checkError(email, password) {
       if (email.length === 0 || password.length === 0) {
         this.setState({
@@ -50,6 +40,16 @@ const withAuthInformation = (Component) => {
       const {password} = this.state;
 
       return password.length !== 0;
+    }
+
+    _handleInputChange(evt) {
+      const target = evt.target;
+      const value = target.value;
+      let name = target.name.replace(/user-/, ``);
+
+      this.setState({
+        [name]: value
+      });
     }
 
     _handleSubmit(evt) {

@@ -21,6 +21,15 @@ const withBigPlayer = (Component) => {
       this._handleTimeUpdate = this._handleTimeUpdate.bind(this);
     }
 
+    componentWillUnmount() {
+      const player = this._playerRef.current;
+
+      player.src = ``;
+      player.poster = ``;
+      player.play = null;
+      player.pause = null;
+    }
+
     _handleVideoPlay() {
       const player = this._playerRef.current;
 
@@ -55,15 +64,6 @@ const withBigPlayer = (Component) => {
       this.setState({
         progress: Math.floor(evt.target.currentTime),
       });
-    }
-
-    componentWillUnmount() {
-      const player = this._playerRef.current;
-
-      player.src = ``;
-      player.poster = ``;
-      player.play = null;
-      player.pause = null;
     }
 
     render() {
