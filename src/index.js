@@ -27,15 +27,16 @@ const store = createStore(
 store.dispatch(DataOperation.loadFilms());
 store.dispatch(DataOperation.loadPromoFilm());
 store.dispatch(DataOperation.loadFavoriteFilms());
-store.dispatch(UserOperation.checkAuth());
 
-ReactDOM.render(
-    <Provider store={store}>
-      <App
-        getComments={(id) => {
-          store.dispatch(DataOperation.loadComments(id));
-        }}
-      />
-    </Provider>,
-    document.querySelector(`#root`)
-);
+store.dispatch(UserOperation.checkAuth()).finally(() => {
+  ReactDOM.render(
+      <Provider store={store}>
+        <App
+          getComments={(id) => {
+            store.dispatch(DataOperation.loadComments(id));
+          }}
+        />
+      </Provider>,
+      document.querySelector(`#root`)
+  );
+});

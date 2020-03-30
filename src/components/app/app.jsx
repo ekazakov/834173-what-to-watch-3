@@ -46,7 +46,7 @@ class App extends PureComponent {
   }
 
   render() {
-    const {chosenFilm, postComment, login, promoFilm} = this.props;
+    const {postComment, login, promoFilm, chosenFilm} = this.props;
 
     return (
       <Router history={history}>
@@ -61,12 +61,18 @@ class App extends PureComponent {
           <Route exact path={AppRoute.LOGIN}>
             <SignInWrapper onSubmit={login}/>
           </Route>
-          <Route exact path={`${AppRoute.FILM}/:id`}>
+          <Route
+            exact
+            path={`${AppRoute.FILM}/:id`}
+            render={() => {
+            }}
+          >
             <FilmDetails
               film={chosenFilm}
               onTitleOfFilmClick={this.onTitleOfFilmClick}
               onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}
-              onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}/>
+              onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}
+            />
           </Route>
           <Route exact path={`${AppRoute.PLAYER}/:id`}>
             <BigPlayerWrapper film={chosenFilm} />

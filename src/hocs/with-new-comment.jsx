@@ -40,14 +40,12 @@ const withNewComment = (Component) => {
     activateForm() {
       this.setState({
         formIsAvailable: true,
-        buttonIsAvailable: true,
       });
     }
 
     deactivateForm() {
       this.setState({
         formIsAvailable: false,
-        buttonIsAvailable: false,
       });
     }
 
