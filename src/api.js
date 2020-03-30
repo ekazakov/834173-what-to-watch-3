@@ -4,6 +4,7 @@ import {AppRoute} from "./consts.js";
 
 const Error = {
   UNAUTHORIZED: 401,
+  SERVER_MISTAKES: 500,
 };
 
 const LOGIN_URL = `https://htmlacademy-react-3.appspot.com/wtw/login`;
@@ -30,7 +31,7 @@ export const createAPI = (onUnauthorized, onServerFailed) => {
       }
     }
 
-    if (response.status === 404) {
+    if (response.status >= Error.SERVER_MISTAKES) {
       onServerFailed();
       history.push(AppRoute.ROOT);
     }
