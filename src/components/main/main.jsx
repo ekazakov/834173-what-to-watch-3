@@ -10,9 +10,7 @@ import {filmProps, AppRoute, ServerStatus} from "../../consts";
 import {Link} from "react-router-dom";
 
 const Main = (props) => {
-  const {onTitleOfFilmClick, promoFilm, onActivePlayerButtonClick, serverStatusIsAvailable} = props;
-
-  console.log(serverStatusIsAvailable);
+  const {onFilmClick, promoFilm, onActivePlayerButtonClick, serverStatusIsAvailable} = props;
 
   return (
     <React.Fragment>
@@ -53,7 +51,7 @@ const Main = (props) => {
           {
             serverStatusIsAvailable ? (
               <React.Fragment>
-                <GenresList onTitleOfFilmClick={onTitleOfFilmClick}/>
+                <GenresList onFilmClick={onFilmClick}/>
 
                 <ShowMore />
               </React.Fragment>
@@ -84,7 +82,7 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  onTitleOfFilmClick: PropTypes.func.isRequired,
+  onFilmClick: PropTypes.func.isRequired,
   onActivePlayerButtonClick: PropTypes.func.isRequired,
   promoFilm: filmProps,
   serverStatusIsAvailable: PropTypes.bool.isRequired,

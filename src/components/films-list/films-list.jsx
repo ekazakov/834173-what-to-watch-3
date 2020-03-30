@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 const FilmCardWrapper = withVideoPlayer(FilmCard);
 
 const FilmsList = (props) => {
-  const {films, onTitleOfFilmClick} = props;
+  const {films, onFilmClick} = props;
 
   return (
     <div className="catalog__movies-list">
@@ -16,7 +16,7 @@ const FilmsList = (props) => {
         <FilmCardWrapper
           key={`${movie.id}-${movie.name}`}
           film={movie}
-          onTitleOfFilmClick={() => onTitleOfFilmClick(movie.id)}
+          onFilmClick={() => onFilmClick(movie.id)}
         />
       ))}
 
@@ -26,7 +26,7 @@ const FilmsList = (props) => {
 
 FilmsList.propTypes = {
   films: filmsProps,
-  onTitleOfFilmClick: PropTypes.func.isRequired,
+  onFilmClick: PropTypes.func.isRequired,
 };
 
 export default FilmsList;

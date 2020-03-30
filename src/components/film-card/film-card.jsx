@@ -5,15 +5,15 @@ import {filmProps} from "../../consts.js";
 import {AppRoute} from "../../consts";
 
 const FilmCard = (props) => {
-  const {film, onFilmCardHover, onFilmCardLeave, renderPlayer, onTitleOfFilmClick} = props;
+  const {film, onFilmCardHover, onFilmCardLeave, renderPlayer, onFilmClick} = props;
 
   return (
-    <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onFilmCardHover(film)} onMouseLeave={() => onFilmCardLeave(film)}>
+    <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onFilmCardHover(film)} onMouseLeave={() => onFilmCardLeave(film)} onClick={onFilmClick}>
       <div className="small-movie-card__image">
         {renderPlayer(film.preview, film.poster, film.id)}
       </div>
       <h3 className="small-movie-card__title">
-        <Link className="small-movie-card__link" to={`${AppRoute.FILM}/${film.id}`} onClick={onTitleOfFilmClick}>
+        <Link className="small-movie-card__link" to={`${AppRoute.FILM}/${film.id}`} onClick={onFilmClick}>
           {film.name}
         </Link>
       </h3>
@@ -26,7 +26,7 @@ FilmCard.propTypes = {
   onFilmCardHover: PropTypes.func.isRequired,
   onFilmCardLeave: PropTypes.func.isRequired,
   renderPlayer: PropTypes.func.isRequired,
-  onTitleOfFilmClick: PropTypes.func.isRequired,
+  onFilmClick: PropTypes.func.isRequired,
 };
 
 export default FilmCard;

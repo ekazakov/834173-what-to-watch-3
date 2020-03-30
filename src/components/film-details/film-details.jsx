@@ -15,7 +15,7 @@ import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
 const TabsWrapper = withCurrentTab(Tabs);
 
 const FilmDetails = (props) => {
-  const {film, onTitleOfFilmClick, similarFilms, comments, onActivePlayerButtonClick, onAddReviewButtonClick, isAuthorized} = props;
+  const {film, onFilmClick, similarFilms, comments, onActivePlayerButtonClick, onAddReviewButtonClick, isAuthorized} = props;
 
   return (
     <React.Fragment>
@@ -82,7 +82,7 @@ const FilmDetails = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmsList onTitleOfFilmClick={onTitleOfFilmClick} films={similarFilms} shownFilms={similarFilms.length}/>
+          <FilmsList onFilmClick={onFilmClick} films={similarFilms} shownFilms={similarFilms.length}/>
         </section>
 
         <footer className="page-footer">
@@ -106,7 +106,7 @@ const FilmDetails = (props) => {
 FilmDetails.propTypes = {
   film: filmProps,
   similarFilms: filmsProps,
-  onTitleOfFilmClick: PropTypes.func.isRequired,
+  onFilmClick: PropTypes.func.isRequired,
   comments: commentsProps,
   onActivePlayerButtonClick: PropTypes.func.isRequired,
   onAddReviewButtonClick: PropTypes.func.isRequired,
