@@ -272,15 +272,17 @@ Array [
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
-          <div
+          <a
             className="small-movie-card__image"
+            href="/films/2"
+            onClick={[Function]}
           >
             <video
               height="175"
               muted={true}
               width="100%"
             />
-          </div>
+          </a>
           <h3
             className="small-movie-card__title"
           >
@@ -298,15 +300,17 @@ Array [
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
-          <div
+          <a
             className="small-movie-card__image"
+            href="/films/3"
+            onClick={[Function]}
           >
             <video
               height="175"
               muted={true}
               width="100%"
             />
-          </div>
+          </a>
           <h3
             className="small-movie-card__title"
           >
@@ -324,15 +328,17 @@ Array [
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
-          <div
+          <a
             className="small-movie-card__image"
+            href="/films/4"
+            onClick={[Function]}
           >
             <video
               height="175"
               muted={true}
               width="100%"
             />
-          </div>
+          </a>
           <h3
             className="small-movie-card__title"
           >
@@ -350,15 +356,17 @@ Array [
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
-          <div
+          <a
             className="small-movie-card__image"
+            href="/films/5"
+            onClick={[Function]}
           >
             <video
               height="175"
               muted={true}
               width="100%"
             />
-          </div>
+          </a>
           <h3
             className="small-movie-card__title"
           >
@@ -670,15 +678,17 @@ Array [
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
-          <div
+          <a
             className="small-movie-card__image"
+            href="/films/2"
+            onClick={[Function]}
           >
             <video
               height="175"
               muted={true}
               width="100%"
             />
-          </div>
+          </a>
           <h3
             className="small-movie-card__title"
           >
@@ -696,15 +706,17 @@ Array [
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
-          <div
+          <a
             className="small-movie-card__image"
+            href="/films/3"
+            onClick={[Function]}
           >
             <video
               height="175"
               muted={true}
               width="100%"
             />
-          </div>
+          </a>
           <h3
             className="small-movie-card__title"
           >
@@ -722,15 +734,17 @@ Array [
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
-          <div
+          <a
             className="small-movie-card__image"
+            href="/films/4"
+            onClick={[Function]}
           >
             <video
               height="175"
               muted={true}
               width="100%"
             />
-          </div>
+          </a>
           <h3
             className="small-movie-card__title"
           >
@@ -748,15 +762,17 @@ Array [
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
-          <div
+          <a
             className="small-movie-card__image"
+            href="/films/5"
+            onClick={[Function]}
           >
             <video
               height="175"
               muted={true}
               width="100%"
             />
-          </div>
+          </a>
           <h3
             className="small-movie-card__title"
           >

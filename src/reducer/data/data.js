@@ -1,11 +1,12 @@
-import {extend} from "../../utils.js";
-import {normalizeFilmsData, normalizeFilmData} from "../../utils.js";
+import {ServerStatus} from "../../consts.js";
+import {normalizeFilmsData, normalizeFilmData, extend} from "../../utils.js";
 
 const initialState = {
   films: [],
   comments: [],
   promoFilm: null,
   favoriteFilms: [],
+  serverStatus: ServerStatus.AVAILABLE,
 };
 
 const ActionType = {
@@ -14,6 +15,7 @@ const ActionType = {
   LOAD_PROMO_FILM: `LOAD_PROMO_FILM`,
   LOAD_FAVORITE_FILMS: `LOAD_FAVORITE_FILMS`,
   SET_FAVORITE_STATUS: `SET_FAVORITE_STATUS`,
+  REQUIRED_SERVER: `REQUIRED_SERVER`,
 };
 
 const ActionCreator = {
@@ -45,6 +47,12 @@ const ActionCreator = {
     return {
       type: ActionType.SET_FAVORITE_STATUS,
       payload: id,
+    };
+  },
+  requiredServer: (status) => {
+    return {
+      type: ActionType.REQUIRED_SERVER,
+      payload: status,
     };
   },
 };
@@ -129,6 +137,10 @@ const reducer = (state = initialState, action) => {
     case ActionType.LOAD_FAVORITE_FILMS:
       return extend(state, {
         favoriteFilms: action.payload,
+      });
+    case ActionType.REQUIRED_SERVER:
+      return Object.assign({}, state, {
+        serverStatus: action.payload,
       });
   }
 

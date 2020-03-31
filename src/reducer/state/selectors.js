@@ -15,6 +15,10 @@ export const getPromoFilm = (state) => {
   return state[NameSpace.DATA].promoFilm;
 };
 
+export const getServerStatus = (state) => {
+  return state[NameSpace.DATA].serverStatus;
+};
+
 export const getGenre = (state) => {
   return state[NameSpace.STATE].genre;
 };

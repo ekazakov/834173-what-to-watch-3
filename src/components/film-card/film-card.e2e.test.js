@@ -30,7 +30,7 @@ const film = {
 it(`All cards at hover return film information`, () => {
   const onFilmCardHover = jest.fn();
   const onFilmCardLeave = jest.fn();
-  const onTitleOfFilmClick = jest.fn();
+  const onFilmClick = jest.fn();
   const renderPlayer = jest.fn();
 
   const filmCard = shallow(
@@ -38,7 +38,7 @@ it(`All cards at hover return film information`, () => {
         film={film}
         onFilmCardHover={onFilmCardHover}
         onFilmCardLeave={onFilmCardLeave}
-        onTitleOfFilmClick={onTitleOfFilmClick}
+        onFilmClick={onFilmClick}
         renderPlayer={renderPlayer}
       />
   );
@@ -55,5 +55,5 @@ it(`All cards at hover return film information`, () => {
   expect(onFilmCardHover).toHaveBeenLastCalledWith(film);
   expect(onFilmCardLeave).toHaveBeenCalledTimes(1);
   expect(onFilmCardLeave).toHaveBeenLastCalledWith(film);
-  expect(onTitleOfFilmClick).toHaveBeenCalledTimes(1);
+  expect(onFilmClick).toHaveBeenCalledTimes(1);
 });

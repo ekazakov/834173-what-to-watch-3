@@ -50,7 +50,7 @@ exports[`SignIn render correctly 1`] = `
         className="sign-in__fields"
       >
         <div
-          className="sign-in__field sign-in__field--error"
+          className="sign-in__field "
         >
           <input
             className="sign-in__input"
@@ -68,7 +68,7 @@ exports[`SignIn render correctly 1`] = `
           </label>
         </div>
         <div
-          className="sign-in__field sign-in__field--error"
+          className="sign-in__field "
         >
           <input
             className="sign-in__input"

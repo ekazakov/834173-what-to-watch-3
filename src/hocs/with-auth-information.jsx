@@ -18,17 +18,7 @@ const withAuthInformation = (Component) => {
       this._handleInputChange = this._handleInputChange.bind(this);
     }
 
-    _handleInputChange(evt) {
-      const target = evt.target;
-      const value = target.value;
-      let name = target.name.replace(/user-/, ``);
-
-      this.setState({
-        [name]: value
-      });
-    }
-
-    checkError(email, password) {
+    _checkError(email, password) {
       if (email.length === 0 || password.length === 0) {
         this.setState({
           errorMessage: `Поля не должны быть пустыми`,
@@ -40,16 +30,26 @@ const withAuthInformation = (Component) => {
       }
     }
 
-    checkEmail() {
+    _checkEmail() {
       const {email} = this.state;
 
       return email.length !== 0 && email.indexOf(`@`) !== -1;
     }
 
-    checkPassword() {
+    _checkPassword() {
       const {password} = this.state;
 
       return password.length !== 0;
+    }
+
+    _handleInputChange(evt) {
+      const target = evt.target;
+      const value = target.value;
+      let name = target.name.replace(/user-/, ``);
+
+      this.setState({
+        [name]: value
+      });
     }
 
     _handleSubmit(evt) {
@@ -66,7 +66,7 @@ const withAuthInformation = (Component) => {
         history.push(AppRoute.ROOT);
       },
       () => {
-        this.checkError(email, password);
+        this._checkError(email, password);
       });
     }
 
@@ -79,8 +79,8 @@ const withAuthInformation = (Component) => {
           onChange={this._handleInputChange}
           onSubmit={this._handleSubmit}
           errorMessage={errorMessage}
-          validEmail={this.checkEmail()}
-          validPassword={this.checkPassword()}
+          validEmail={this._checkEmail()}
+          validPassword={this._checkPassword()}
         />
       );
     }

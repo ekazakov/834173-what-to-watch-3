@@ -28,11 +28,11 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.onTitleOfFilmClick = this.onTitleOfFilmClick.bind(this);
+    this.onFilmClick = this.onFilmClick.bind(this);
     this.onChoseFilmButtonClick = this.onChoseFilmButtonClick.bind(this);
   }
 
-  onTitleOfFilmClick(id) {
+  onFilmClick(id) {
     const {chooseFilmId, getComments} = this.props;
 
     chooseFilmId(id);
@@ -54,7 +54,7 @@ class App extends PureComponent {
           <Route exact path={AppRoute.ROOT}>
             <Main
               promoFilm={promoFilm}
-              onTitleOfFilmClick={this.onTitleOfFilmClick}
+              onFilmClick={this.onFilmClick}
               onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(promoFilm.id)}
             />
           </Route>
@@ -67,7 +67,7 @@ class App extends PureComponent {
           >
             <FilmDetails
               film={chosenFilm}
-              onTitleOfFilmClick={this.onTitleOfFilmClick}
+              onFilmClick={this.onFilmClick}
               onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}
               onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}
             />
@@ -89,7 +89,7 @@ class App extends PureComponent {
             path={AppRoute.FAVORITE}
             render={() => {
               return (
-                <MyList onTitleOfFilmClick={this.onTitleOfFilmClick}/>
+                <MyList onFilmClick={this.onFilmClick}/>
               );
             }}
           />

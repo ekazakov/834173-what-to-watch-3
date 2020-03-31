@@ -9,6 +9,9 @@ it(`SignIn render correctly`, () => {
         <SignIn
           onSubmit={()=>{}}
           onChange={() => {}}
+          errorMessage={``}
+          validEmail={true}
+          validPassword={true}
         />
       </MemoryRouter>
   );

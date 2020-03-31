@@ -55,6 +55,11 @@ export const AuthorizationStatus = {
   NO_AUTH: `NO_AUTH`,
 };
 
+export const ServerStatus = {
+  AVAILABLE: `AVAILABLE`,
+  NO_AVAILABLE: `NO_AVAILABLE`,
+};
+
 export const TabsName = {
   OVERVIEW: `Overview`,
   DETAILS: `Details`,

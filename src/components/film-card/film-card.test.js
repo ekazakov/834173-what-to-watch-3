@@ -15,7 +15,7 @@ it(`Should FilmCard render correctly`, () => {
             onFilmCardHover={() => {}}
             onFilmCardLeave={() => {}}
             renderPlayer={() => {}}
-            onTitleOfFilmClick={() => {}}
+            onFilmClick={() => {}}
           />
         </MemoryRouter>
     )

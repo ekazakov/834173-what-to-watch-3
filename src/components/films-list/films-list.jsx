@@ -1,4 +1,4 @@
-import React, {PureComponent} from "react";
+import React from "react";
 import FilmCard from "../film-card/film-card.jsx";
 import withVideoPlayer from "../../hocs/with-video-player.jsx";
 import {filmsProps} from "../../consts.js";
@@ -6,30 +6,27 @@ import PropTypes from "prop-types";
 
 const FilmCardWrapper = withVideoPlayer(FilmCard);
 
-class FilmsList extends PureComponent {
+const FilmsList = (props) => {
+  const {films, onFilmClick} = props;
 
-  render() {
-    const {films, onTitleOfFilmClick} = this.props;
+  return (
+    <div className="catalog__movies-list">
 
-    return (
-      <div className="catalog__movies-list">
+      {films.map((movie) => (
+        <FilmCardWrapper
+          key={`${movie.id}-${movie.name}`}
+          film={movie}
+          onFilmClick={() => onFilmClick(movie.id)}
+        />
+      ))}
 
-        {films.map((movie) => (
-          <FilmCardWrapper
-            key={`${movie.id}-${movie.name}`}
-            film={movie}
-            onTitleOfFilmClick={() => onTitleOfFilmClick(movie.id)}
-          />
-        ))}
-
-      </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 FilmsList.propTypes = {
   films: filmsProps,
-  onTitleOfFilmClick: PropTypes.func.isRequired,
+  onFilmClick: PropTypes.func.isRequired,
 };
 
 export default FilmsList;

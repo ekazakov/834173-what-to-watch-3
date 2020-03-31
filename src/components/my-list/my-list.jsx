@@ -8,7 +8,7 @@ import {filmsProps, AppRoute} from "../../consts.js";
 import {getFavoriteFilms} from "../../reducer/state/selectors.js";
 
 const MyList = (props) => {
-  const {favoriteFilms, onTitleOfFilmClick} = props;
+  const {favoriteFilms, onFilmClick} = props;
 
   return (
     <div className="user-page">
@@ -29,7 +29,7 @@ const MyList = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <FilmsList onTitleOfFilmClick={onTitleOfFilmClick} films={favoriteFilms}/>
+        <FilmsList onFilmClick={onFilmClick} films={favoriteFilms}/>
       </section>
 
       <footer className="page-footer">
@@ -51,7 +51,7 @@ const MyList = (props) => {
 
 MyList.propTypes = {
   favoriteFilms: filmsProps,
-  onTitleOfFilmClick: PropTypes.func.isRequired,
+  onFilmClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

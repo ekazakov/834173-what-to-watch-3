@@ -7,7 +7,7 @@ import {filmsProps, SHOWN_FILMS_DEFAULT} from "../../consts.js";
 import {getGenre, getGenres, getLimitedFilms} from "../../reducer/state/selectors.js";
 
 const GenresList = (props) => {
-  const {genre, genres, changeGenre, onTitleOfFilmClick, resetFilmsAmount, limitedFilms} = props;
+  const {genre, genres, changeGenre, onFilmClick, resetFilmsAmount, limitedFilms} = props;
 
   const onGenreClick = (availableGenre) => {
     changeGenre(availableGenre);
@@ -30,7 +30,7 @@ const GenresList = (props) => {
 
       <FilmsList
         films={limitedFilms}
-        onTitleOfFilmClick={onTitleOfFilmClick}
+        onFilmClick={onFilmClick}
       />
     </React.Fragment>
   );
@@ -40,7 +40,7 @@ GenresList.propTypes = {
   genre: PropTypes.string.isRequired,
   changeGenre: PropTypes.func.isRequired,
   genres: PropTypes.array.isRequired,
-  onTitleOfFilmClick: PropTypes.func.isRequired,
+  onFilmClick: PropTypes.func.isRequired,
   resetFilmsAmount: PropTypes.func.isRequired,
   limitedFilms: filmsProps,
 };
