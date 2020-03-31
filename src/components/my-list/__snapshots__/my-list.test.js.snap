@@ -70,19 +70,20 @@ exports[`Should MyList render correctly 1`] = `
     >
       <article
         className="small-movie-card catalog__movies-card"
-        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
+        <a
           className="small-movie-card__image"
+          href="/films/1"
+          onClick={[Function]}
         >
           <video
             height="175"
             muted={true}
             width="100%"
           />
-        </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -97,19 +98,20 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
-        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
+        <a
           className="small-movie-card__image"
+          href="/films/2"
+          onClick={[Function]}
         >
           <video
             height="175"
             muted={true}
             width="100%"
           />
-        </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -124,19 +126,20 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
-        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
+        <a
           className="small-movie-card__image"
+          href="/films/3"
+          onClick={[Function]}
         >
           <video
             height="175"
             muted={true}
             width="100%"
           />
-        </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -151,19 +154,20 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
-        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
+        <a
           className="small-movie-card__image"
+          href="/films/4"
+          onClick={[Function]}
         >
           <video
             height="175"
             muted={true}
             width="100%"
           />
-        </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -178,19 +182,20 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
-        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
+        <a
           className="small-movie-card__image"
+          href="/films/5"
+          onClick={[Function]}
         >
           <video
             height="175"
             muted={true}
             width="100%"
           />
-        </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -205,19 +210,20 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
-        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
+        <a
           className="small-movie-card__image"
+          href="/films/6"
+          onClick={[Function]}
         >
           <video
             height="175"
             muted={true}
             width="100%"
           />
-        </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -232,19 +238,20 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
-        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
+        <a
           className="small-movie-card__image"
+          href="/films/7"
+          onClick={[Function]}
         >
           <video
             height="175"
             muted={true}
             width="100%"
           />
-        </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -259,19 +266,20 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
-        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
+        <a
           className="small-movie-card__image"
+          href="/films/8"
+          onClick={[Function]}
         >
           <video
             height="175"
             muted={true}
             width="100%"
           />
-        </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -286,19 +294,20 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
-        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
+        <a
           className="small-movie-card__image"
+          href="/films/9"
+          onClick={[Function]}
         >
           <video
             height="175"
             muted={true}
             width="100%"
           />
-        </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -313,19 +322,20 @@ exports[`Should MyList render correctly 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
-        onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
       >
-        <div
+        <a
           className="small-movie-card__image"
+          href="/films/10"
+          onClick={[Function]}
         >
           <video
             height="175"
             muted={true}
             width="100%"
           />
-        </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >

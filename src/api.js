@@ -1,10 +1,12 @@
 import axios from "axios";
 import history from "./history.js";
 import {AppRoute} from "./consts.js";
+import {ServerStatus} from "./consts";
+import {ActionCreator} from "./reducer/data/data.js";
 
 const Error = {
   UNAUTHORIZED: 401,
-  SERVER_MISTAKES: 500,
+  SERVER_ERRORS: 500,
 };
 
 const LOGIN_URL = `https://htmlacademy-react-3.appspot.com/wtw/login`;
@@ -17,11 +19,19 @@ export const createAPI = (onUnauthorized, onServerFailed) => {
   });
 
   const onSuccess = (response) => {
+    ActionCreator.requiredServer(ServerStatus.AVAILABLE);
     return response;
   };
 
   const onError = (err) => {
     const {response, request} = err;
+
+    if (!response || response.status >= Error.SERVER_ERRORS) {
+      onServerFailed();
+      history.push(AppRoute.ROOT);
+
+      throw err;
+    }
 
     if (response.status === Error.UNAUTHORIZED) {
       onUnauthorized();
@@ -29,11 +39,6 @@ export const createAPI = (onUnauthorized, onServerFailed) => {
       if (request.responseURL !== LOGIN_URL) {
         history.push(AppRoute.LOGIN);
       }
-    }
-
-    if (response.status >= Error.SERVER_MISTAKES) {
-      onServerFailed();
-      history.push(AppRoute.ROOT);
     }
 
     throw err;

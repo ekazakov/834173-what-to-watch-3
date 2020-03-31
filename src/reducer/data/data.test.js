@@ -16,7 +16,7 @@ it(`Reducer without additional parameters should return initial state`, () => {
     comments: [],
     promoFilm: null,
     favoriteFilms: [],
-    serverStatus: ServerStatus.NO_AVAILABLE,
+    serverStatus: ServerStatus.AVAILABLE,
   });
 });
 

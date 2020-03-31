@@ -37,7 +37,6 @@ class App extends PureComponent {
 
     chooseFilmId(id);
     getComments(id);
-    history.push(`${AppRoute.FILM}/${id}`);
   }
 
   onChoseFilmButtonClick(id) {

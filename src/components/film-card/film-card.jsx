@@ -8,10 +8,10 @@ const FilmCard = (props) => {
   const {film, onFilmCardHover, onFilmCardLeave, renderPlayer, onFilmClick} = props;
 
   return (
-    <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onFilmCardHover(film)} onMouseLeave={() => onFilmCardLeave(film)} onClick={onFilmClick}>
-      <div className="small-movie-card__image">
+    <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onFilmCardHover(film)} onMouseLeave={() => onFilmCardLeave(film)}>
+      <Link to={`${AppRoute.FILM}/${film.id}`} className="small-movie-card__image" onClick={onFilmClick}>
         {renderPlayer(film.preview, film.poster, film.id)}
-      </div>
+      </Link>
       <h3 className="small-movie-card__title">
         <Link className="small-movie-card__link" to={`${AppRoute.FILM}/${film.id}`} onClick={onFilmClick}>
           {film.name}

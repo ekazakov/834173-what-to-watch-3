@@ -6,7 +6,7 @@ const initialState = {
   comments: [],
   promoFilm: null,
   favoriteFilms: [],
-  serverStatus: ServerStatus.NO_AVAILABLE,
+  serverStatus: ServerStatus.AVAILABLE,
 };
 
 const ActionType = {
@@ -62,7 +62,6 @@ const Operation = {
     return api.get(`/films`)
       .then((response) => {
         dispatch(ActionCreator.loadFilms(normalizeFilmsData(response.data)));
-        dispatch(ActionCreator.requiredServer(ServerStatus.AVAILABLE));
       });
   },
   loadComments: (id) => (dispatch, getState, api) => {
@@ -75,7 +74,6 @@ const Operation = {
     return api.get(`/films/promo`)
       .then((response) => {
         dispatch(ActionCreator.loadPromoFilm(normalizeFilmData(response.data)));
-        dispatch(ActionCreator.requiredServer(ServerStatus.AVAILABLE));
       });
   },
   postComment: (commentData, onSuccess, onError) => (dispatch, getState, api) => {
