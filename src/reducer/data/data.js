@@ -81,9 +81,9 @@ const Operation = {
       rating: commentData.rating,
       comment: commentData.comment,
     })
-      .then(() => {
+      .then((response) => {
         onSuccess();
-
+        dispatch(ActionCreator.loadComments(response.data));
       })
       .catch(() => {
         onError();

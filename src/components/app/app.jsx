@@ -28,18 +28,18 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.onFilmClick = this.onFilmClick.bind(this);
-    this.onChoseFilmButtonClick = this.onChoseFilmButtonClick.bind(this);
+    this._handleFilmClick = this._handleFilmClick.bind(this);
+    this._handleChoseFilmButtonClick = this._handleChoseFilmButtonClick.bind(this);
   }
 
-  onFilmClick(id) {
+  _handleFilmClick(id) {
     const {chooseFilmId, getComments} = this.props;
 
     chooseFilmId(id);
     getComments(id);
   }
 
-  onChoseFilmButtonClick(id) {
+  _handleChoseFilmButtonClick(id) {
     const {chooseFilmId} = this.props;
 
     chooseFilmId(id);
@@ -54,8 +54,8 @@ class App extends PureComponent {
           <Route exact path={AppRoute.ROOT}>
             <Main
               promoFilm={promoFilm}
-              onFilmClick={this.onFilmClick}
-              onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(promoFilm.id)}
+              onFilmClick={this._handleFilmClick}
+              onActivePlayerButtonClick={() => this._handleChoseFilmButtonClick(promoFilm.id)}
             />
           </Route>
           <Route exact path={AppRoute.LOGIN}>
@@ -67,9 +67,9 @@ class App extends PureComponent {
           >
             <FilmDetails
               film={chosenFilm}
-              onFilmClick={this.onFilmClick}
-              onActivePlayerButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}
-              onAddReviewButtonClick={() => this.onChoseFilmButtonClick(chosenFilm.id)}
+              onFilmClick={this._handleFilmClick}
+              onActivePlayerButtonClick={() => this._handleChoseFilmButtonClick(chosenFilm.id)}
+              onAddReviewButtonClick={() => this._handleChoseFilmButtonClick(chosenFilm.id)}
             />
           </Route>
           <Route exact path={`${AppRoute.PLAYER}/:id`}>
@@ -89,7 +89,7 @@ class App extends PureComponent {
             path={AppRoute.FAVORITE}
             render={() => {
               return (
-                <MyList onFilmClick={this.onFilmClick}/>
+                <MyList onFilmClick={this._handleFilmClick}/>
               );
             }}
           />

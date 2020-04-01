@@ -15,8 +15,8 @@ const withBigPlayer = (Component) => {
 
       this._playerRef = createRef();
 
-      this._handleVideoPlay = this._handleVideoPlay.bind(this);
-      this._handleFullScreen = this._handleFullScreen.bind(this);
+      this._handleVideoPlayClick = this._handleVideoPlayClick.bind(this);
+      this._handleFullScreenClick = this._handleFullScreenClick.bind(this);
       this._handleLoadMetadata = this._handleLoadMetadata.bind(this);
       this._handleTimeUpdate = this._handleTimeUpdate.bind(this);
     }
@@ -30,7 +30,7 @@ const withBigPlayer = (Component) => {
       player.pause = null;
     }
 
-    _handleVideoPlay() {
+    _handleVideoPlayClick() {
       const player = this._playerRef.current;
 
       if (player.paused) {
@@ -46,7 +46,7 @@ const withBigPlayer = (Component) => {
       }
     }
 
-    _handleFullScreen() {
+    _handleFullScreenClick() {
       const player = this._playerRef.current;
 
       player.requestFullscreen();
@@ -74,8 +74,8 @@ const withBigPlayer = (Component) => {
           {...this.props}
           playerRef={this._playerRef}
           isPlaying={isPlaying}
-          onPlayClick={this._handleVideoPlay}
-          onFullScreenClick={this._handleFullScreen}
+          onPlayClick={this._handleVideoPlayClick}
+          onFullScreenClick={this._handleFullScreenClick}
           onLoadMetadata={this._handleLoadMetadata}
           onTimeUpdate={this._handleTimeUpdate}
           progress={getProgress(this.state.duration, this.state.progress)}
