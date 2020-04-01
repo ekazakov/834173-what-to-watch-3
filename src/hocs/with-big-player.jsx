@@ -11,14 +11,22 @@ const withBigPlayer = (Component) => {
         isPlaying: false,
         duration: 0,
         progress: 0,
+        defaultControls: false,
       };
 
       this._playerRef = createRef();
 
       this._handleVideoPlayClick = this._handleVideoPlayClick.bind(this);
-      this._handleFullScreenClick = this._handleFullScreenClick.bind(this);
+      this._handleFullScreenButtonClick = this._handleFullScreenButtonClick.bind(this);
       this._handleLoadMetadata = this._handleLoadMetadata.bind(this);
       this._handleTimeUpdate = this._handleTimeUpdate.bind(this);
+      this._handleFullScreenControlChange = this._handleFullScreenControlChange.bind(this);
+    }
+
+    componentDidMount() {
+      const player = this._playerRef.current;
+
+      player.addEventListener(`fullscreenchange`, this._handleFullScreenControlChange);
     }
 
     componentWillUnmount() {
@@ -28,6 +36,20 @@ const withBigPlayer = (Component) => {
       player.poster = ``;
       player.play = null;
       player.pause = null;
+
+      player.removeEventListener(`fullscreenchange`, this._handleFullScreenControlChange);
+    }
+
+    _handleFullScreenControlChange() {
+      const player = this._playerRef.current;
+
+      if (document.fullscreenElement !== null) {
+        player.controls = true;
+      }
+
+      if (document.fullscreenElement === null) {
+        player.controls = false;
+      }
     }
 
     _handleVideoPlayClick() {
@@ -46,7 +68,7 @@ const withBigPlayer = (Component) => {
       }
     }
 
-    _handleFullScreenClick() {
+    _handleFullScreenButtonClick() {
       const player = this._playerRef.current;
 
       player.requestFullscreen();
@@ -75,7 +97,7 @@ const withBigPlayer = (Component) => {
           playerRef={this._playerRef}
           isPlaying={isPlaying}
           onPlayClick={this._handleVideoPlayClick}
-          onFullScreenClick={this._handleFullScreenClick}
+          onFullScreenClick={this._handleFullScreenButtonClick}
           onLoadMetadata={this._handleLoadMetadata}
           onTimeUpdate={this._handleTimeUpdate}
           progress={getProgress(this.state.duration, this.state.progress)}
