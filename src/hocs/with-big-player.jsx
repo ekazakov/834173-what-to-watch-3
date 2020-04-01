@@ -11,7 +11,6 @@ const withBigPlayer = (Component) => {
         isPlaying: false,
         duration: 0,
         progress: 0,
-        defaultControls: false,
       };
 
       this._playerRef = createRef();
