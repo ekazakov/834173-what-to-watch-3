@@ -15,10 +15,17 @@ const withBigPlayer = (Component) => {
 
       this._playerRef = createRef();
 
-      this._handleVideoPlay = this._handleVideoPlay.bind(this);
-      this._handleFullScreen = this._handleFullScreen.bind(this);
+      this._handlePlayButtonClick = this._handlePlayButtonClick.bind(this);
+      this._handleFullScreenButtonClick = this._handleFullScreenButtonClick.bind(this);
       this._handleLoadMetadata = this._handleLoadMetadata.bind(this);
       this._handleTimeUpdate = this._handleTimeUpdate.bind(this);
+      this._handleDefaultControlsChange = this._handleDefaultControlsChange.bind(this);
+    }
+
+    componentDidMount() {
+      const player = this._playerRef.current;
+
+      player.addEventListener(`fullscreenchange`, this._handleDefaultControlsChange);
     }
 
     componentWillUnmount() {
@@ -28,9 +35,23 @@ const withBigPlayer = (Component) => {
       player.poster = ``;
       player.play = null;
       player.pause = null;
+
+      player.removeEventListener(`fullscreenchange`, this._handleDefaultControlsChange);
     }
 
-    _handleVideoPlay() {
+    _handleDefaultControlsChange() {
+      const player = this._playerRef.current;
+
+      if (document.fullscreenElement !== null) {
+        player.controls = true;
+      }
+
+      if (document.fullscreenElement === null) {
+        player.controls = false;
+      }
+    }
+
+    _handlePlayButtonClick() {
       const player = this._playerRef.current;
 
       if (player.paused) {
@@ -46,7 +67,7 @@ const withBigPlayer = (Component) => {
       }
     }
 
-    _handleFullScreen() {
+    _handleFullScreenButtonClick() {
       const player = this._playerRef.current;
 
       player.requestFullscreen();
@@ -74,8 +95,8 @@ const withBigPlayer = (Component) => {
           {...this.props}
           playerRef={this._playerRef}
           isPlaying={isPlaying}
-          onPlayClick={this._handleVideoPlay}
-          onFullScreenClick={this._handleFullScreen}
+          onPlayClick={this._handlePlayButtonClick}
+          onFullScreenClick={this._handleFullScreenButtonClick}
           onLoadMetadata={this._handleLoadMetadata}
           onTimeUpdate={this._handleTimeUpdate}
           progress={getProgress(this.state.duration, this.state.progress)}

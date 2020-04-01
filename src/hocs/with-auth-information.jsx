@@ -14,7 +14,7 @@ const withAuthInformation = (Component) => {
         errorMessage: ``,
       };
 
-      this._handleSubmit = this._handleSubmit.bind(this);
+      this._handleFormSubmit = this._handleFormSubmit.bind(this);
       this._handleInputChange = this._handleInputChange.bind(this);
     }
 
@@ -52,7 +52,7 @@ const withAuthInformation = (Component) => {
       });
     }
 
-    _handleSubmit(evt) {
+    _handleFormSubmit(evt) {
       const {onSubmit} = this.props;
       const {email, password} = this.state;
 
@@ -77,7 +77,7 @@ const withAuthInformation = (Component) => {
         <Component
           {...this.props}
           onChange={this._handleInputChange}
-          onSubmit={this._handleSubmit}
+          onSubmit={this._handleFormSubmit}
           errorMessage={errorMessage}
           validEmail={this._checkEmail()}
           validPassword={this._checkPassword()}

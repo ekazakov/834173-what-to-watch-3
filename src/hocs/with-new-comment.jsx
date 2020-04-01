@@ -16,7 +16,7 @@ const withNewComment = (Component) => {
         errorMessage: ``,
       };
 
-      this._handleSubmit = this._handleSubmit.bind(this);
+      this._handleFormSubmit = this._handleFormSubmit.bind(this);
       this._handleTextChange = this._handleTextChange.bind(this);
       this._handleRatingChange = this._handleRatingChange.bind(this);
     }
@@ -34,16 +34,20 @@ const withNewComment = (Component) => {
         this.setState({
           errorMessage: `Длина комментария не может быть больше ${TextCommentLength.MAX}`,
         });
+      } else if (rating !== 0 && comment.length >= TextCommentLength.MIN && comment.length <= TextCommentLength.MAX) {
+        this.setState({
+          errorMessage: ``,
+        });
       }
     }
 
-    activateForm() {
+    _handleFormActivate() {
       this.setState({
         formIsAvailable: true,
       });
     }
 
-    deactivateForm() {
+    _handleFormDeactivate() {
       this.setState({
         formIsAvailable: false,
       });
@@ -53,21 +57,25 @@ const withNewComment = (Component) => {
       this.setState({
         rating: evt.target.value,
       });
+
+      this.checkError(evt.target.value, this.state.comment);
     }
 
     _handleTextChange(evt) {
       this.setState({
         comment: evt.target.value,
       });
+
+      this.checkError(this.state.rating, evt.target.value);
     }
 
-    _handleSubmit(evt) {
+    _handleFormSubmit(evt) {
       const {onSubmit, film} = this.props;
       const {rating, comment} = this.state;
 
       evt.preventDefault();
 
-      this.deactivateForm();
+      this._handleFormDeactivate();
 
       onSubmit({
         id: film.id,
@@ -75,11 +83,11 @@ const withNewComment = (Component) => {
         comment,
       },
       () => {
-        this.activateForm();
+        this._handleFormActivate();
         history.push(`${AppRoute.FILM}/${film.id}`);
       },
       () => {
-        this.activateForm();
+        this._handleFormActivate();
         this.checkError(rating, comment);
       });
     }
@@ -97,7 +105,7 @@ const withNewComment = (Component) => {
           {...this.props}
           onTextChange={this._handleTextChange}
           onRatingChange={this._handleRatingChange}
-          onSubmit={this._handleSubmit}
+          onSubmit={this._handleFormSubmit}
           buttonIsAvailable={buttonIsAvailable}
           formIsAvailable={formIsAvailable}
           errorMessage={errorMessage}

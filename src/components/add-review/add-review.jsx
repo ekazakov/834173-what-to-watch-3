@@ -48,6 +48,8 @@ const AddReview = (props) => {
         <form action="#" className="add-review__form" onSubmit={onSubmit}>
           <div className="rating">
             <div className="rating__stars">
+              <input className="rating__input" id="star-0" type="radio" name="rating" value="0" defaultChecked/>
+
               <input className="rating__input" id="star-1" type="radio" name="rating" value="1" onChange={onRatingChange} disabled={formIsAvailable ? `` : `disabled`}/>
               <label className="rating__label" htmlFor="star-1">Rating 1</label>
 
