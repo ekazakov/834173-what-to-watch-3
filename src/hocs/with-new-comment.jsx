@@ -34,6 +34,10 @@ const withNewComment = (Component) => {
         this.setState({
           errorMessage: `Длина комментария не может быть больше ${TextCommentLength.MAX}`,
         });
+      } else if (rating !== 0 && comment.length >= TextCommentLength.MIN && comment.length <= TextCommentLength.MAX) {
+        this.setState({
+          errorMessage: ``,
+        });
       }
     }
 
@@ -53,12 +57,16 @@ const withNewComment = (Component) => {
       this.setState({
         rating: evt.target.value,
       });
+
+      this.checkError(evt.target.value, this.state.comment);
     }
 
     _handleTextChange(evt) {
       this.setState({
         comment: evt.target.value,
       });
+
+      this.checkError(this.state.rating, evt.target.value);
     }
 
     _handleFormSubmit(evt) {
