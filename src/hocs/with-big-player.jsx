@@ -15,17 +15,17 @@ const withBigPlayer = (Component) => {
 
       this._playerRef = createRef();
 
-      this._handleVideoPlayClick = this._handleVideoPlayClick.bind(this);
+      this._handlePlayButtonClick = this._handlePlayButtonClick.bind(this);
       this._handleFullScreenButtonClick = this._handleFullScreenButtonClick.bind(this);
       this._handleLoadMetadata = this._handleLoadMetadata.bind(this);
       this._handleTimeUpdate = this._handleTimeUpdate.bind(this);
-      this._handleFullScreenControlChange = this._handleFullScreenControlChange.bind(this);
+      this._handleDefaultControlsChange = this._handleDefaultControlsChange.bind(this);
     }
 
     componentDidMount() {
       const player = this._playerRef.current;
 
-      player.addEventListener(`fullscreenchange`, this._handleFullScreenControlChange);
+      player.addEventListener(`fullscreenchange`, this._handleDefaultControlsChange);
     }
 
     componentWillUnmount() {
@@ -36,10 +36,10 @@ const withBigPlayer = (Component) => {
       player.play = null;
       player.pause = null;
 
-      player.removeEventListener(`fullscreenchange`, this._handleFullScreenControlChange);
+      player.removeEventListener(`fullscreenchange`, this._handleDefaultControlsChange);
     }
 
-    _handleFullScreenControlChange() {
+    _handleDefaultControlsChange() {
       const player = this._playerRef.current;
 
       if (document.fullscreenElement !== null) {
@@ -51,7 +51,7 @@ const withBigPlayer = (Component) => {
       }
     }
 
-    _handleVideoPlayClick() {
+    _handlePlayButtonClick() {
       const player = this._playerRef.current;
 
       if (player.paused) {
@@ -95,7 +95,7 @@ const withBigPlayer = (Component) => {
           {...this.props}
           playerRef={this._playerRef}
           isPlaying={isPlaying}
-          onPlayClick={this._handleVideoPlayClick}
+          onPlayClick={this._handlePlayButtonClick}
           onFullScreenClick={this._handleFullScreenButtonClick}
           onLoadMetadata={this._handleLoadMetadata}
           onTimeUpdate={this._handleTimeUpdate}
