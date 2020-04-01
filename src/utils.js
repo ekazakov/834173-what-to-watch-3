@@ -63,4 +63,11 @@ export const getRemainingTime = (time, currentTime) => {
   return `${hoursStr}:${minutesStr}:${secStr}`;
 };
 
+export const normalizeDuration = (duration) => {
+  const hours = `${Math.floor(duration / 60)}`;
+  const minutes = `${Math.floor(duration % 60)}`;
+
+  return `${hours}h ${minutes}m`;
+};
+
 export const normalizeFilmsData = (films) => films.map(normalizeFilmData);

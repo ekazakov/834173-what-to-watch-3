@@ -1,5 +1,5 @@
 import React from "react";
-import {getTextScore, formatDate} from "../../utils.js";
+import {getTextScore, formatDate, normalizeDuration} from "../../utils.js";
 import {TabsName, commentsProps, filmProps} from "../../consts.js";
 import PropTypes from "prop-types";
 
@@ -64,7 +64,7 @@ const Tabs = (props) => {
             <div className="movie-card__text-col">
               <p className="movie-card__details-item">
                 <strong className="movie-card__details-name">Run Time</strong>
-                <span className="movie-card__details-value">{film.duration}</span>
+                <span className="movie-card__details-value">{normalizeDuration(film.duration)}</span>
               </p>
               <p className="movie-card__details-item">
                 <strong className="movie-card__details-name">Genre</strong>
