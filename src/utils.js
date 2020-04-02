@@ -1,4 +1,5 @@
 import moment from "moment";
+import {MINUTES_IN_HOUR} from "./consts.js";
 
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
@@ -53,8 +54,8 @@ export const getProgress = (maxValue, currentValue) => {
 export const getRemainingTime = (time, currentTime) => {
   const difference = time - currentTime;
   const hours = `${Math.floor(difference / 3600)}`;
-  const minutes = `${Math.floor(difference / 60)}`;
-  const sec = `${Math.floor(difference % 60)}`;
+  const minutes = `${Math.floor(difference / MINUTES_IN_HOUR)}`;
+  const sec = `${difference % MINUTES_IN_HOUR}`;
 
   const hoursStr = hours.length === 2 ? hours : `0${hours}`;
   const minutesStr = minutes.length === 2 ? minutes : `0${minutes}`;
@@ -64,8 +65,14 @@ export const getRemainingTime = (time, currentTime) => {
 };
 
 export const normalizeDuration = (duration) => {
-  const hours = `${Math.floor(duration / 60)}`;
-  const minutes = `${Math.floor(duration % 60)}`;
+  const hours = `${Math.floor(duration / MINUTES_IN_HOUR)}`;
+  const minutes = `${duration % MINUTES_IN_HOUR}`;
+
+  if (duration % MINUTES_IN_HOUR === 0) {
+    return `${hours}h`;
+  } else if (duration < 60) {
+    return `${minutes}m`;
+  }
 
   return `${hours}h ${minutes}m`;
 };

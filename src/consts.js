@@ -16,6 +16,8 @@ export const TextCommentLength = {
   MAX: 400,
 };
 
+export const MINUTES_IN_HOUR = 60;
+
 export const filmProps = PropTypes.shape({
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
