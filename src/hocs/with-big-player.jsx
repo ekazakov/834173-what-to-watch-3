@@ -20,12 +20,18 @@ const withBigPlayer = (Component) => {
       this._handleLoadMetadata = this._handleLoadMetadata.bind(this);
       this._handleTimeUpdate = this._handleTimeUpdate.bind(this);
       this._handleDefaultControlsChange = this._handleDefaultControlsChange.bind(this);
+      this._handleIsPlayingTrueToggle = this._handleIsPlayingTrueToggle.bind(this);
+      this._handleIsPlayingFalseToggle = this._handleIsPlayingFalseToggle.bind(this);
     }
 
     componentDidMount() {
       const player = this._playerRef.current;
 
       player.addEventListener(`fullscreenchange`, this._handleDefaultControlsChange);
+
+      player.addEventListener(`play`, this._handleIsPlayingTrueToggle);
+
+      player.addEventListener(`pause`, this._handleIsPlayingFalseToggle);
     }
 
     componentWillUnmount() {
@@ -37,6 +43,10 @@ const withBigPlayer = (Component) => {
       player.pause = null;
 
       player.removeEventListener(`fullscreenchange`, this._handleDefaultControlsChange);
+
+      player.removeEventListener(`play`, this._handleIsPlayingTrueToggle);
+
+      player.removeEventListener(`pause`, this._handleIsPlayingFalseToggle);
     }
 
     _handleDefaultControlsChange() {
@@ -44,11 +54,21 @@ const withBigPlayer = (Component) => {
 
       if (document.fullscreenElement !== null) {
         player.controls = true;
-      }
-
-      if (document.fullscreenElement === null) {
+      } else {
         player.controls = false;
       }
+    }
+
+    _handleIsPlayingTrueToggle() {
+      this.setState({
+        isPlaying: true,
+      });
+    }
+
+    _handleIsPlayingFalseToggle() {
+      this.setState({
+        isPlaying: false,
+      });
     }
 
     _handlePlayButtonClick() {
@@ -56,14 +76,10 @@ const withBigPlayer = (Component) => {
 
       if (player.paused) {
         player.play();
-        this.setState({
-          isPlaying: true,
-        });
+        this._handleIsPlayingTrueToggle();
       } else {
         player.pause();
-        this.setState({
-          isPlaying: false,
-        });
+        this._handleIsPlayingFalseToggle();
       }
     }
 
