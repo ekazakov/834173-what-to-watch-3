@@ -55,7 +55,7 @@ export const getRemainingTime = (time, currentTime) => {
   const difference = time - currentTime;
   const hours = `${Math.floor(difference / 3600)}`;
   const minutes = `${Math.floor(difference / MINUTES_IN_HOUR)}`;
-  const sec = `${Math.floor(difference % MINUTES_IN_HOUR)}`;
+  const sec = `${difference % MINUTES_IN_HOUR}`;
 
   const hoursStr = hours.length === 2 ? hours : `0${hours}`;
   const minutesStr = minutes.length === 2 ? minutes : `0${minutes}`;
