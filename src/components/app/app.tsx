@@ -1,29 +1,29 @@
-import React, {PureComponent} from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import {Switch, Route, Router} from "react-router-dom";
-import Main from "../main/main.js";
+import Main from "../main/main";
 import {connect} from "react-redux";
-import {Operation as UserOperation} from "../../reducer/user/user.js";
-import SignIn from "../sign-in/sign-in.js";
-import withAuthInformation from "../../hocs/with-auth-information.js";
-import FilmDetails from "../film-details/film-details.js";
+import {Operation as UserOperation} from "../../reducer/user/user";
+import SignIn from "../sign-in/sign-in";
+import withAuthInformation from "../../hocs/with-auth-information";
+import FilmDetails from "../film-details/film-details";
 import {filmProps, filmsProps, AppRoute} from "../../consts";
-import {getFilms, getChosenFilm, getPromoFilm} from "../../reducer/state/selectors.js";
-import {ActionCreator} from "../../reducer/state/state.js";
-import BigVideoPlayer from "../big-video-player/big-video-player.js";
-import withBigVideoPlayer from "../../hocs/with-big-player.js";
-import history from "../../history.js";
-import AddReview from "../add-review/add-review.js";
-import {Operation as DataOperation} from "../../reducer/data/data.js";
-import withNewComment from "../../hocs/with-new-comment.js";
-import MyList from "../my-list/my-list.js";
-import PrivateRoute from "../private-route/private-route.js";
+import {getFilms, getChosenFilm, getPromoFilm} from "../../reducer/state/selectors";
+import {ActionCreator} from "../../reducer/state/state";
+import BigVideoPlayer from "../big-video-player/big-video-player";
+import withBigVideoPlayer from "../../hocs/with-big-player";
+import history from "../../history";
+import AddReview from "../add-review/add-review";
+import {Operation as DataOperation} from "../../reducer/data/data";
+import withNewComment from "../../hocs/with-new-comment";
+import MyList from "../my-list/my-list";
+import PrivateRoute from "../private-route/private-route";
 
 const SignInWrapper = withAuthInformation(SignIn);
 const BigPlayerWrapper = withBigVideoPlayer(BigVideoPlayer);
 const AddReviewWrapper = withNewComment(AddReview);
 
-class App extends PureComponent {
+class App extends React.PureComponent {
 
   constructor(props) {
     super(props);

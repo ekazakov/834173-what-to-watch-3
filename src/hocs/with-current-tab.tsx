@@ -1,9 +1,8 @@
-import React, {PureComponent} from "react";
-import {TabsName} from "../consts.js";
-import {commentsProps} from "../consts";
+import * as React from "react";
+import {TabsName, commentsProps} from "../consts";
 
 const withCurrentTab = (Component) => {
-  class WithCurrentTab extends PureComponent {
+  class WithCurrentTab extends React.PureComponent {
     constructor(props) {
       super(props);
 

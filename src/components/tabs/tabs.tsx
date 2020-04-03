@@ -1,6 +1,6 @@
-import React from "react";
-import {getTextScore, formatDate, normalizeDuration} from "../../utils.js";
-import {TabsName, commentsProps, filmProps} from "../../consts.js";
+import * as React from "react";
+import {getTextScore, formatDate, normalizeDuration} from "../../utils";
+import {TabsName, commentsProps, filmProps} from "../../consts";
 import PropTypes from "prop-types";
 
 const Tabs = (props) => {

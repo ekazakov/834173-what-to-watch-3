@@ -1,7 +1,7 @@
-import React from "react";
-import {filmProps, FavoriteStatus} from "../../consts.js";
+import * as React from "react";
+import {filmProps, FavoriteStatus} from "../../consts";
 import PropTypes from "prop-types";
-import {Operation as DataOperation} from "../../reducer/data/data.js";
+import {Operation as DataOperation} from "../../reducer/data/data";
 import {connect} from "react-redux";
 
 const MyListButton = (props) => {

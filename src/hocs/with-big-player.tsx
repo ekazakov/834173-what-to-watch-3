@@ -1,9 +1,9 @@
-import React, {PureComponent, createRef} from "react";
+import * as React from "react";
 import {filmProps} from "../consts";
-import {getProgress, getRemainingTime} from "../utils.js";
+import {getProgress, getRemainingTime} from "../utils";
 
 const withBigPlayer = (Component) => {
-  class WithBigPlayer extends PureComponent {
+  class WithBigPlayer extends React.PureComponent {
     constructor(props) {
       super(props);
 
@@ -13,7 +13,7 @@ const withBigPlayer = (Component) => {
         progress: 0,
       };
 
-      this._playerRef = createRef();
+      this._playerRef = React.createRef();
 
       this._handlePlayButtonClick = this._handlePlayButtonClick.bind(this);
       this._handleFullScreenButtonClick = this._handleFullScreenButtonClick.bind(this);

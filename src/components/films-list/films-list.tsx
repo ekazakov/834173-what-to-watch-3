@@ -1,7 +1,7 @@
-import React from "react";
-import FilmCard from "../film-card/film-card.js";
-import withVideoPlayer from "../../hocs/with-video-player.js";
-import {filmsProps} from "../../consts.js";
+import * as React from "react";
+import FilmCard from "../film-card/film-card";
+import withVideoPlayer from "../../hocs/with-video-player";
+import {filmsProps} from "../../consts";
 import PropTypes from "prop-types";
 
 const FilmCardWrapper = withVideoPlayer(FilmCard);

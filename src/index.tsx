@@ -1,13 +1,13 @@
-import React from "react";
+import * as React from "react";
 import ReactDOM from "react-dom";
 import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
-import App from "./components/app/app.js";
-import reducer from "./reducer/reducer.js";
+import App from "./components/app/app";
+import reducer from "./reducer/reducer";
 import thunk from "redux-thunk";
-import {createAPI} from "./api.js";
-import {Operation as DataOperation, ActionCreator as DataActionCreator} from "./reducer/data/data.js";
-import {Operation as UserOperation, ActionCreator as UserActionCreator} from "./reducer/user/user.js";
+import {createAPI} from "./api";
+import {Operation as DataOperation, ActionCreator as DataActionCreator} from "./reducer/data/data";
+import {Operation as UserOperation, ActionCreator as UserActionCreator} from "./reducer/user/user";
 import {AuthorizationStatus, ServerStatus} from "./consts";
 import {composeWithDevTools} from "redux-devtools-extension";
 

@@ -1,5 +1,5 @@
 import moment from "moment";
-import {MINUTES_IN_HOUR} from "./consts.js";
+import {MINUTES_IN_HOUR} from "./consts";
 
 export const extend = (a, b) => {
   return Object.assign({}, a, b);

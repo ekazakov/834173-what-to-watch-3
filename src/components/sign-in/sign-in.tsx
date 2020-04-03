@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
-import {AppRoute} from "../../consts.js";
+import {AppRoute} from "../../consts";
 
 const SignIn = (props) => {
   const {onSubmit, onChange, errorMessage, validEmail, validPassword} = props;

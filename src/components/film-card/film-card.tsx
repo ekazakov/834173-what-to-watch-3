@@ -1,8 +1,7 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
-import {filmProps} from "../../consts.js";
-import {AppRoute} from "../../consts";
+import {filmProps, AppRoute} from "../../consts";
 
 const FilmCard = (props) => {
   const {film, onFilmCardHover, onFilmCardLeave, renderPlayer, onFilmClick} = props;

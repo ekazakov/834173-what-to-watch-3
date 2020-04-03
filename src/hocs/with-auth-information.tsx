@@ -1,10 +1,10 @@
-import React, {PureComponent} from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
-import history from "../history.js";
-import {AppRoute} from "../consts.js";
+import history from "../history";
+import {AppRoute} from "../consts";
 
 const withAuthInformation = (Component) => {
-  class WithAuthInformation extends PureComponent {
+  class WithAuthInformation extends React.PureComponent {
     constructor(props) {
       super(props);
 

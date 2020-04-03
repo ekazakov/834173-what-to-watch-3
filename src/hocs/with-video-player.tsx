@@ -1,9 +1,9 @@
-import React, {PureComponent} from "react";
-import {VIDEO_TIMER_HOVER} from "../consts.js";
-import VideoPlayer from "../components/video-player/video-player.js";
+import * as React from "react";
+import {VIDEO_TIMER_HOVER} from "../consts";
+import VideoPlayer from "../components/video-player/video-player";
 
 const withVideoPlayer = (Component) => {
-  class WithVideoPlayer extends PureComponent {
+  class WithVideoPlayer extends React.PureComponent {
     constructor(props) {
       super(props);
 

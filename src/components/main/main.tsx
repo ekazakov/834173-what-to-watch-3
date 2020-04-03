@@ -1,11 +1,11 @@
-import React from "react";
+import * as React from "react";
 import {connect} from "react-redux";
-import {getServerStatus} from "../../reducer/state/selectors.js";
+import {getServerStatus} from "../../reducer/state/selectors";
 import PropTypes from "prop-types";
-import GenresList from "../genres-list/genres-list.js";
-import ShowMore from "../show-more/show-more.js";
-import UserBlock from "../user-block/user-block.js";
-import PromoFilm from "../promo-film/promo-film.js";
+import GenresList from "../genres-list/genres-list";
+import ShowMore from "../show-more/show-more";
+import UserBlock from "../user-block/user-block";
+import PromoFilm from "../promo-film/promo-film";
 import {filmProps, AppRoute, ServerStatus} from "../../consts";
 import {Link} from "react-router-dom";
 

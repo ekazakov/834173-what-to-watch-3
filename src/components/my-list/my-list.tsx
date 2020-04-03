@@ -1,11 +1,11 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import FilmsList from "../films-list/films-list.js";
-import UserBlock from "../user-block/user-block.js";
-import {filmsProps, AppRoute} from "../../consts.js";
-import {getFavoriteFilms} from "../../reducer/state/selectors.js";
+import FilmsList from "../films-list/films-list";
+import UserBlock from "../user-block/user-block";
+import {filmsProps, AppRoute} from "../../consts";
+import {getFavoriteFilms} from "../../reducer/state/selectors";
 
 const MyList = (props) => {
   const {favoriteFilms, onFilmClick} = props;

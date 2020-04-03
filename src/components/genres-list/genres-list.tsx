@@ -1,10 +1,10 @@
-import React from "react";
+import * as React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import {ActionCreator} from "../../reducer/state/state.js";
-import FilmsList from "../films-list/films-list.js";
-import {filmsProps, SHOWN_FILMS_DEFAULT} from "../../consts.js";
-import {getGenre, getGenres, getLimitedFilms} from "../../reducer/state/selectors.js";
+import {ActionCreator} from "../../reducer/state/state";
+import FilmsList from "../films-list/films-list";
+import {filmsProps, SHOWN_FILMS_DEFAULT} from "../../consts";
+import {getGenre, getGenres, getLimitedFilms} from "../../reducer/state/selectors";
 
 const GenresList = (props) => {
   const {genre, genres, changeGenre, onFilmClick, resetFilmsAmount, limitedFilms} = props;

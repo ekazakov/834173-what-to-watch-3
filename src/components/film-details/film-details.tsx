@@ -1,16 +1,16 @@
-import React from "react";
-import {filmProps, filmsProps, AppRoute} from "../../consts.js";
+import * as React from "react";
+import {filmProps, filmsProps, AppRoute} from "../../consts";
 import PropTypes from "prop-types";
-import Tabs from "../tabs/tabs.js";
-import withCurrentTab from "../../hocs/with-current-tab.js";
+import Tabs from "../tabs/tabs";
+import withCurrentTab from "../../hocs/with-current-tab";
 import {connect} from "react-redux";
-import {getSimilarFilms, getComments} from "../../reducer/state/selectors.js";
-import FilmsList from "../films-list/films-list.js";
+import {getSimilarFilms, getComments} from "../../reducer/state/selectors";
+import FilmsList from "../films-list/films-list";
 import {commentsProps, AuthorizationStatus} from "../../consts";
-import UserBlock from "../user-block/user-block.js";
+import UserBlock from "../user-block/user-block";
 import {Link} from "react-router-dom";
-import MyListButton from "../my-list-button/my-list-button.js";
-import {getAuthorizationStatus} from "../../reducer/user/selectors.js";
+import MyListButton from "../my-list-button/my-list-button";
+import {getAuthorizationStatus} from "../../reducer/user/selectors";
 
 const TabsWrapper = withCurrentTab(Tabs);
 

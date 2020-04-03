@@ -1,10 +1,10 @@
-import React, {PureComponent} from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
-import {filmProps, TextCommentLength, AppRoute} from "../consts.js";
-import history from "../history.js";
+import {filmProps, TextCommentLength, AppRoute} from "../consts";
+import history from "../history";
 
 const withNewComment = (Component) => {
-  class WithNewComment extends PureComponent {
+  class WithNewComment extends React.PureComponent {
     constructor(props) {
       super(props);
 

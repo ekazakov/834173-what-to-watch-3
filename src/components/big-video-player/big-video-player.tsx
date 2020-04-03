@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import {filmProps, AppRoute} from "../../consts";
 import {Link} from "react-router-dom";
