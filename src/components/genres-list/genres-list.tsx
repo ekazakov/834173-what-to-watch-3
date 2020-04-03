@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {ActionCreator} from "../../reducer/state/state.js";
-import FilmsList from "../films-list/films-list.jsx";
+import FilmsList from "../films-list/films-list.js";
 import {filmsProps, SHOWN_FILMS_DEFAULT} from "../../consts.js";
 import {getGenre, getGenres, getLimitedFilms} from "../../reducer/state/selectors.js";
 

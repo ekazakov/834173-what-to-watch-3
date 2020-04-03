@@ -1,7 +1,7 @@
 import React from "react";
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import {ShowMore} from "./show-more.jsx";
+import {ShowMore} from "./show-more.js";
 import {SHOWN_FILMS_DEFAULT} from "../../consts";
 
 Enzyme.configure({

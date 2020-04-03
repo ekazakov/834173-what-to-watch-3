@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import PromoFilm from "./promo-film.jsx";
+import PromoFilm from "./promo-film.js";
 import {films} from "../../mock-for-tests.js";
 import {MemoryRouter} from "react-router-dom";
 import NameSpace from "../../reducer/name-space";

@@ -2,7 +2,7 @@ import React from "react";
 import {filmProps, AppRoute} from "../../consts.js";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import MyListButton from "../my-list-button/my-list-button.jsx";
+import MyListButton from "../my-list-button/my-list-button.js";
 
 const PromoFilm = (props) => {
   const {promoFilm, onActivePlayerButtonClick} = props;

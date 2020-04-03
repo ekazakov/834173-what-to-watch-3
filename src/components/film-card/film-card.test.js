@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import FilmCard from "./film-card.jsx";
+import FilmCard from "./film-card.js";
 import {MemoryRouter} from "react-router-dom";
 import {films} from "../../mock-for-tests.js";
 

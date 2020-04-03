@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import GenresList from "./genres-list.jsx";
+import GenresList from "./genres-list.js";
 import {Genres} from "../../consts.js";
 import {MemoryRouter} from "react-router-dom";
 import {Provider} from "react-redux";

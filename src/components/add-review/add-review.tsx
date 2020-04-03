@@ -1,6 +1,6 @@
 import React from "react";
 import {filmProps, AppRoute} from "../../consts.js";
-import UserBlock from "../user-block/user-block.jsx";
+import UserBlock from "../user-block/user-block.js";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 

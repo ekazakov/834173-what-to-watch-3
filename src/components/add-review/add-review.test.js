@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import AddReview from "./add-review.jsx";
+import AddReview from "./add-review.js";
 import {films} from "../../mock-for-tests.js";
 import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus} from "../../consts";

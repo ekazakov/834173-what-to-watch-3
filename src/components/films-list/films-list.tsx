@@ -1,6 +1,6 @@
 import React from "react";
-import FilmCard from "../film-card/film-card.jsx";
-import withVideoPlayer from "../../hocs/with-video-player.jsx";
+import FilmCard from "../film-card/film-card.js";
+import withVideoPlayer from "../../hocs/with-video-player.js";
 import {filmsProps} from "../../consts.js";
 import PropTypes from "prop-types";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import PromoFilm from "./promo-film.jsx";
+import PromoFilm from "./promo-film.js";
 import {films} from "../../mock-for-tests.js";
 
 Enzyme.configure({

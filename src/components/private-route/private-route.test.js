@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import PrivateRoute from "./private-route.jsx";
+import PrivateRoute from "./private-route.js";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import {AppRoute, Genres, SHOWN_FILMS_DEFAULT} from "../../consts";
