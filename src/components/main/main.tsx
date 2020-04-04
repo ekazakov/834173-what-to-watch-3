@@ -1,15 +1,22 @@
 import * as React from "react";
 import {connect} from "react-redux";
 import {getServerStatus} from "../../reducer/state/selectors";
-import PropTypes from "prop-types";
 import GenresList from "../genres-list/genres-list";
 import ShowMore from "../show-more/show-more";
 import UserBlock from "../user-block/user-block";
 import PromoFilm from "../promo-film/promo-film";
-import {filmProps, AppRoute, ServerStatus} from "../../consts";
+import {AppRoute, ServerStatus} from "../../consts";
 import {Link} from "react-router-dom";
+import {Film} from "../../types";
 
-const Main = (props) => {
+interface MainProps  {
+  onFilmClick: () => void,
+  onActivePlayerButtonClick: () => void,
+  promoFilm: Film,
+  serverStatusIsAvailable: boolean,
+}
+
+const Main: React.FunctionComponent<MainProps> = (props: MainProps) => {
   const {onFilmClick, promoFilm, onActivePlayerButtonClick, serverStatusIsAvailable} = props;
 
   return (
@@ -79,13 +86,6 @@ const Main = (props) => {
       </div>
     </React.Fragment>
   );
-};
-
-Main.propTypes = {
-  onFilmClick: PropTypes.func.isRequired,
-  onActivePlayerButtonClick: PropTypes.func.isRequired,
-  promoFilm: filmProps,
-  serverStatusIsAvailable: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

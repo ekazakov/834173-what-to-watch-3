@@ -1,9 +1,21 @@
 import * as React from "react";
-import PropTypes from "prop-types";
-import {filmProps, AppRoute} from "../../consts";
+import {AppRoute} from "../../consts";
 import {Link} from "react-router-dom";
+import {Film} from "../../types";
 
-const BigVideoPlayer = (props) => {
+interface BigVideoPlayerProps {
+  film: Film,
+  isPlaying: boolean,
+  playerRef: React.RefObject<HTMLVideoElement>,
+  onPlayClick: () => void,
+  onFullScreenClick: () => void,
+  onLoadMetadata: () => void,
+  onTimeUpdate: () => void,
+  progress: string,
+  remainingTime: string,
+}
+
+const BigVideoPlayer: React.FunctionComponent<BigVideoPlayerProps> = (props: BigVideoPlayerProps) => {
   const {playerRef, film, isPlaying, onPlayClick, onFullScreenClick, onLoadMetadata, onTimeUpdate, progress, remainingTime} = props;
 
   return (
@@ -50,21 +62,6 @@ const BigVideoPlayer = (props) => {
       </div>
     </div>
   );
-};
-
-BigVideoPlayer.propTypes = {
-  film: filmProps,
-  isPlaying: PropTypes.bool.isRequired,
-  playerRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({current: PropTypes.instanceOf(Element)})
-  ]).isRequired,
-  onPlayClick: PropTypes.func.isRequired,
-  onFullScreenClick: PropTypes.func.isRequired,
-  onLoadMetadata: PropTypes.func.isRequired,
-  onTimeUpdate: PropTypes.func.isRequired,
-  progress: PropTypes.string.isRequired,
-  remainingTime: PropTypes.string.isRequired,
 };
 
 export default BigVideoPlayer;

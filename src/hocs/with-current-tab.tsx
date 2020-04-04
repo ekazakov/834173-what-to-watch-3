@@ -1,8 +1,26 @@
 import * as React from "react";
-import {TabsName, commentsProps} from "../consts";
+import {TabsName} from "../consts";
+import {Subtract} from "utility-types";
+
+interface State {
+  currentTab: string,
+}
+
+interface Props {
+  comments: Comment[],
+}
+
+interface InjectedProps {
+  currentTab: string,
+  changeTab: () => void,
+  comments: Comment[],
+}
 
 const withCurrentTab = (Component) => {
-  class WithCurrentTab extends React.PureComponent {
+  type P = React.ComponentProps<typeof Component>;
+  type T = Props & Subtract<P, InjectedProps>;
+
+  class WithCurrentTab extends React.PureComponent<T, State> {
     constructor(props) {
       super(props);
 
@@ -35,10 +53,6 @@ const withCurrentTab = (Component) => {
       );
     }
   }
-
-  WithCurrentTab.propTypes = {
-    comments: commentsProps,
-  };
 
   return WithCurrentTab;
 };

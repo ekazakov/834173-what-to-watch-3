@@ -1,11 +1,14 @@
 import * as React from "react";
 import {connect} from "react-redux";
-import PropTypes from "prop-types";
 import {getAuthorizationStatus} from "../../reducer/user/selectors";
 import {AuthorizationStatus, AppRoute} from "../../consts";
 import {Link} from "react-router-dom";
 
-const UserBlock = (props) => {
+interface UserBlockProps {
+  isAuthorized: boolean,
+}
+
+const UserBlock: React.FunctionComponent<UserBlockProps> = (props: UserBlockProps) => {
   const {isAuthorized} = props;
 
   return (
@@ -22,10 +25,6 @@ const UserBlock = (props) => {
       }
     </div>
   );
-};
-
-UserBlock.propTypes = {
-  isAuthorized: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

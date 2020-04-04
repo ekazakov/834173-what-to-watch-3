@@ -1,10 +1,15 @@
 import * as React from "react";
-import {filmProps, AppRoute} from "../../consts";
+import {AppRoute} from "../../consts";
 import {Link} from "react-router-dom";
-import PropTypes from "prop-types";
 import MyListButton from "../my-list-button/my-list-button";
+import {Film} from "../../types";
 
-const PromoFilm = (props) => {
+interface PromoFilmProps {
+  promoFilm: Film,
+  onActivePlayerButtonClick: () => void,
+}
+
+const PromoFilm: React.FunctionComponent<PromoFilmProps> = (props: PromoFilmProps) => {
   const {promoFilm, onActivePlayerButtonClick} = props;
 
   return (
@@ -34,11 +39,6 @@ const PromoFilm = (props) => {
       </div>
     </div>
   );
-};
-
-PromoFilm.propTypes = {
-  promoFilm: filmProps,
-  onActivePlayerButtonClick: PropTypes.func.isRequired,
 };
 
 export default PromoFilm;

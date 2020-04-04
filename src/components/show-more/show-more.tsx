@@ -1,10 +1,15 @@
 import * as React from "react";
 import {connect} from "react-redux";
-import PropTypes from "prop-types";
 import {getShownFilms, getHaveMoreFilms} from "../../reducer/state/selectors";
 import {ActionCreator} from "../../reducer/state/state";
 
-const ShowMore = (props) => {
+interface ShowMoreProps {
+  shownFilms: number,
+  showMoreFilms: () => void,
+  haveMoreFilms: boolean,
+}
+
+const ShowMore: React.FunctionComponent<ShowMoreProps> = (props: ShowMoreProps) => {
   const {shownFilms, showMoreFilms, haveMoreFilms} = props;
 
   return haveMoreFilms ? (
@@ -12,12 +17,6 @@ const ShowMore = (props) => {
       <button className="catalog__button" type="button" onClick={() => showMoreFilms(shownFilms)}>Show more</button>
     </div>
   ) : null;
-};
-
-ShowMore.propTypes = {
-  shownFilms: PropTypes.number.isRequired,
-  showMoreFilms: PropTypes.func.isRequired,
-  haveMoreFilms: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

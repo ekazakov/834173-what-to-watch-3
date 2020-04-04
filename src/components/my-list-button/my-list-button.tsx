@@ -1,10 +1,15 @@
 import * as React from "react";
-import {filmProps, FavoriteStatus} from "../../consts";
-import PropTypes from "prop-types";
-import {Operation as DataOperation} from "../../reducer/data/data";
 import {connect} from "react-redux";
+import {Operation as DataOperation} from "../../reducer/data/data";
+import {FavoriteStatus} from "../../consts";
+import {Film} from "../../types";
 
-const MyListButton = (props) => {
+interface MyListButtonProps {
+  film: Film,
+  changeFavorite: (Film, number) => void,
+}
+
+const MyListButton: React.FunctionComponent<MyListButtonProps> = (props: MyListButtonProps) => {
   const {film, changeFavorite} = props;
 
   const checkFavoriteHandler = () => {
@@ -26,11 +31,6 @@ const MyListButton = (props) => {
     </button>
 
   );
-};
-
-MyListButton.propTypes = {
-  film: filmProps,
-  changeFavorite: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

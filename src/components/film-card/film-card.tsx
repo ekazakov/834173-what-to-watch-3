@@ -1,9 +1,17 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
-import {filmProps, AppRoute} from "../../consts";
+import {AppRoute} from "../../consts";
+import {Film} from "../../types";
 
-const FilmCard = (props) => {
+interface FilmCardProps {
+  film: Film,
+  onFilmCardHover: () => void,
+  onFilmCardLeave: () => void,
+  renderPlayer: () => void,
+  onFilmClick: (evt: React.SyntheticEvent<HTMLElement>) => void,
+}
+
+const FilmCard: React.FunctionComponent<FilmCardProps> = (props: FilmCardProps) => {
   const {film, onFilmCardHover, onFilmCardLeave, renderPlayer, onFilmClick} = props;
 
   return (
@@ -18,14 +26,6 @@ const FilmCard = (props) => {
       </h3>
     </article>
   );
-};
-
-FilmCard.propTypes = {
-  film: filmProps,
-  onFilmCardHover: PropTypes.func.isRequired,
-  onFilmCardLeave: PropTypes.func.isRequired,
-  renderPlayer: PropTypes.func.isRequired,
-  onFilmClick: PropTypes.func.isRequired,
 };
 
 export default FilmCard;

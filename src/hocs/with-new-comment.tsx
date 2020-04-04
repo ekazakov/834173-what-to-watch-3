@@ -1,10 +1,36 @@
 import * as React from "react";
-import PropTypes from "prop-types";
-import {filmProps, TextCommentLength, AppRoute} from "../consts";
+import {TextCommentLength, AppRoute} from "../consts";
 import history from "../history";
+import {Film} from "../types";
+import {Subtract} from "utility-types";
+
+interface State {
+  id: number | string,
+  rating: number,
+  comment: string,
+  formIsAvailable: boolean,
+  errorMessage: string,
+}
+
+interface Props {
+  onSubmit: () => void,
+  film: Film,
+}
+
+interface InjectedProps {
+  onTextChang: () => void,
+  onRatingChange: () => void,
+  onSubmit: () => void,
+  buttonIsAvailable: boolean,
+  formIsAvailable: boolean,
+  errorMessage: string,
+}
 
 const withNewComment = (Component) => {
-  class WithNewComment extends React.PureComponent {
+  type P = React.ComponentProps<typeof Component>;
+  type T = Props & Subtract<P, InjectedProps>;
+
+  class WithNewComment extends React.PureComponent<T, State> {
     constructor(props) {
       super(props);
 
@@ -113,11 +139,6 @@ const withNewComment = (Component) => {
       );
     }
   }
-
-  WithNewComment.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-    film: filmProps,
-  };
 
   return WithNewComment;
 };

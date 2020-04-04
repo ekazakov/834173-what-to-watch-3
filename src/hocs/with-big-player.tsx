@@ -1,9 +1,36 @@
 import * as React from "react";
-import {filmProps} from "../consts";
 import {getProgress, getRemainingTime} from "../utils";
+import {Film} from "../types";
+import {Subtract} from "utility-types";
+
+interface State {
+  isPlaying: boolean,
+  duration: number,
+  progress: number,
+}
+
+interface Props {
+  film: Film,
+}
+
+interface InjectedProps {
+  playerRef: React.RefObject<HTMLVideoElement>;
+  isPlaying: boolean,
+  onPlayClick: () => void,
+  onFullScreenClick: () => void,
+  onLoadMetadata: () => void,
+  onTimeUpdate: () => void,
+  progress: string,
+  remainingTime: string,
+}
 
 const withBigPlayer = (Component) => {
-  class WithBigPlayer extends React.PureComponent {
+  type P = React.ComponentProps<typeof Component>;
+  type T = Props & Subtract<P, InjectedProps>;
+
+  class WithBigPlayer extends React.PureComponent<T, State> {
+    private playerRef: React.RefObject<HTMLVideoElement>;
+
     constructor(props) {
       super(props);
 
@@ -13,7 +40,7 @@ const withBigPlayer = (Component) => {
         progress: 0,
       };
 
-      this._playerRef = React.createRef();
+      this.playerRef = React.createRef();
 
       this._handlePlayButtonClick = this._handlePlayButtonClick.bind(this);
       this._handleFullScreenButtonClick = this._handleFullScreenButtonClick.bind(this);
@@ -25,7 +52,7 @@ const withBigPlayer = (Component) => {
     }
 
     componentDidMount() {
-      const player = this._playerRef.current;
+      const player = this.playerRef.current;
 
       player.addEventListener(`fullscreenchange`, this._handleDefaultControlsChange);
 
@@ -35,7 +62,7 @@ const withBigPlayer = (Component) => {
     }
 
     componentWillUnmount() {
-      const player = this._playerRef.current;
+      const player = this.playerRef.current;
 
       player.src = ``;
       player.poster = ``;
@@ -50,7 +77,7 @@ const withBigPlayer = (Component) => {
     }
 
     _handleDefaultControlsChange() {
-      const player = this._playerRef.current;
+      const player = this.playerRef.current;
 
       if (document.fullscreenElement !== null) {
         player.controls = true;
@@ -72,7 +99,7 @@ const withBigPlayer = (Component) => {
     }
 
     _handlePlayButtonClick() {
-      const player = this._playerRef.current;
+      const player = this.playerRef.current;
 
       if (player.paused) {
         player.play();
@@ -84,7 +111,7 @@ const withBigPlayer = (Component) => {
     }
 
     _handleFullScreenButtonClick() {
-      const player = this._playerRef.current;
+      const player = this.playerRef.current;
 
       player.requestFullscreen();
     }
@@ -109,7 +136,7 @@ const withBigPlayer = (Component) => {
       return (
         <Component
           {...this.props}
-          playerRef={this._playerRef}
+          playerRef={this.playerRef}
           isPlaying={isPlaying}
           onPlayClick={this._handlePlayButtonClick}
           onFullScreenClick={this._handleFullScreenButtonClick}
@@ -121,11 +148,6 @@ const withBigPlayer = (Component) => {
       );
     }
   }
-
-
-  WithBigPlayer.propTypes = {
-    film: filmProps,
-  };
 
   return WithBigPlayer;
 };

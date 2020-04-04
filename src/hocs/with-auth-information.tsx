@@ -1,10 +1,31 @@
 import * as React from "react";
-import PropTypes from "prop-types";
+import {Subtract} from "utility-types";
 import history from "../history";
 import {AppRoute} from "../consts";
 
+interface State {
+  email: string,
+  password: string,
+  errorMessage: string,
+}
+
+interface Props {
+  onSubmit: () => void,
+}
+
+interface InjectedProps {
+  onChange: () => void,
+  onSubmit: () => void,
+  errorMessage: string,
+  validEmail: boolean,
+  validPassword: boolean,
+}
+
 const withAuthInformation = (Component) => {
-  class WithAuthInformation extends React.PureComponent {
+  type P = React.ComponentProps<typeof Component>;
+  type T = Props & Subtract<P, InjectedProps>;
+
+  class WithAuthInformation extends React.PureComponent<T, State> {
     constructor(props) {
       super(props);
 
@@ -85,10 +106,6 @@ const withAuthInformation = (Component) => {
       );
     }
   }
-
-  WithAuthInformation.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-  };
 
   return WithAuthInformation;
 };

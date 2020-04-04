@@ -1,9 +1,16 @@
 import * as React from "react";
 import {getTextScore, formatDate, normalizeDuration} from "../../utils";
-import {TabsName, commentsProps, filmProps} from "../../consts";
-import PropTypes from "prop-types";
+import {TabsName} from "../../consts";
+import {Film} from "../../types";
 
-const Tabs = (props) => {
+interface TabsProps {
+  film: Film,
+  comments: Comment[],
+  changeTab: () => void,
+  currentTab: string,
+}
+
+const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps) => {
   const {film, comments, changeTab, currentTab} = props;
 
   return (
@@ -103,13 +110,6 @@ const Tabs = (props) => {
       )}
     </React.Fragment>
   );
-};
-
-Tabs.propTypes = {
-  film: filmProps,
-  comments: commentsProps,
-  changeTab: PropTypes.func.isRequired,
-  currentTab: PropTypes.string.isRequired,
 };
 
 export default Tabs;

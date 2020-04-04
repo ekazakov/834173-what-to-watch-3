@@ -1,20 +1,29 @@
 import * as React from "react";
-import {filmProps, filmsProps, AppRoute} from "../../consts";
-import PropTypes from "prop-types";
-import Tabs from "../tabs/tabs";
-import withCurrentTab from "../../hocs/with-current-tab";
 import {connect} from "react-redux";
-import {getSimilarFilms, getComments} from "../../reducer/state/selectors";
-import FilmsList from "../films-list/films-list";
-import {commentsProps, AuthorizationStatus} from "../../consts";
-import UserBlock from "../user-block/user-block";
 import {Link} from "react-router-dom";
+import Tabs from "../tabs/tabs";
+import FilmsList from "../films-list/films-list";
 import MyListButton from "../my-list-button/my-list-button";
+import UserBlock from "../user-block/user-block";
+import withCurrentTab from "../../hocs/with-current-tab";
+import {getSimilarFilms, getComments} from "../../reducer/state/selectors";
 import {getAuthorizationStatus} from "../../reducer/user/selectors";
+import {AuthorizationStatus, AppRoute} from "../../consts";
+import {Film, Comment} from "../../types";
 
 const TabsWrapper = withCurrentTab(Tabs);
 
-const FilmDetails = (props) => {
+interface FilmDetailsProps {
+  film: Film,
+  similarFilms: Film[],
+  onFilmClick: () => void,
+  comments: Comment,
+  onActivePlayerButtonClick: () => void,
+  onAddReviewButtonClick: () => void,
+  isAuthorized: boolean,
+}
+
+const FilmDetails: React.FunctionComponent<FilmDetailsProps> = (props: FilmDetailsProps) => {
   const {film, onFilmClick, similarFilms, comments, onActivePlayerButtonClick, onAddReviewButtonClick, isAuthorized} = props;
 
   return (
@@ -101,16 +110,6 @@ const FilmDetails = (props) => {
       </div>
     </React.Fragment>
   );
-};
-
-FilmDetails.propTypes = {
-  film: filmProps,
-  similarFilms: filmsProps,
-  onFilmClick: PropTypes.func.isRequired,
-  comments: commentsProps,
-  onActivePlayerButtonClick: PropTypes.func.isRequired,
-  onAddReviewButtonClick: PropTypes.func.isRequired,
-  isAuthorized: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

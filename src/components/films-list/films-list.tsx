@@ -1,12 +1,16 @@
 import * as React from "react";
 import FilmCard from "../film-card/film-card";
 import withVideoPlayer from "../../hocs/with-video-player";
-import {filmsProps} from "../../consts";
-import PropTypes from "prop-types";
+import {Film} from "../../types";
 
 const FilmCardWrapper = withVideoPlayer(FilmCard);
 
-const FilmsList = (props) => {
+interface FilmsListProps {
+  films: Film[],
+  onFilmClick: () => void,
+}
+
+const FilmsList: React.FunctionComponent<FilmsListProps> = (props: FilmsListProps) => {
   const {films, onFilmClick} = props;
 
   return (
@@ -22,11 +26,6 @@ const FilmsList = (props) => {
 
     </div>
   );
-};
-
-FilmsList.propTypes = {
-  films: filmsProps,
-  onFilmClick: PropTypes.func.isRequired,
 };
 
 export default FilmsList;

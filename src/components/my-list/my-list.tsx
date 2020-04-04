@@ -1,13 +1,18 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import FilmsList from "../films-list/films-list";
 import UserBlock from "../user-block/user-block";
-import {filmsProps, AppRoute} from "../../consts";
+import {AppRoute} from "../../consts";
 import {getFavoriteFilms} from "../../reducer/state/selectors";
+import {Film} from "../../types";
 
-const MyList = (props) => {
+interface MyListProps {
+  favoriteFilms: Film[],
+  onFilmClick: () => void,
+}
+
+const MyList: React.FunctionComponent<MyListProps> = (props: MyListProps) => {
   const {favoriteFilms, onFilmClick} = props;
 
   return (
@@ -47,11 +52,6 @@ const MyList = (props) => {
       </footer>
     </div>
   );
-};
-
-MyList.propTypes = {
-  favoriteFilms: filmsProps,
-  onFilmClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

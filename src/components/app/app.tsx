@@ -1,29 +1,39 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import {Switch, Route, Router} from "react-router-dom";
-import Main from "../main/main";
 import {connect} from "react-redux";
-import {Operation as UserOperation} from "../../reducer/user/user";
-import SignIn from "../sign-in/sign-in";
-import withAuthInformation from "../../hocs/with-auth-information";
-import FilmDetails from "../film-details/film-details";
-import {filmProps, filmsProps, AppRoute} from "../../consts";
-import {getFilms, getChosenFilm, getPromoFilm} from "../../reducer/state/selectors";
-import {ActionCreator} from "../../reducer/state/state";
-import BigVideoPlayer from "../big-video-player/big-video-player";
-import withBigVideoPlayer from "../../hocs/with-big-player";
 import history from "../../history";
+import Main from "../main/main";
+import SignIn from "../sign-in/sign-in";
 import AddReview from "../add-review/add-review";
-import {Operation as DataOperation} from "../../reducer/data/data";
-import withNewComment from "../../hocs/with-new-comment";
+import BigVideoPlayer from "../big-video-player/big-video-player";
+import FilmDetails from "../film-details/film-details";
 import MyList from "../my-list/my-list";
 import PrivateRoute from "../private-route/private-route";
+import withAuthInformation from "../../hocs/with-auth-information";
+import withBigVideoPlayer from "../../hocs/with-big-player";
+import withNewComment from "../../hocs/with-new-comment";
+import {Operation as UserOperation} from "../../reducer/user/user";
+import {getFilms, getChosenFilm, getPromoFilm} from "../../reducer/state/selectors";
+import {ActionCreator} from "../../reducer/state/state";
+import {Operation as DataOperation} from "../../reducer/data/data";
+import {AppRoute} from "../../consts";
+import {Film} from "../../types";
 
 const SignInWrapper = withAuthInformation(SignIn);
 const BigPlayerWrapper = withBigVideoPlayer(BigVideoPlayer);
 const AddReviewWrapper = withNewComment(AddReview);
 
-class App extends React.PureComponent {
+interface AppProps {
+  login: () => void,
+  films: Film[],
+  chooseFilmId: () => void,
+  chosenFilm: Film,
+  getComments: () => void,
+  promoFilm: Film,
+  postComment: () => void,
+}
+
+class App extends React.PureComponent<AppProps, {}> {
 
   constructor(props) {
     super(props);
@@ -98,16 +108,6 @@ class App extends React.PureComponent {
     );
   }
 }
-
-App.propTypes = {
-  login: PropTypes.func.isRequired,
-  films: filmsProps,
-  chooseFilmId: PropTypes.func.isRequired,
-  chosenFilm: filmProps,
-  getComments: PropTypes.func.isRequired,
-  promoFilm: filmProps,
-  postComment: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = (state) => ({
   films: getFilms(state),

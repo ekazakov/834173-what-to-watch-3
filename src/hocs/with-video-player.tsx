@@ -1,9 +1,23 @@
 import * as React from "react";
 import {VIDEO_TIMER_HOVER} from "../consts";
 import VideoPlayer from "../components/video-player/video-player";
+import {Subtract} from "utility-types";
+
+interface State {
+  isPlaying: boolean,
+}
+
+interface InjectedProps {
+  onFilmCardHover: () => void,
+  onFilmCardLeave: () => void,
+  renderPlayer: () => void,
+}
 
 const withVideoPlayer = (Component) => {
-  class WithVideoPlayer extends React.PureComponent {
+  type P = React.ComponentProps<typeof Component>;
+  type T = Subtract<P, InjectedProps>;
+
+  class WithVideoPlayer extends React.PureComponent<T, State> {
     constructor(props) {
       super(props);
 

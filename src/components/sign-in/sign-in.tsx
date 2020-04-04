@@ -1,9 +1,16 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {AppRoute} from "../../consts";
 
-const SignIn = (props) => {
+interface SignInProps {
+  onSubmit: () => void,
+  onChange: () => void,
+  errorMessage: string,
+  validEmail: boolean,
+  validPassword: boolean,
+}
+
+const SignIn: React.FunctionComponent<SignInProps> = (props: SignInProps) => {
   const {onSubmit, onChange, errorMessage, validEmail, validPassword} = props;
 
   return (
@@ -56,14 +63,6 @@ const SignIn = (props) => {
       </footer>
     </div>
   );
-};
-
-SignIn.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string.isRequired,
-  validEmail: PropTypes.bool.isRequired,
-  validPassword: PropTypes.bool.isRequired,
 };
 
 export default SignIn;

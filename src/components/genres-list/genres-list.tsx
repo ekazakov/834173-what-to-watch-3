@@ -1,12 +1,21 @@
 import * as React from "react";
 import {connect} from "react-redux";
-import PropTypes from "prop-types";
-import {ActionCreator} from "../../reducer/state/state";
 import FilmsList from "../films-list/films-list";
-import {filmsProps, SHOWN_FILMS_DEFAULT} from "../../consts";
+import {ActionCreator} from "../../reducer/state/state";
 import {getGenre, getGenres, getLimitedFilms} from "../../reducer/state/selectors";
+import {SHOWN_FILMS_DEFAULT} from "../../consts";
+import {Film} from "../../types";
 
-const GenresList = (props) => {
+interface GenresListProps {
+  genre: string,
+  changeGenre: (string) => void,
+  genres: string[],
+  onFilmClick: () => void,
+  resetFilmsAmount: (number) => void,
+  limitedFilms: Film[],
+}
+
+const GenresList: React.FunctionComponent<GenresListProps> = (props: GenresListProps) => {
   const {genre, genres, changeGenre, onFilmClick, resetFilmsAmount, limitedFilms} = props;
 
   const onGenreClick = (availableGenre) => {
@@ -34,15 +43,6 @@ const GenresList = (props) => {
       />
     </React.Fragment>
   );
-};
-
-GenresList.propTypes = {
-  genre: PropTypes.string.isRequired,
-  changeGenre: PropTypes.func.isRequired,
-  genres: PropTypes.array.isRequired,
-  onFilmClick: PropTypes.func.isRequired,
-  resetFilmsAmount: PropTypes.func.isRequired,
-  limitedFilms: filmsProps,
 };
 
 const mapStateToProps = (state) => ({
