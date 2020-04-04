@@ -13,10 +13,10 @@ it(`Should FilmCard render correctly`, () => {
         <MemoryRouter>
           <FilmCard
             film={film}
-            onFilmCardHover=noop
-            onFilmCardLeave=noop
-            renderPlayer=noop
-            onFilmClick=noop
+            onFilmCardHover={noop}
+            onFilmCardLeave={noop}
+            renderPlayer={noop}
+            onFilmClick={noop}
           />
         </MemoryRouter>
     )

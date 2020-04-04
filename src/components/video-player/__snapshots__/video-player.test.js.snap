@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`VideoPlayer is renderer correctly 1`] = `
-<video
-  height="175"
-  muted={true}
-  width="100%"
-/>
-`;

@@ -21,7 +21,7 @@ it(`Should PromoFilm render correctly`, () => {
       <Provider store={store}>
         <MemoryRouter>
           <PromoFilm
-            onActivePlayerButtonClick=noop
+            onActivePlayerButtonClick={noop}
             promoFilm={films[0]}
           />
         </MemoryRouter>

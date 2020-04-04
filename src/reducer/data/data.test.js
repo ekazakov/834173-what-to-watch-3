@@ -3,7 +3,6 @@ import {createAPI} from "../../api";
 import MockAdapter from "axios-mock-adapter";
 import {films, comments} from "../../mock-for-tests";
 import {ServerStatus} from "../../consts";
-import {noop} from "../../utils";
 
 const api = createAPI(() => {});
 

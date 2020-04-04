@@ -22,9 +22,9 @@ it(`Should AddReview render correctly`, () => {
       <Provider store={store}>
         <MemoryRouter>
           <AddReview
-            onSubmit=noop
-            onTextChange=noop
-            onRatingChange=noop
+            onSubmit={noop}
+            onTextChange={noop}
+            onRatingChange={noop}
             buttonIsAvailable={true}
             formIsAvailable={true}
             film={films[0]}

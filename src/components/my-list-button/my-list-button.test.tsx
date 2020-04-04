@@ -19,7 +19,7 @@ it(`Should MyListButton render correctly`, () => {
       <Provider store={store}>
         <MyListButton
           film={films[0]}
-          changeFavorite=noop
+          changeFavorite={noop}
         />
       </Provider>
   ).toJSON();

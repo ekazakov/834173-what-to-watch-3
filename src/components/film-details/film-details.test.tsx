@@ -32,7 +32,7 @@ describe(`Should FilmDetails render correctly`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <MemoryRouter>
-            <FilmDetails film={films[0]} onFilmClick=noop onActivePlayerButtonClick=noop onAddReviewButtonClick=noop/>
+            <FilmDetails film={films[0]} onFilmClick={noop} onActivePlayerButtonClick={noop} onAddReviewButtonClick={noop}/>
           </MemoryRouter>
         </Provider>, {
           createNodeMock: () => {
@@ -64,7 +64,7 @@ describe(`Should FilmDetails render correctly`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <MemoryRouter>
-            <FilmDetails film={films[0]} onFilmClick=noop onActivePlayerButtonClick=noop onAddReviewButtonClick=noop/>
+            <FilmDetails film={films[0]} onFilmClick={noop} onActivePlayerButtonClick={noop} onAddReviewButtonClick={noop}/>
           </MemoryRouter>
         </Provider>, {
           createNodeMock: () => {

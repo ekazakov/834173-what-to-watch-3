@@ -13,7 +13,7 @@ it(`Should FilmsList render correctly`, () => {
         <MemoryRouter>
           <FilmsList
             films={films}
-            onFilmClick=noop
+            onFilmClick={noop}
           />
         </MemoryRouter>, {
           createNodeMock: () => {

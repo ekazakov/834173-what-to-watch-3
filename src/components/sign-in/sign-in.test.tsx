@@ -8,8 +8,8 @@ it(`SignIn render correctly`, () => {
   const tree = renderer.create(
       <MemoryRouter>
         <SignIn
-          onSubmit={()=>{}}
-          onChange=noop
+          onSubmit={noop}
+          onChange={noop}
           errorMessage={``}
           validEmail={true}
           validPassword={true}

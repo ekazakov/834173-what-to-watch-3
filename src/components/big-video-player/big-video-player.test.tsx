@@ -11,10 +11,10 @@ it(`Should BigVideoPlayer render correctly`, () => {
         <BigVideoPlayer
           isPlaying={false}
           playerRef={React.createRef()}
-          onPlayClick=noop
-          onFullScreenClick=noop
-          onLoadMetadata=noop
-          onTimeUpdate=noop
+          onPlayClick={noop}
+          onFullScreenClick={noop}
+          onLoadMetadata={noop}
+          onTimeUpdate={noop}
           progress={`10`}
           remainingTime={`00:00:00`}
           film={films[0]}

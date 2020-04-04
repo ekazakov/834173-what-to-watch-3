@@ -7,7 +7,7 @@ import {noop} from "../../utils";
 
 it(`Should Tabs render correctly`, () => {
   const tree = renderer.create(
-      <Tabs film={films[0]} changeTab=noop currentTab={TabsName.OVERVIEW} comments={comments}/>
+      <Tabs film={films[0]} changeTab={noop} currentTab={TabsName.OVERVIEW} comments={comments}/>
   )
     .toJSON();
 
