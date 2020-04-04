@@ -14,22 +14,22 @@ import {Film} from "../../types";
 const TabsWrapper = withCurrentTab(Tabs);
 
 interface FilmDetailsProps {
-  film: Film,
-  similarFilms: Film[],
-  onFilmClick: () => void,
+  film: Film;
+  similarFilms: Film[];
+  onFilmClick: () => void;
   comments: {
-    id: number,
+    id: number;
     user: {
-      id: number,
-      name: string,
-    },
-    rating: number,
-    comment: string,
-    date: string,
-  }[],
-  onActivePlayerButtonClick: () => void,
-  onAddReviewButtonClick: () => void,
-  isAuthorized: boolean,
+      id: number;
+      name: string;
+    };
+    rating: number;
+    comment: string;
+    date: string;
+  }[];
+  onActivePlayerButtonClick: () => void;
+  onAddReviewButtonClick: () => void;
+  isAuthorized: boolean;
 }
 
 const FilmDetails: React.FunctionComponent<FilmDetailsProps> = (props: FilmDetailsProps) => {

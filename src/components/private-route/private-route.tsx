@@ -4,9 +4,9 @@ import {Route, Redirect, RouteProps} from "react-router-dom";
 import {getAuthorizationStatus} from "../../reducer/user/selectors";
 import {AuthorizationStatus, AppRoute} from "../../consts";
 
-type PrivateRouteProps = RouteProps &  {
-  isAuthorized: boolean,
-  render: () => React.ReactNode,
+type PrivateRouteProps = RouteProps & {
+  isAuthorized: boolean;
+  render: () => React.ReactNode;
 }
 
 const PrivateRoute: React.FunctionComponent<PrivateRouteProps> = (props: PrivateRouteProps) => {

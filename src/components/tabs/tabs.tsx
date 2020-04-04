@@ -4,19 +4,19 @@ import {TabsName} from "../../consts";
 import {Film} from "../../types";
 
 interface TabsProps {
-  film: Film,
+  film: Film;
   comments: {
-    id: number,
+    id: number;
     user: {
-      id: number,
-      name: string,
-    },
-    rating: number,
-    comment: string,
-    date: string,
-  }[],
-  changeTab: (evt: React.SyntheticEvent<EventTarget>, string) => void,
-  currentTab: string,
+      id: number;
+      name: string;
+    };
+    rating: number;
+    comment: string;
+    date: string;
+  }[];
+  changeTab: (evt: React.SyntheticEvent<EventTarget>, string) => void;
+  currentTab: string;
 }
 
 const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps) => {

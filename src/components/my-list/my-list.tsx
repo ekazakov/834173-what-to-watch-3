@@ -8,8 +8,8 @@ import {getFavoriteFilms} from "../../reducer/state/selectors";
 import {Film} from "../../types";
 
 interface MyListProps {
-  favoriteFilms: Film[],
-  onFilmClick: () => void,
+  favoriteFilms: Film[];
+  onFilmClick: () => void;
 }
 
 const MyList: React.FunctionComponent<MyListProps> = (props: MyListProps) => {

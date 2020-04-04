@@ -7,12 +7,12 @@ import {SHOWN_FILMS_DEFAULT} from "../../consts";
 import {Film} from "../../types";
 
 interface GenresListProps {
-  genre: string,
-  changeGenre: (string) => void,
-  genres: string[],
-  onFilmClick: () => void,
-  resetFilmsAmount: (number) => void,
-  limitedFilms: Film[],
+  genre: string;
+  changeGenre: (string) => void;
+  genres: string[];
+  onFilmClick: () => void;
+  resetFilmsAmount: (number) => void;
+  limitedFilms: Film[];
 }
 
 const GenresList: React.FunctionComponent<GenresListProps> = (props: GenresListProps) => {

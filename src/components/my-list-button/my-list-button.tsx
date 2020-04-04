@@ -5,8 +5,8 @@ import {FavoriteStatus} from "../../consts";
 import {Film} from "../../types";
 
 interface MyListButtonProps {
-  film: Film,
-  changeFavorite: (Film, number) => void,
+  film: Film;
+  changeFavorite: (Film, number) => void;
 }
 
 const MyListButton: React.FunctionComponent<MyListButtonProps> = (props: MyListButtonProps) => {

@@ -6,9 +6,9 @@ import {Film} from "../../types";
 const FilmCardWrapper = withVideoPlayer(FilmCard);
 
 interface FilmsListProps {
-  films: Film[],
-  onFilmClick: (number) => void,
-  shownFilms? : number,
+  films: Film[];
+  onFilmClick: (number) => void;
+  shownFilms? : number;
 }
 
 const FilmsList: React.FunctionComponent<FilmsListProps> = (props: FilmsListProps) => {

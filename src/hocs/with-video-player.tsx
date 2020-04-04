@@ -4,13 +4,13 @@ import VideoPlayer from "../components/video-player/video-player";
 import {Subtract} from "utility-types";
 
 interface State {
-  isPlaying: boolean,
+  isPlaying: boolean;
 }
 
 interface InjectedProps {
-  onFilmCardHover: () => void,
-  onFilmCardLeave: () => void,
-  renderPlayer: () => void,
+  onFilmCardHover: () => void;
+  onFilmCardLeave: () => void;
+  renderPlayer: () => void;
 }
 
 const withVideoPlayer = (Component) => {

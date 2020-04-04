@@ -4,15 +4,15 @@ import {Link} from "react-router-dom";
 import {Film} from "../../types";
 
 interface BigVideoPlayerProps {
-  film: Film,
-  isPlaying: boolean,
-  playerRef: React.RefObject<HTMLVideoElement>,
-  onPlayClick: () => void,
-  onFullScreenClick: () => void,
-  onLoadMetadata: () => void,
-  onTimeUpdate: () => void,
-  progress: string,
-  remainingTime: string,
+  film: Film;
+  isPlaying: boolean;
+  playerRef: React.RefObject<HTMLVideoElement>;
+  onPlayClick: () => void;
+  onFullScreenClick: () => void;
+  onLoadMetadata: () => void;
+  onTimeUpdate: () => void;
+  progress: string;
+  remainingTime: string;
 }
 
 const BigVideoPlayer: React.FunctionComponent<BigVideoPlayerProps> = (props: BigVideoPlayerProps) => {

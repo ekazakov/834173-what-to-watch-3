@@ -4,9 +4,9 @@ import {getShownFilms, getHaveMoreFilms} from "../../reducer/state/selectors";
 import {ActionCreator} from "../../reducer/state/state";
 
 interface ShowMoreProps {
-  shownFilms: number,
-  showMoreFilms: (number) => void,
-  haveMoreFilms: boolean,
+  shownFilms: number;
+  showMoreFilms: (number) => void;
+  haveMoreFilms: boolean;
 }
 
 const ShowMore: React.FunctionComponent<ShowMoreProps> = (props: ShowMoreProps) => {

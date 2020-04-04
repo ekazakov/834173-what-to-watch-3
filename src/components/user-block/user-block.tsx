@@ -5,7 +5,7 @@ import {AuthorizationStatus, AppRoute} from "../../consts";
 import {Link} from "react-router-dom";
 
 interface UserBlockProps {
-  isAuthorized: boolean,
+  isAuthorized: boolean;
 }
 
 const UserBlock: React.FunctionComponent<UserBlockProps> = (props: UserBlockProps) => {

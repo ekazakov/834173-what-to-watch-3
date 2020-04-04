@@ -5,13 +5,13 @@ import {AppRoute} from "../../consts";
 import {Film} from "../../types";
 
 interface AddReviewProps {
-  film: Film,
-  onSubmit: () => void,
-  onTextChange: () => void,
-  onRatingChange: () => void,
-  buttonIsAvailable: boolean,
-  formIsAvailable: boolean,
-  errorMessage: string,
+  film: Film;
+  onSubmit: () => void;
+  onTextChange: () => void;
+  onRatingChange: () => void;
+  buttonIsAvailable: boolean;
+  formIsAvailable: boolean;
+  errorMessage: string;
 }
 
 const AddReview: React.FunctionComponent<AddReviewProps> = (props: AddReviewProps) => {

@@ -24,13 +24,13 @@ const BigPlayerWrapper = withBigVideoPlayer(BigVideoPlayer);
 const AddReviewWrapper = withNewComment(AddReview);
 
 interface AppProps {
-  login: () => void,
-  films: Film[],
-  chooseFilmId: (number) => void,
-  chosenFilm: Film,
-  getComments: (number) => void,
-  promoFilm: Film,
-  postComment: () => void,
+  login: () => void;
+  films: Film[];
+  chooseFilmId: (number) => void;
+  chosenFilm: Film;
+  getComments: (number) => void;
+  promoFilm: Film;
+  postComment: () => void;
 }
 
 class App extends React.PureComponent<AppProps, {}> {

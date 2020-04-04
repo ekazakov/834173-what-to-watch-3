@@ -4,24 +4,24 @@ import {Film} from "../types";
 import {Subtract} from "utility-types";
 
 interface State {
-  isPlaying: boolean,
-  duration: number,
-  progress: number,
+  isPlaying: boolean;
+  duration: number;
+  progress: number;
 }
 
 interface Props {
-  film: Film,
+  film: Film;
 }
 
 interface InjectedProps {
   playerRef: React.RefObject<HTMLVideoElement>;
-  isPlaying: boolean,
-  onPlayClick: () => void,
-  onFullScreenClick: () => void,
-  onLoadMetadata: () => void,
-  onTimeUpdate: () => void,
-  progress: string,
-  remainingTime: string,
+  isPlaying: boolean;
+  onPlayClick: () => void;
+  onFullScreenClick: () => void;
+  onLoadMetadata: () => void;
+  onTimeUpdate: () => void;
+  progress: string;
+  remainingTime: string;
 }
 
 const withBigPlayer = (Component) => {

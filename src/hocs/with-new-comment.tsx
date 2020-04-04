@@ -5,11 +5,11 @@ import {Film} from "../types";
 import {Subtract} from "utility-types";
 
 interface State {
-  id: number | string,
-  rating: number,
-  comment: string,
-  formIsAvailable: boolean,
-  errorMessage: string,
+  id: number | string;
+  rating: number;
+  comment: string;
+  formIsAvailable: boolean;
+  errorMessage: string;
 }
 
 interface Props {
@@ -18,24 +18,24 @@ interface Props {
       id,
       rating,
       comment,
-    } : {
-      id: number,
-      rating: number,
-      comment: string,
+    }: {
+      id: number;
+      rating: number;
+      comment: string;
     },
     onSuccess: () => void,
     onError: () => void,
-    ) => void,
-  film: Film,
+    ) => void;
+  film: Film;
 }
 
 interface InjectedProps {
-  onTextChang: () => void,
-  onRatingChange: () => void,
-  onSubmit: () => void,
-  buttonIsAvailable: boolean,
-  formIsAvailable: boolean,
-  errorMessage: string,
+  onTextChang: () => void;
+  onRatingChange: () => void;
+  onSubmit: () => void;
+  buttonIsAvailable: boolean;
+  formIsAvailable: boolean;
+  errorMessage: string;
 }
 
 const withNewComment = (Component) => {

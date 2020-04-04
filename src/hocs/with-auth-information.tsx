@@ -4,9 +4,9 @@ import history from "../history";
 import {AppRoute} from "../consts";
 
 interface State {
-  email?: string,
-  password?: string,
-  errorMessage?: string,
+  email?: string;
+  password?: string;
+  errorMessage?: string;
 }
 
 interface Props {
@@ -14,21 +14,21 @@ interface Props {
     {
       email,
       password
-    } : {
-      email: string,
-      password: string,
+    }: {
+      email: string;
+      password: string;
     },
     onSuccess: () => void,
     onError: () => void,
-    ) => void,
+    ) => void;
 }
 
 interface InjectedProps {
-  onChange: () => void,
-  onSubmit: () => void,
-  errorMessage: string,
-  validEmail: boolean,
-  validPassword: boolean,
+  onChange: () => void;
+  onSubmit: () => void;
+  errorMessage: string;
+  validEmail: boolean;
+  validPassword: boolean;
 }
 
 const withAuthInformation = (Component) => {
@@ -76,7 +76,7 @@ const withAuthInformation = (Component) => {
     _handleInputChange(evt) {
       const target = evt.target;
       const value = target.value;
-      let name = target.name.replace(/user-/, ``);
+      const name = target.name.replace(/user-/, ``);
 
       this.setState({
         [name]: value

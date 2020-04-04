@@ -1,9 +1,9 @@
 import * as React from "react";
 
 interface VideoPlayerProps {
-  isPlaying: boolean,
-  src: string,
-  poster: string,
+  isPlaying: boolean;
+  src: string;
+  poster: string;
 }
 
 export default class VideoPlayer extends React.PureComponent<VideoPlayerProps, {}> {

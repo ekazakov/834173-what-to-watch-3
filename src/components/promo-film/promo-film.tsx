@@ -5,8 +5,8 @@ import MyListButton from "../my-list-button/my-list-button";
 import {Film} from "../../types";
 
 interface PromoFilmProps {
-  promoFilm: Film,
-  onActivePlayerButtonClick: () => void,
+  promoFilm: Film;
+  onActivePlayerButtonClick: () => void;
 }
 
 const PromoFilm: React.FunctionComponent<PromoFilmProps> = (props: PromoFilmProps) => {

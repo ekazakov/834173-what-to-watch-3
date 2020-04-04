@@ -4,11 +4,11 @@ import {AppRoute} from "../../consts";
 import {Film} from "../../types";
 
 interface FilmCardProps {
-  film: Film,
-  onFilmCardHover: (Film) => void,
-  onFilmCardLeave: (Film) => void,
-  renderPlayer: (preview: string, poster: string, id: number) => void,
-  onFilmClick: (evt: React.SyntheticEvent<HTMLElement>) => void,
+  film: Film;
+  onFilmCardHover: (Film) => void;
+  onFilmCardLeave: (Film) => void;
+  renderPlayer: (preview: string, poster: string, id: number) => void;
+  onFilmClick: (evt: React.SyntheticEvent<HTMLElement>) => void;
 }
 
 const FilmCard: React.FunctionComponent<FilmCardProps> = (props: FilmCardProps) => {

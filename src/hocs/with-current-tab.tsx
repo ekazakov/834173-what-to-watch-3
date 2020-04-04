@@ -3,35 +3,35 @@ import {TabsName} from "../consts";
 import {Subtract} from "utility-types";
 
 interface State {
-  currentTab: string,
+  currentTab: string;
 }
 
 interface Props {
   comments: {
-    id: number,
+    id: number;
     user: {
-      id: number,
-      name: string,
-    },
-    rating: number,
-    comment: string,
-    date: string,
-  }[],
+      id: number;
+      name: string;
+    };
+    rating: number;
+    comment: string;
+    date: string;
+  }[];
 }
 
 interface InjectedProps {
-  currentTab: string,
-  changeTab: () => void,
+  currentTab: string;
+  changeTab: () => void;
   comments: {
-    id: number,
+    id: number;
     user: {
-      id: number,
-      name: string,
-    },
-    rating: number,
-    comment: string,
-    date: string,
-  }[],
+      id: number;
+      name: string;
+    };
+    rating: number;
+    comment: string;
+    date: string;
+  }[];
 }
 
 const withCurrentTab = (Component) => {

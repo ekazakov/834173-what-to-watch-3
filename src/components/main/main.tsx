@@ -9,11 +9,11 @@ import {AppRoute, ServerStatus} from "../../consts";
 import {Link} from "react-router-dom";
 import {Film} from "../../types";
 
-interface MainProps  {
-  onFilmClick: () => void,
-  onActivePlayerButtonClick: () => void,
-  promoFilm: Film,
-  serverStatusIsAvailable: boolean,
+interface MainProps {
+  onFilmClick: () => void;
+  onActivePlayerButtonClick: () => void;
+  promoFilm: Film;
+  serverStatusIsAvailable: boolean;
 }
 
 const Main: React.FunctionComponent<MainProps> = (props: MainProps) => {

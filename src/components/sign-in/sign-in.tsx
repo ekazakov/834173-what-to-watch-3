@@ -3,11 +3,11 @@ import {Link} from "react-router-dom";
 import {AppRoute} from "../../consts";
 
 interface SignInProps {
-  onSubmit: () => void,
-  onChange: () => void,
-  errorMessage: string,
-  validEmail: boolean,
-  validPassword: boolean,
+  onSubmit: () => void;
+  onChange: () => void;
+  errorMessage: string;
+  validEmail: boolean;
+  validPassword: boolean;
 }
 
 const SignIn: React.FunctionComponent<SignInProps> = (props: SignInProps) => {
