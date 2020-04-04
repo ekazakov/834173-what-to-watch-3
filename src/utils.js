@@ -78,3 +78,5 @@ export const normalizeDuration = (duration) => {
 };
 
 export const normalizeFilmsData = (films) => films.map(normalizeFilmData);
+
+export const noop = () => {};

@@ -1,4 +1,6 @@
-export const films = [
+import {Film} from "./types";
+
+export const films: Film[] = [
   {
     id: 1,
     name: `Harry Potter and the Goblet of Fire`,
@@ -191,20 +193,32 @@ export const films = [
   },
 ];
 
-export const comments = [
+export const comments:
   {
-    id: 0,
+    id: number;
     user: {
+      id: number;
+      name: string;
+    };
+    rating: number;
+    comment: string;
+    date: string;
+  }[] = [
+    {
       id: 0,
-      name: `Kate`,
+      user: {
+        id: 0,
+        name: `Kate`,
+      },
+      rating: 7.6,
+      comment: `OMG`,
+      date: `122`,
     },
-    rating: 7.6,
-    comment: `OMG`,
-    date: `122`,
-  },
   {
+
     id: 1,
     user: {
+
       id: 0,
       name: `David`,
     },
@@ -214,4 +228,4 @@ export const comments = [
   },
 ];
 
-export const genres = [`all-genres`, `drama`, `comedy`, `thriller`, `romance`, `horror`, `history`, `fantasy`];
+export const genres: string[] = [`all-genres`, `drama`, `comedy`, `thriller`, `romance`, `horror`, `history`, `fantasy`];
