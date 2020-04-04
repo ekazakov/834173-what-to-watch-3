@@ -1,10 +1,10 @@
 import * as React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import {shallow, configure} from "enzyme";
+import * as Adapter from "enzyme-adapter-react-16";
 import PromoFilm from "./promo-film";
 import {films} from "../../mock-for-tests";
 
-Enzyme.configure({
+configure({
   adapter: new Adapter(),
 });
 

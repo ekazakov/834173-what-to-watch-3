@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as renderer from "react-test-renderer";
-import BigVideoPlayer from "./big-video-player.js";
+import BigVideoPlayer from "./big-video-player";
 import {films} from "../../mock-for-tests";
 import {MemoryRouter} from "react-router-dom";
 import {noop} from "../../utils";

@@ -3,7 +3,7 @@ import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import * as renderer from "react-test-renderer";
 import {MemoryRouter} from "react-router-dom";
-import MyList from "./my-list.js";
+import MyList from "./my-list";
 import {films} from "../../mock-for-tests";
 import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus} from "../../consts";

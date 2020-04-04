@@ -1,13 +1,14 @@
 import * as React from "react";
-import Enzyme, {shallow} from "enzyme";
+import {shallow, configure} from "enzyme";
 import * as Adapter from "enzyme-adapter-react-16";
-import FilmCard from "./film-card.js";
+import FilmCard from "./film-card";
+import {Film} from "../../types";
 
-Enzyme.configure({
+configure({
   adapter: new Adapter(),
 });
 
-const film = {
+const film: Film = {
   id: 1,
   name: `Harry Potter and the Goblet of Fire`,
   posterBig: `https://unsplash.it/280/175/`,
