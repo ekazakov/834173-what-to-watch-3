@@ -5,9 +5,9 @@ import {Film} from "../../types";
 
 interface FilmCardProps {
   film: Film,
-  onFilmCardHover: () => void,
-  onFilmCardLeave: () => void,
-  renderPlayer: () => void,
+  onFilmCardHover: (Film) => void,
+  onFilmCardLeave: (Film) => void,
+  renderPlayer: (preview: string, poster: string, id: number) => void,
   onFilmClick: (evt: React.SyntheticEvent<HTMLElement>) => void,
 }
 

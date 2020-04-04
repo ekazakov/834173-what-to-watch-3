@@ -13,7 +13,19 @@ interface State {
 }
 
 interface Props {
-  onSubmit: () => void,
+  onSubmit: (
+    {
+      id,
+      rating,
+      comment,
+    } : {
+      id: number,
+      rating: number,
+      comment: string,
+    },
+    onSuccess: () => void,
+    onError: () => void,
+    ) => void,
   film: Film,
 }
 

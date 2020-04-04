@@ -7,13 +7,31 @@ interface State {
 }
 
 interface Props {
-  comments: Comment[],
+  comments: {
+    id: number,
+    user: {
+      id: number,
+      name: string,
+    },
+    rating: number,
+    comment: string,
+    date: string,
+  }[],
 }
 
 interface InjectedProps {
   currentTab: string,
   changeTab: () => void,
-  comments: Comment[],
+  comments: {
+    id: number,
+    user: {
+      id: number,
+      name: string,
+    },
+    rating: number,
+    comment: string,
+    date: string,
+  }[],
 }
 
 const withCurrentTab = (Component) => {

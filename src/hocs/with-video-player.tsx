@@ -18,6 +18,8 @@ const withVideoPlayer = (Component) => {
   type T = Subtract<P, InjectedProps>;
 
   class WithVideoPlayer extends React.PureComponent<T, State> {
+    private timerId: ReturnType<typeof setTimeout>;
+
     constructor(props) {
       super(props);
 

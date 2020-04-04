@@ -4,13 +4,23 @@ import history from "../history";
 import {AppRoute} from "../consts";
 
 interface State {
-  email: string,
-  password: string,
-  errorMessage: string,
+  email?: string,
+  password?: string,
+  errorMessage?: string,
 }
 
 interface Props {
-  onSubmit: () => void,
+  onSubmit: (
+    {
+      email,
+      password
+    } : {
+      email: string,
+      password: string,
+    },
+    onSuccess: () => void,
+    onError: () => void,
+    ) => void,
 }
 
 interface InjectedProps {

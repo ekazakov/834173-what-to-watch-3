@@ -17,14 +17,3 @@ export interface Film {
   year: number,
   favorite: boolean,
 }
-
-export interface Comment {
-  id: number,
-  user: {
-    id: number,
-    name: string,
-  },
-  rating: number,
-  comment: string,
-  date: string,
-}

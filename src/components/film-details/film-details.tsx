@@ -9,7 +9,7 @@ import withCurrentTab from "../../hocs/with-current-tab";
 import {getSimilarFilms, getComments} from "../../reducer/state/selectors";
 import {getAuthorizationStatus} from "../../reducer/user/selectors";
 import {AuthorizationStatus, AppRoute} from "../../consts";
-import {Film, Comment} from "../../types";
+import {Film} from "../../types";
 
 const TabsWrapper = withCurrentTab(Tabs);
 
@@ -17,7 +17,16 @@ interface FilmDetailsProps {
   film: Film,
   similarFilms: Film[],
   onFilmClick: () => void,
-  comments: Comment,
+  comments: {
+    id: number,
+    user: {
+      id: number,
+      name: string,
+    },
+    rating: number,
+    comment: string,
+    date: string,
+  }[],
   onActivePlayerButtonClick: () => void,
   onAddReviewButtonClick: () => void,
   isAuthorized: boolean,

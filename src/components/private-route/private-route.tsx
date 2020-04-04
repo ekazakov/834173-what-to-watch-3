@@ -1,14 +1,12 @@
 import * as React from "react";
 import {connect} from "react-redux";
-import {Route, Redirect} from "react-router-dom";
+import {Route, Redirect, RouteProps} from "react-router-dom";
 import {getAuthorizationStatus} from "../../reducer/user/selectors";
 import {AuthorizationStatus, AppRoute} from "../../consts";
 
-interface PrivateRouteProps {
+type PrivateRouteProps = RouteProps &  {
   isAuthorized: boolean,
-  exact: boolean,
-  path: string,
-  render: () => void,
+  render: () => React.ReactNode,
 }
 
 const PrivateRoute: React.FunctionComponent<PrivateRouteProps> = (props: PrivateRouteProps) => {

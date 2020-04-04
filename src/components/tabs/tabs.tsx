@@ -5,8 +5,17 @@ import {Film} from "../../types";
 
 interface TabsProps {
   film: Film,
-  comments: Comment[],
-  changeTab: () => void,
+  comments: {
+    id: number,
+    user: {
+      id: number,
+      name: string,
+    },
+    rating: number,
+    comment: string,
+    date: string,
+  }[],
+  changeTab: (evt: React.SyntheticEvent<EventTarget>, string) => void,
   currentTab: string,
 }
 
@@ -17,7 +26,7 @@ const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps) => {
     <React.Fragment>
       <nav className="movie-nav movie-card__nav">
         <ul className="movie-nav__list">
-          {Object.values(TabsName).map((tabName, index) => (
+          {Object.values(TabsName).map((tabName: string, index) => (
             <li key={tabName + index} className={`movie-nav__item ${currentTab === tabName ? `movie-nav__item--active` : ``}`}>
               <a className="movie-nav__link"
                 onClick={(evt) => changeTab(evt, tabName)}>
@@ -91,7 +100,7 @@ const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps) => {
           <div className="movie-card__reviews movie-card__row">
             <div className="movie-card__reviews-col">
               {comments.map((comment, index) => (
-                <div className="review" key={comment + index}>
+                <div className="review" key={comment.comment + index}>
                   <blockquote className="review__quote">
                     <p className="review__text">{comment.comment}</p>
 

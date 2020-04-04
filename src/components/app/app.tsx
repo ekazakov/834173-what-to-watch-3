@@ -26,9 +26,9 @@ const AddReviewWrapper = withNewComment(AddReview);
 interface AppProps {
   login: () => void,
   films: Film[],
-  chooseFilmId: () => void,
+  chooseFilmId: (number) => void,
   chosenFilm: Film,
-  getComments: () => void,
+  getComments: (number) => void,
   promoFilm: Film,
   postComment: () => void,
 }

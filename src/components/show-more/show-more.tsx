@@ -5,7 +5,7 @@ import {ActionCreator} from "../../reducer/state/state";
 
 interface ShowMoreProps {
   shownFilms: number,
-  showMoreFilms: () => void,
+  showMoreFilms: (number) => void,
   haveMoreFilms: boolean,
 }
 
