@@ -8,6 +8,7 @@ import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus} from "../../consts";
 import {films} from "../../mock-for-tests";
 import {MemoryRouter} from "react-router-dom";
+import {noop} from "../../utils";
 
 const mockStore = configureStore([]);
 
@@ -33,7 +34,7 @@ it(`Should PrivateRoute render correctly`, () => {
           <PrivateRoute
             exact
             path={AppRoute.ROOT}
-            render={() => {}}
+            render={noop}
           />
         </MemoryRouter>
       </Provider>

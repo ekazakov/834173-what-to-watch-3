@@ -9,6 +9,7 @@ import {AuthorizationStatus} from "../../consts";
 import {MemoryRouter} from "react-router-dom";
 import {SHOWN_FILMS_DEFAULT} from "../../consts";
 import {films} from "../../mock-for-tests";
+import {noop} from "../../utils";
 
 const mockStore = configureStore([]);
 
@@ -31,8 +32,8 @@ it(`Should main render correctly`, () => {
         <Provider store={store}>
           <MemoryRouter>
             <Main
-              onFilmClick={() => {}}
-              onActivePlayerButtonClick={() => {}}
+              onFilmClick={noop}
+              onActivePlayerButtonClick={noop}
               promoFilm={films[0]}
             />
           </MemoryRouter>

@@ -194,38 +194,37 @@ export const films: Film[] = [
 ];
 
 export const comments:
-  {
-    id: number;
-    user: {
-      id: number;
-      name: string;
-    };
-    rating: number;
-    comment: string;
-    date: string;
-  }[] = [
     {
-      id: 0,
+      id: number;
       user: {
+        id: number;
+        name: string;
+      };
+      rating: number;
+      comment: string;
+      date: string;
+    }[] = [
+      {
         id: 0,
-        name: `Kate`,
+        user: {
+          id: 0,
+          name: `Kate`,
+        },
+        rating: 7.6,
+        comment: `OMG`,
+        date: `122`,
       },
-      rating: 7.6,
-      comment: `OMG`,
-      date: `122`,
-    },
-  {
+      {
+        id: 1,
+        user: {
 
-    id: 1,
-    user: {
-
-      id: 0,
-      name: `David`,
-    },
-    rating: 7.6,
-    comment: `OMG`,
-    date: `122`,
-  },
-];
+          id: 0,
+          name: `David`,
+        },
+        rating: 7.6,
+        comment: `OMG`,
+        date: `122`,
+      },
+    ];
 
 export const genres: string[] = [`all-genres`, `drama`, `comedy`, `thriller`, `romance`, `horror`, `history`, `fantasy`];

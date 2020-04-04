@@ -5,6 +5,7 @@ import MyListButton from "./my-list-button";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import NameSpace from "../../reducer/name-space";
+import {noop} from "../../utils";
 
 const mockStore = configureStore([]);
 
@@ -18,7 +19,7 @@ it(`Should MyListButton render correctly`, () => {
       <Provider store={store}>
         <MyListButton
           film={films[0]}
-          changeFavorite={() => {}}
+          changeFavorite=noop
         />
       </Provider>
   ).toJSON();

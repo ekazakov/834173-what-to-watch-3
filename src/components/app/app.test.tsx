@@ -7,6 +7,7 @@ import {Genres, SHOWN_FILMS_DEFAULT} from "../../consts";
 import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus} from "../../consts";
 import {films} from "../../mock-for-tests";
+import {noop} from "../../utils";
 
 const mockStore = configureStore([]);
 
@@ -30,10 +31,10 @@ it(`Render App`, () => {
     .create(
         <Provider store={store}>
           <App
-            login={() => {}}
+            login={noop}
             isAuthorized={false}
-            chooseFilmId={() => {}}
-            getComments={() => {}}
+            chooseFilmId={noop}
+            getComments={noop}
           />
         </Provider>, {
           createNodeMock: () => {

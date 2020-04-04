@@ -7,6 +7,7 @@ import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus, Genres, SHOWN_FILMS_DEFAULT, TabsName} from "../../consts";
 import {MemoryRouter} from "react-router-dom";
 import {films, comments} from "../../mock-for-tests";
+import {noop} from "../../utils";
 
 const mockStore = configureStore([]);
 
@@ -31,7 +32,7 @@ describe(`Should FilmDetails render correctly`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <MemoryRouter>
-            <FilmDetails film={films[0]} onFilmClick={() => {}} onActivePlayerButtonClick={() => {}} onAddReviewButtonClick={() => {}}/>
+            <FilmDetails film={films[0]} onFilmClick=noop onActivePlayerButtonClick=noop onAddReviewButtonClick=noop/>
           </MemoryRouter>
         </Provider>, {
           createNodeMock: () => {
@@ -63,7 +64,7 @@ describe(`Should FilmDetails render correctly`, () => {
     const tree = renderer.create(
         <Provider store={store}>
           <MemoryRouter>
-            <FilmDetails film={films[0]} onFilmClick={() => {}} onActivePlayerButtonClick={() => {}} onAddReviewButtonClick={() => {}}/>
+            <FilmDetails film={films[0]} onFilmClick=noop onActivePlayerButtonClick=noop onAddReviewButtonClick=noop/>
           </MemoryRouter>
         </Provider>, {
           createNodeMock: () => {

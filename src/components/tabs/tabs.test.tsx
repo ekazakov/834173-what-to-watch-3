@@ -3,10 +3,11 @@ import * as renderer from "react-test-renderer";
 import Tabs from "./tabs.js";
 import {TabsName} from "../../consts";
 import {films, comments} from "../../mock-for-tests";
+import {noop} from "../../utils";
 
 it(`Should Tabs render correctly`, () => {
   const tree = renderer.create(
-      <Tabs film={films[0]} changeTab={() => {}} currentTab={TabsName.OVERVIEW} comments={comments}/>
+      <Tabs film={films[0]} changeTab=noop currentTab={TabsName.OVERVIEW} comments={comments}/>
   )
     .toJSON();
 

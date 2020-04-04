@@ -3,6 +3,7 @@ import * as renderer from "react-test-renderer";
 import BigVideoPlayer from "./big-video-player.js";
 import {films} from "../../mock-for-tests";
 import {MemoryRouter} from "react-router-dom";
+import {noop} from "../../utils";
 
 it(`Should BigVideoPlayer render correctly`, () => {
   const tree = renderer.create(
@@ -10,10 +11,10 @@ it(`Should BigVideoPlayer render correctly`, () => {
         <BigVideoPlayer
           isPlaying={false}
           playerRef={React.createRef()}
-          onPlayClick={() => {}}
-          onFullScreenClick={() => {}}
-          onLoadMetadata={() => {}}
-          onTimeUpdate={() => {}}
+          onPlayClick=noop
+          onFullScreenClick=noop
+          onLoadMetadata=noop
+          onTimeUpdate=noop
           progress={`10`}
           remainingTime={`00:00:00`}
           film={films[0]}

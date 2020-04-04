@@ -6,6 +6,7 @@ import {MemoryRouter} from "react-router-dom";
 import NameSpace from "../../reducer/name-space";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
+import {noop} from "../../utils";
 
 const mockStore = configureStore([]);
 
@@ -20,7 +21,7 @@ it(`Should PromoFilm render correctly`, () => {
       <Provider store={store}>
         <MemoryRouter>
           <PromoFilm
-            onActivePlayerButtonClick={() => {}}
+            onActivePlayerButtonClick=noop
             promoFilm={films[0]}
           />
         </MemoryRouter>

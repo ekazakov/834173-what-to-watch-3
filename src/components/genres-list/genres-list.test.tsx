@@ -8,6 +8,7 @@ import configureStore from "redux-mock-store";
 import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus, SHOWN_FILMS_DEFAULT} from "../../consts";
 import {films, comments, genres} from "../../mock-for-tests";
+import {noop} from "../../utils";
 
 const mockStore = configureStore([]);
 
@@ -33,9 +34,9 @@ it(`Should GenresList render correctly`, () => {
         <Provider store={store}>
           <GenresList
             genres={genres}
-            changeGenre={() => {}}
-            onFilmClick={() => {}}
-            resetFilmsAmount={() => {}}
+            changeGenre={noop}
+            onFilmClick={noop}
+            resetFilmsAmount={noop}
             filteredFilms={films}
           />
         </Provider>

@@ -7,6 +7,7 @@ import MyList from "./my-list.js";
 import {films} from "../../mock-for-tests";
 import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus} from "../../consts";
+import {noop} from "../../utils";
 
 const mockStore = configureStore([]);
 
@@ -23,7 +24,7 @@ it(`Should MyList render correctly`, () => {
   const tree = renderer.create(
       <Provider store={store}>
         <MemoryRouter>
-          <MyList onFilmClick={() => {}}/>
+          <MyList onFilmClick={noop}/>
         </MemoryRouter>
       </Provider>, {
         createNodeMock: () => {
