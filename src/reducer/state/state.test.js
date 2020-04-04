@@ -1,5 +1,5 @@
-import {reducer, ActionType, ActionCreator} from "./state.js";
-import {Genres, SHOWN_FILMS_DEFAULT} from "../../consts.js";
+import {reducer, ActionType, ActionCreator} from "./state";
+import {Genres, SHOWN_FILMS_DEFAULT} from "../../consts";
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({

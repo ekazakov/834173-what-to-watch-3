@@ -1,8 +1,8 @@
-import NameSpace from "./name-space.js";
 import {combineReducers} from "redux";
-import {reducer as state} from "./state/state.js";
-import {reducer as data} from "./data/data.js";
-import {reducer as user} from "./user/user.js";
+import NameSpace from "./name-space";
+import {reducer as state} from "./state/state";
+import {reducer as data} from "./data/data";
+import {reducer as user} from "./user/user";
 
 export default combineReducers({
   [NameSpace.STATE]: state,

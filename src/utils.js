@@ -1,5 +1,5 @@
 import moment from "moment";
-import {MINUTES_IN_HOUR} from "./consts.js";
+import {MINUTES_IN_HOUR} from "./consts";
 
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
@@ -78,3 +78,5 @@ export const normalizeDuration = (duration) => {
 };
 
 export const normalizeFilmsData = (films) => films.map(normalizeFilmData);
+
+export const noop = () => {};

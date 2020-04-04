@@ -1,8 +1,7 @@
 import axios from "axios";
-import history from "./history.js";
-import {AppRoute} from "./consts.js";
-import {ServerStatus} from "./consts";
-import {ActionCreator} from "./reducer/data/data.js";
+import history from "./history";
+import {AppRoute, ServerStatus} from "./consts";
+import {ActionCreator} from "./reducer/data/data";
 
 const Error = {
   UNAUTHORIZED: 401,

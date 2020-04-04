@@ -1,4 +1,4 @@
-import {AuthorizationStatus} from "../../consts.js";
+import {AuthorizationStatus} from "../../consts";
 import {reducer, ActionCreator, ActionType} from "./user";
 
 it(`Reducer without additional parameters should return initial state`, () => {

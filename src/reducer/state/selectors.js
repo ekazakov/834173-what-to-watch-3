@@ -1,5 +1,5 @@
-import {Genres} from "../../consts.js";
-import NameSpace from "../name-space.js";
+import {Genres} from "../../consts";
+import NameSpace from "../name-space";
 import {createSelector} from "reselect";
 import {SAME_FILMS_COUNT} from "../../consts";
 

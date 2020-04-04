@@ -1,5 +1,5 @@
-import {ServerStatus} from "../../consts.js";
-import {normalizeFilmsData, normalizeFilmData, extend} from "../../utils.js";
+import {ServerStatus} from "../../consts";
+import {normalizeFilmsData, normalizeFilmData, extend} from "../../utils";
 
 const initialState = {
   films: [],

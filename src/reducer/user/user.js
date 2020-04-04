@@ -1,4 +1,4 @@
-import {AuthorizationStatus} from "../../consts.js";
+import {AuthorizationStatus} from "../../consts";
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
