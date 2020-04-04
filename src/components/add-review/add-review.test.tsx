@@ -1,7 +1,7 @@
-import React from "react";
-import renderer from "react-test-renderer";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
 import AddReview from "./add-review.js";
-import {films} from "../../mock-for-tests.js";
+import {films} from "../../mock-for-tests";
 import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus} from "../../consts";
 import {Provider} from "react-redux";

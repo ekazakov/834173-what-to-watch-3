@@ -1,7 +1,7 @@
-import React from "react";
-import renderer from "react-test-renderer";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
 import Tabs from "./tabs.js";
-import {TabsName} from "../../consts.js";
+import {TabsName} from "../../consts";
 import {films, comments} from "../../mock-for-tests";
 
 it(`Should Tabs render correctly`, () => {

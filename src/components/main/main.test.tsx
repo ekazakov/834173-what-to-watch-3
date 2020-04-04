@@ -1,11 +1,11 @@
-import React from "react";
-import renderer from "react-test-renderer";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
 import Main from "./main.js";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
-import {Genres} from "../../consts.js";
+import {Genres} from "../../consts";
 import NameSpace from "../../reducer/name-space";
-import {AuthorizationStatus} from "../../consts.js";
+import {AuthorizationStatus} from "../../consts";
 import {MemoryRouter} from "react-router-dom";
 import {SHOWN_FILMS_DEFAULT} from "../../consts";
 import {films} from "../../mock-for-tests";

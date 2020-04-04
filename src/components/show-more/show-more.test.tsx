@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import {ShowMore} from "./show-more.js";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
+import {ShowMore} from "./show-more";
 import {SHOWN_FILMS_DEFAULT} from "../../consts";
 import {films} from "../../mock-for-tests";
 

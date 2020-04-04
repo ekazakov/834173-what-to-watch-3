@@ -1,8 +1,8 @@
-import React from "react";
-import renderer from "react-test-renderer";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
 import FilmCard from "./film-card.js";
 import {MemoryRouter} from "react-router-dom";
-import {films} from "../../mock-for-tests.js";
+import {films} from "../../mock-for-tests";
 
 const film = films[0];
 

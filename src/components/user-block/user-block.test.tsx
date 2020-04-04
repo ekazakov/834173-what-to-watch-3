@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import UserBlock from "./user-block.js";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
+import UserBlock from "./user-block";
 import configureStore from "redux-mock-store";
 import NameSpace from "../../reducer/name-space";
 import {AuthorizationStatus} from "../../consts";

@@ -1,7 +1,7 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import GenresList from "./genres-list.js";
-import {Genres} from "../../consts.js";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
+import GenresList from "./genres-list";
+import {Genres} from "../../consts";
 import {MemoryRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";

@@ -1,7 +1,7 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import {films} from "../../mock-for-tests.js";
-import MyListButton from "./my-list-button.js";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
+import {films} from "../../mock-for-tests";
+import MyListButton from "./my-list-button";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
 import NameSpace from "../../reducer/name-space";
